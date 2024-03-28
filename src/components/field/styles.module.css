@@ -16,13 +16,24 @@
 
 .input {
   width: 100%;
-  min-height: 48px;
+  min-height: 40px;
   border: 1px dashed #dcdbdd;
   border-radius: 6px;
+  font-size: 14px;
   padding-inline: 8px;
 }
 
 .input:focus-visible {
   outline: none;
   border-style: solid;
+}
+
+.input[data-type='headingOne'] {
+  font-size: 32px;
+  font-weight: 800;
+}
+
+.input[data-type='headingTwo'] {
+  font-size: 18px;
+  font-weight: 800;
 }

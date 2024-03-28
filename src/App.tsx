@@ -1,18 +1,9 @@
-import Tabs from './example-one/tabs';
-import Slice from './components/slice';
-import Demo from './components/demo-wrapper';
-import Field from './components/field';
+import SolutionOne from './demos/solution-one';
 
 function App() {
   return (
     <>
-      <Demo>
-        <Slice>
-          <Field />
-          <Field />
-          <Tabs />
-        </Slice>
-      </Demo>
+      <SolutionOne />
     </>
   );
 }
