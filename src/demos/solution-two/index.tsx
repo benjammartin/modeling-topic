@@ -17,7 +17,7 @@ function SolutionTwo() {
             switch (props.type) {
               case 'group':
                 return (
-                  <GroupWrapper>
+                  <GroupWrapper label={props.name}>
                     <Groups key={key} items={props.items} label={props.name} />
                   </GroupWrapper>
                 );
@@ -62,10 +62,64 @@ const mocks: SolutionTwoSlice = {
           type: 'group-item',
           fields: [
             { id: '0', type: 'text', name: 'Label', value: 'Start now' },
+            { id: '0', type: 'text', name: 'Kind', value: 'Primary' },
+          ],
+        },
+        {
+          id: '1',
+          type: 'group-item',
+          fields: [
+            { id: '0', type: 'text', name: 'Label', value: 'Demo' },
+            { id: '0', type: 'text', name: 'Kind', value: 'Secondary' },
           ],
         },
       ],
     },
-    { id: '3', type: 'text', name: 'Heading', value: 'Headline' },
+    {
+      id: '3',
+      type: 'group',
+      name: 'Card',
+      items: [
+        {
+          id: '0',
+          type: 'group-item',
+          fields: [
+            { id: '0', type: 'headingTwo', name: 'Title', value: 'Card title' },
+            {
+              id: '1',
+              type: 'text',
+              name: 'Description',
+              value: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+            },
+          ],
+        },
+        {
+          id: '1',
+          type: 'group-item',
+          fields: [
+            { id: '0', type: 'headingTwo', name: 'Title', value: 'Card title' },
+            {
+              id: '1',
+              type: 'text',
+              name: 'Description',
+              value: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+            },
+          ],
+        },
+        {
+          id: '2',
+          type: 'group-item',
+          fields: [
+            { id: '0', type: 'headingTwo', name: 'Title', value: 'Card title' },
+            {
+              id: '1',
+              type: 'text',
+              name: 'Description',
+              value: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+            },
+          ],
+        },
+      ],
+    },
   ],
 };
