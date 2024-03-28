@@ -14,7 +14,7 @@ const router = createBrowserRouter([
   },
   {
     path: '/',
-    element: SolutionOnePageBuilder(),
+    element: <SolutionOnePageBuilder />,
   },
   {
     path: '/solution-one',

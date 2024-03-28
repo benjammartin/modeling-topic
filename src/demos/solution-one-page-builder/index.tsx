@@ -3,30 +3,70 @@ import Slice from '@/components/slice';
 import List from '@/components/primitives/list';
 import Tabs from '@/components/groups-as-tabs/group-as-tabs';
 import Field from '@/components/field';
+import Navigation from '@/components/navigation';
+import { Fragment } from 'react/jsx-runtime';
+import TableSlice from '@/components/table-slices';
 
 const SolutionOnePageBuilder = () => {
   return (
-    <Layout.Root>
-      <Layout.Sidebar>Sid</Layout.Sidebar>
-      <Layout.Main>
-        <Slice label={mocks.name}>
-          <List
-            items={mocks.fields}
-            renderItem={(props, key) => {
-              return (
-                <Field
-                  key={key}
-                  type={props.type}
-                  value={props.value}
-                  name={props.name}
-                />
-              );
-            }}
-          />
-          <Tabs items={mocks.repeatables} />
-        </Slice>
-      </Layout.Main>
-    </Layout.Root>
+    <Fragment>
+      <Navigation />
+      <Layout.Root>
+        <Layout.Sidebar>
+          <TableSlice />
+        </Layout.Sidebar>
+        <Layout.Main>
+          <Slice label={mocks.name}>
+            <List
+              items={mocks.fields}
+              renderItem={(props, key) => {
+                return (
+                  <Field
+                    key={key}
+                    type={props.type}
+                    value={props.value}
+                    name={props.name}
+                  />
+                );
+              }}
+            />
+            <Tabs items={mocks.repeatables} />
+          </Slice>
+          <Slice label={mocks.name}>
+            <List
+              items={mocks.fields}
+              renderItem={(props, key) => {
+                return (
+                  <Field
+                    key={key}
+                    type={props.type}
+                    value={props.value}
+                    name={props.name}
+                  />
+                );
+              }}
+            />
+            <Tabs items={mocks.repeatables} />
+          </Slice>
+          <Slice label={mocks.name}>
+            <List
+              items={mocks.fields}
+              renderItem={(props, key) => {
+                return (
+                  <Field
+                    key={key}
+                    type={props.type}
+                    value={props.value}
+                    name={props.name}
+                  />
+                );
+              }}
+            />
+            <Tabs items={mocks.repeatables} />
+          </Slice>
+        </Layout.Main>
+      </Layout.Root>
+    </Fragment>
   );
 };
 

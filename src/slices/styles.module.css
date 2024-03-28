@@ -1,6 +1,7 @@
 .root {
   width: 100%;
-  background: pink;
   text-align: center;
-  padding: 128px 64px;
+  padding: 268px 64px;
+  font-size: 72px;
+  background: white;
 }

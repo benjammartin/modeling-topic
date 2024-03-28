@@ -2,8 +2,8 @@
   border-radius: 6px;
   border: 1px solid var(--Gray-Shade-07, #dcdbdd);
   background: var(--Gray-Shade-01, #fff);
-  width: 100%;
   min-height: 32px;
+  padding-inline: 16px;
 
   /* Shadows/depth 01 */
   box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.04);

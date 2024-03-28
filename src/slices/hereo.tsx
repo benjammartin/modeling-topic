@@ -1,5 +1,6 @@
 import Box from '@/components/primitives/box';
 import styles from './styles.module.css';
+
 const Hereo = () => {
   return (
     <Box as='div' className={styles.root}>

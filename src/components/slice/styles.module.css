@@ -24,6 +24,10 @@
   padding: 16px;
 }
 
+.main > ul > * + * {
+  margin-top: 16px;
+}
+
 .main > * + * {
   margin-top: 16px;
 }
