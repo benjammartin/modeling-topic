@@ -1,0 +1,32 @@
+.xxx {
+  display: flex;
+  flex-direction: column;
+  max-height: 300px;
+  overflow-x: hidden;
+}
+
+.xx {
+  display: flex;
+  flex-direction: column;
+  height: auto;
+}
+
+.x {
+  display: flex;
+  height: 68.4693px;
+  position: relative;
+  transition-property: height;
+  transition-duration: 150ms;
+}
+
+.frame {
+  border: none;
+  width: 1500px;
+  height: 524px;
+  transform: scale(calc(0.130667));
+  transform-origin: left top;
+  position: absolute;
+  opacity: 1;
+  pointer-events: none;
+  transition: height 150ms ease 0s, opacity 200ms ease 0s;
+}

@@ -1,0 +1,7 @@
+.layout {
+  display: grid;
+  margin: 0 auto;
+  width: 1216px;
+  height: 768px;
+  grid-template-columns: 280px 656px 280px;
+}
