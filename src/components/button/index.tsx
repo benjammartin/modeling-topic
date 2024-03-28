@@ -3,13 +3,10 @@ import styles from './styles.module.css';
 
 const Button: React.FC<{
   children: React.ReactNode;
-}> = ({ children }) => {
-  const handleClick = (e: React.MouseEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
-  };
+  onClick: () => void;
+}> = ({ children, onClick, ...props }) => {
   return (
-    <Box as='button' onClick={handleClick} className={styles.root}>
+    <Box as='button' onClick={onClick} className={styles.root} {...props}>
       {children}
     </Box>
   );

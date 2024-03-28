@@ -1,6 +1,6 @@
 import List from '@/components/primitives/list';
 import Box from '@/components/primitives/box';
-import * as Accordion from '@radix-ui/react-accordion';
+import * as RadixAccordion from '@radix-ui/react-accordion';
 import styles from './styles.module.css';
 import React, { Fragment } from 'react';
 import Field from '../field';
@@ -12,14 +12,25 @@ import Movedown from '../icons/movedown';
 import Moveup from '../icons/moveup';
 import Button from '../button';
 
-const Groups: React.FC<{
+const Accordion: React.FC<{
   items: Array<SolutionOneGroupItem>;
   label: string;
 }> = ({ items, label }) => {
+  const [state, setState] = React.useState(items);
   const [prime] = items;
+
+  const addNewItem = () => {
+    const newItem: SolutionOneGroupItem = {
+      id: String(state.length + 1),
+      type: 'group-item',
+      fields: [...prime.fields],
+    };
+    setState([...state, newItem]);
+  };
+
   return (
     <Fragment>
-      <Accordion.Root
+      <RadixAccordion.Root
         type='single'
         defaultValue={prime.id}
         collapsible
@@ -27,7 +38,7 @@ const Groups: React.FC<{
         orientation='vertical'
       >
         <List
-          items={items}
+          items={state}
           renderItem={(item, i) => (
             <AccordionItem className={styles.item} key={i} value={item.id}>
               <AccordionTrigger className={styles.trigger}>
@@ -66,9 +77,11 @@ const Groups: React.FC<{
             </AccordionItem>
           )}
         />
-      </Accordion.Root>
+      </RadixAccordion.Root>
       <Box as='footer' className={styles.footer}>
-        <Button>Add new {label.toLocaleLowerCase()}</Button>
+        <Button onClick={addNewItem}>
+          Add new {label.toLocaleLowerCase()}
+        </Button>
       </Box>
     </Fragment>
   );
@@ -83,14 +96,14 @@ const AccordionItem: React.FC<{
     { children, className, value, ...props },
     forwardedRef: React.Ref<HTMLDivElement>,
   ) => (
-    <Accordion.Item
+    <RadixAccordion.Item
       className={className}
       ref={forwardedRef}
       value={value}
       {...props}
     >
       {children}
-    </Accordion.Item>
+    </RadixAccordion.Item>
   ),
 );
 
@@ -102,11 +115,15 @@ const AccordionTrigger: React.FC<{
     { children, className, ...props },
     forwardedRef: React.Ref<HTMLButtonElement>,
   ) => (
-    <Accordion.Header className={styles.header}>
-      <Accordion.Trigger className={className} ref={forwardedRef} {...props}>
+    <RadixAccordion.Header className={styles.header}>
+      <RadixAccordion.Trigger
+        className={className}
+        ref={forwardedRef}
+        {...props}
+      >
         {children}
-      </Accordion.Trigger>
-    </Accordion.Header>
+      </RadixAccordion.Trigger>
+    </RadixAccordion.Header>
   ),
 );
 
@@ -118,12 +135,12 @@ const AccordionContent: React.FC<{
     { children, className, ...props },
     forwardedRef: React.Ref<HTMLDivElement>,
   ) => (
-    <Accordion.Content ref={forwardedRef} {...props}>
+    <RadixAccordion.Content ref={forwardedRef} {...props}>
       <Box as='div' className={className}>
         {children}
       </Box>
-    </Accordion.Content>
+    </RadixAccordion.Content>
   ),
 );
 
-export default Groups;
+export default Accordion;

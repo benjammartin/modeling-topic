@@ -2,7 +2,7 @@ import * as RadixTabs from '@radix-ui/react-tabs';
 import List from '@/components/primitives/list';
 import Box from '@/components/primitives/box';
 import styles from './tabs.module.css';
-import Groups from '@/components/groups';
+import Accordion from '@/components/accordion';
 ``;
 
 interface TabsProps {
@@ -32,7 +32,7 @@ const Tabs: React.FC<TabsProps> = ({ items }) => {
           items={items}
           renderItem={(item, i) => (
             <RadixTabs.Content value={item.id} key={i}>
-              <Groups items={item.items} label={item.name} />
+              <Accordion items={item.items} label={item.name} />
             </RadixTabs.Content>
           )}
         />
