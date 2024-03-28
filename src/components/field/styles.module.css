@@ -30,10 +30,10 @@
 
 .input[data-type='headingOne'] {
   font-size: 32px;
-  font-weight: 800;
+  font-weight: 600;
 }
 
 .input[data-type='headingTwo'] {
   font-size: 18px;
-  font-weight: 800;
+  font-weight: 600;
 }
