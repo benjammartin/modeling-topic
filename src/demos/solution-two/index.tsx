@@ -76,7 +76,7 @@ const mocks: SolutionTwoSlice = {
       ],
     },
     {
-      id: '3',
+      id: '2',
       type: 'group',
       name: 'Card',
       items: [
