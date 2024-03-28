@@ -1,0 +1,28 @@
+.root {
+  position: relative;
+}
+
+.label {
+  background: white;
+  position: absolute;
+  left: 8px;
+  top: -8px;
+  color: #6f6e77;
+  font-size: 0.625rem;
+  padding: 2px 4px;
+  font-weight: 500;
+  line-height: 0.75rem; /* 120% */
+}
+
+.input {
+  width: 100%;
+  min-height: 48px;
+  border: 1px dashed #dcdbdd;
+  border-radius: 6px;
+  padding-inline: 8px;
+}
+
+.input:focus-visible {
+  outline: none;
+  border-style: solid;
+}
