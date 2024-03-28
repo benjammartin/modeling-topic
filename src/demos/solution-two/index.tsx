@@ -1,4 +1,3 @@
-import GroupeAsTabs from '@/components/groups-as-tabs/group-as-tabs';
 import Slice from '@/components/slice';
 import Demo from '@/components/demo-wrapper';
 import Field from '@/components/field';
