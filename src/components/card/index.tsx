@@ -1,3 +1,4 @@
+import { useCurrentAppContext } from '@/contexts/app-provider';
 import Frame from '../frame';
 import Drag from '../icons/drag';
 import More from '../icons/more';
@@ -7,9 +8,22 @@ import * as Card from '@/components/primitives/card';
 
 const SliceCard: React.FC<{
   children: React.ReactNode;
-}> = ({ children }) => {
+  id: string;
+}> = ({ children, id }) => {
+  const { state, dispatch } = useCurrentAppContext();
+
+  const onSelect = () => {
+    dispatch({ type: 'SELECT_ELEMENT', payload: id });
+  };
+
+  const isSelected = state.selected === id;
+
   return (
-    <Card.Root className={styles.root}>
+    <Card.Root
+      className={styles.root}
+      onClick={onSelect}
+      data-selected={isSelected}
+    >
       <Card.Preview className={styles.preview}>
         <Box as='div' className={styles.display}>
           <Box as='div'>1</Box>

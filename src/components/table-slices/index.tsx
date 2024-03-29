@@ -9,16 +9,16 @@ import Testimonial from '@/slices/testimonial';
 const TableSlice: React.FC = () => {
   return (
     <Box as='nav' className={styles.root}>
-      <SliceCard>
+      <SliceCard id='hereo'>
         <Hereo />
       </SliceCard>
-      <SliceCard>
+      <SliceCard id='testimonial'>
         <Testimonial />
       </SliceCard>
-      <SliceCard>
+      <SliceCard id='features'>
         <Feature />
       </SliceCard>
-      <SliceCard>
+      <SliceCard id='calltoaction'>
         <CallToAction />
       </SliceCard>
     </Box>

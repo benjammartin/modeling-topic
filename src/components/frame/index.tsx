@@ -2,7 +2,7 @@ import Box from '../primitives/box';
 import React from 'react';
 
 const Frame: React.FC<{ children: React.ReactNode; scale?: number }> = ({
-  scale = 0.130667,
+  scale = 0.134667,
   children,
 }) => {
   const SCALE_FACTOR = scale;
@@ -14,10 +14,10 @@ const Frame: React.FC<{ children: React.ReactNode; scale?: number }> = ({
     if (ref.current) {
       setHeight(ref.current.scrollHeight || 500);
     }
-  }, []);
+  }, [height]);
   React.useEffect(() => {
     setResize(height * SCALE_FACTOR);
-  }, [height]);
+  }, [height, scale]);
   return (
     <Box
       as='div'

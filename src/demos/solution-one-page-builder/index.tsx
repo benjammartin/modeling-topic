@@ -4,12 +4,12 @@ import List from '@/components/primitives/list';
 import Tabs from '@/components/groups-as-tabs/group-as-tabs';
 import Field from '@/components/field';
 import Navigation from '@/components/navigation';
-import { Fragment } from 'react/jsx-runtime';
 import TableSlice from '@/components/table-slices';
+import AppContextProvider from '@/contexts/app-provider';
 
 const SolutionOnePageBuilder = () => {
   return (
-    <Fragment>
+    <AppContextProvider>
       <Navigation />
       <Layout.Root>
         <Layout.Sidebar>
@@ -66,7 +66,7 @@ const SolutionOnePageBuilder = () => {
           </Slice>
         </Layout.Main>
       </Layout.Root>
-    </Fragment>
+    </AppContextProvider>
   );
 };
 
