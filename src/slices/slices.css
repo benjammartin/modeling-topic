@@ -667,3 +667,15 @@ img {
 .justify-center {
   justify-content: center;
 }
+
+.section-ps-yellow {
+  background: rgb(246, 196, 17);
+}
+
+.section-ps-pink {
+  background: rgb(246, 154, 220);
+}
+
+.section-ps-cyan {
+  background: rgb(154, 237, 246);
+}

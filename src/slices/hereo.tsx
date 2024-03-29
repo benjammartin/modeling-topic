@@ -2,7 +2,7 @@ import './slices.css';
 
 const Hereo = () => {
   return (
-    <header className='section_header1 SECTION_TO_KEEP section-ps'>
+    <header className='section_header1 SECTION_TO_KEEP section-ps-yellow '>
       <div className='padding-global'>
         <div className='container-large'>
           <div className='padding-section-large'>

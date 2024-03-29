@@ -2,7 +2,7 @@ import './slices.css';
 
 const Feature = () => {
   return (
-    <section className='section_layout83 section-ps'>
+    <section className='section_layout83 section-ps-pink'>
       <div className='padding-global'>
         <div className='container-large'>
           <div className='padding-section-large'>

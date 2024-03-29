@@ -2,7 +2,7 @@ import './slices.css';
 
 const CallToAction = () => {
   return (
-    <section className='section_cta7 SECTION_TO_KEEP section-ps'>
+    <section className='section_cta7 SECTION_TO_KEEP section-ps-cyan'>
       <div className='padding-global'>
         <div className='container-large'>
           <div className='padding-section-large'>
