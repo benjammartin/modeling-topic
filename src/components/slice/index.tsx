@@ -17,6 +17,7 @@ const Slice: React.FC<{
 
   return (
     <Box
+      ref={state.anchors[id]}
       as='div'
       {...props}
       className={styles.root}

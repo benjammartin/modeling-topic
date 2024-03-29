@@ -3,6 +3,7 @@ import React from 'react';
 
 interface AppState {
   selected: string | null;
+  anchors: Record<string, React.RefObject<HTMLDivElement>>;
 }
 
 // Represents the payloads for each action type
@@ -23,6 +24,12 @@ interface AppContextType {
 
 const INITIAL_STATE: AppState = {
   selected: 'hereo',
+  anchors: {
+    hereo: React.createRef(),
+    features: React.createRef(),
+    testimonial: React.createRef(),
+    calltoaction: React.createRef(),
+  },
 };
 
 const AppContext = React.createContext<AppContextType>({

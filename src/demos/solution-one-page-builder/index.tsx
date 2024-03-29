@@ -64,6 +64,22 @@ const SolutionOnePageBuilder = () => {
             />
             <Tabs items={mocks.repeatables} />
           </Slice>
+          <Slice label={mocks.name} id='calltoaction'>
+            <List
+              items={mocks.fields}
+              renderItem={(props, key) => {
+                return (
+                  <Field
+                    key={key}
+                    type={props.type}
+                    value={props.value}
+                    name={props.name}
+                  />
+                );
+              }}
+            />
+            <Tabs items={mocks.repeatables} />
+          </Slice>
         </Layout.Main>
       </Layout.Root>
     </AppContextProvider>

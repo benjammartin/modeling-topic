@@ -12,8 +12,19 @@ const SliceCard: React.FC<{
 }> = ({ children, id }) => {
   const { state, dispatch } = useCurrentAppContext();
 
+  const handleScroll = (ref: React.RefObject<HTMLElement>) => {
+    const element = ref.current;
+    if (element) {
+      window.scrollTo({
+        top: element.offsetTop - 100,
+        behavior: 'smooth',
+      });
+    }
+  };
+
   const onSelect = () => {
     dispatch({ type: 'SELECT_ELEMENT', payload: id });
+    handleScroll(state.anchors[id]);
   };
 
   const isSelected = state.selected === id;
