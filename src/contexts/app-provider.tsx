@@ -1,14 +1,19 @@
+import { getNormalizedSlice } from '@/lib/utils';
 import { produce } from 'immer';
 import React from 'react';
-
-interface AppState {
-  selected: string | null;
-  anchors: Record<string, React.RefObject<HTMLDivElement>>;
-}
-
+import hereoconfig from '@/slices/hereo.config.json';
+import ctaconfig from '@/slices/cta.config.json';
 // Represents the payloads for each action type
+
+type UpdateProps = {
+  id: string;
+  name: string;
+  value: string;
+};
+
 type ActionPayloads = {
   SELECT_ELEMENT: string;
+  UPDATE_PROPS: UpdateProps;
 };
 
 // Represents the available actions
@@ -22,8 +27,23 @@ interface AppContextType {
   dispatch: React.Dispatch<AvailableAction>;
 }
 
+const hereo = getNormalizedSlice(hereoconfig);
+const calltoaction = getNormalizedSlice(ctaconfig);
 const INITIAL_STATE: AppState = {
   selected: 'hereo',
+  builder: {
+    root: {
+      id: 'root',
+      type: 'page',
+      name: 'root',
+      props: {},
+      children: [hereo.sliceKey, calltoaction.sliceKey],
+    },
+    ...hereo.slice,
+    ...hereo.fields,
+    ...calltoaction.slice,
+    ...calltoaction.fields,
+  },
   anchors: {
     hereo: React.createRef(),
     features: React.createRef(),
@@ -59,6 +79,11 @@ const reducer = produce((draft: AppState, action: AvailableAction) => {
       draft.selected = action.payload;
       break;
     }
+    case 'UPDATE_PROPS': {
+      draft.builder[action.payload.id].props[action.payload.name] =
+        action.payload.value;
+      break;
+    }
   }
 });
 
@@ -66,7 +91,6 @@ const AppContextProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
   const [state, dispatch] = React.useReducer(reducer, INITIAL_STATE);
-  console.log(state);
   return (
     <AppContext.Provider value={{ state, dispatch }}>
       {children}

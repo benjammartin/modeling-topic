@@ -1,15 +1,20 @@
 import Box from '@/components/primitives/box';
 import styles from './styles.module.css';
 import React from 'react';
+import { useCurrentAppContext } from '@/contexts/app-provider';
 
 const Field: React.FC<{
+  id: string;
   name: string;
   value: string;
   type: Omit<SolutionOneFieldType, 'group-item'>;
-}> = ({ name, value, ...props }) => {
-  const [state, setState] = React.useState<string>(value);
+}> = ({ name, value, id, ...props }) => {
+  const { dispatch } = useCurrentAppContext();
   const onHandleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setState(e.target.value);
+    dispatch({
+      type: 'UPDATE_PROPS',
+      payload: { id, name, value: e.target.value },
+    });
   };
   return (
     <Box as='div' {...props} className={styles.root}>
@@ -20,7 +25,7 @@ const Field: React.FC<{
         as='input'
         onChange={onHandleChange}
         placeholder='Field content'
-        value={state}
+        value=''
         className={styles.input}
         data-type={props.type}
       />

@@ -10,7 +10,6 @@ interface TabsProps {
 }
 
 const Tabs: React.FC<TabsProps> = ({ items }) => {
-  console.log(items);
   const [prime] = items;
   return (
     <RadixTabs.Root className={styles.root} defaultValue={prime.id}>

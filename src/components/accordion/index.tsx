@@ -11,77 +11,73 @@ import Trash from '../icons/delete';
 import Movedown from '../icons/movedown';
 import Moveup from '../icons/moveup';
 import Button from '../button';
+import { getFields } from '@/lib/get-props';
+import { useCurrentAppContext } from '@/contexts/app-provider';
 
 const Accordion: React.FC<{
-  items: Array<SolutionOneGroupItem>;
-  label: string;
-}> = ({ items, label }) => {
-  const [state, setState] = React.useState(items);
+  items: Array<string>;
+}> = ({ items }) => {
   const [prime] = items;
-
-  const addNewItem = () => {
-    const newItem: SolutionOneGroupItem = {
-      id: String(state.length + 1),
-      type: 'group-item',
-      fields: [...prime.fields],
-    };
-    setState([...state, newItem]);
-  };
-
+  const { state } = useCurrentAppContext();
   return (
     <Fragment>
       <RadixAccordion.Root
         type='single'
-        defaultValue={prime.id}
+        defaultValue={prime}
         collapsible
         className={styles.root}
         orientation='vertical'
       >
-        <List
-          items={state}
-          renderItem={(item, i) => (
-            <AccordionItem className={styles.item} key={i} value={item.id}>
-              <AccordionTrigger className={styles.trigger}>
-                <Box as='span'>
-                  <Chevron className={styles.chevron} />
-                  <Item /> {`${label} - ${item.id}`}
-                </Box>
-                <Box className={styles.actions}>
-                  <Box className={styles.move}>
-                    <ButtonIcon direction='left'>
-                      <Movedown />
-                    </ButtonIcon>
-                    <ButtonIcon direction='right'>
-                      <Moveup />
-                    </ButtonIcon>
-                  </Box>
-                  <ButtonIcon>
-                    <Trash />
-                  </ButtonIcon>
-                </Box>
-              </AccordionTrigger>
-              <AccordionContent className={styles.content}>
-                <List
-                  className={styles.list}
-                  items={item.fields}
-                  renderItem={(item, key) => (
-                    <Field
-                      type={item.type}
-                      name={item.name}
-                      value={item.value}
-                      key={key}
+        {items.length && (
+          <List
+            items={items}
+            renderItem={(item, i) => {
+              const ids = state.builder[item].children;
+              const fields = getFields(ids, state);
+              return (
+                <AccordionItem className={styles.item} key={i} value={prime}>
+                  <AccordionTrigger className={styles.trigger}>
+                    <Box as='span'>
+                      <Chevron className={styles.chevron} />
+                      <Item /> {`${'label'} - ${prime}`}
+                    </Box>
+                    <Box className={styles.actions}>
+                      <Box className={styles.move}>
+                        <ButtonIcon direction='left'>
+                          <Movedown />
+                        </ButtonIcon>
+                        <ButtonIcon direction='right'>
+                          <Moveup />
+                        </ButtonIcon>
+                      </Box>
+                      <ButtonIcon>
+                        <Trash />
+                      </ButtonIcon>
+                    </Box>
+                  </AccordionTrigger>
+                  <AccordionContent className={styles.content}>
+                    <List
+                      className={styles.list}
+                      items={fields}
+                      renderItem={(item, key) => (
+                        <Field
+                          id={item.id}
+                          type={item.type}
+                          name={item.name}
+                          value={item.id}
+                          key={key}
+                        />
+                      )}
                     />
-                  )}
-                />
-              </AccordionContent>
-            </AccordionItem>
-          )}
-        />
+                  </AccordionContent>
+                </AccordionItem>
+              );
+            }}
+          />
+        )}
       </RadixAccordion.Root>
       <Box as='footer' className={styles.footer}>
-        <Button onClick={addNewItem}>
-          Add new {label.toLocaleLowerCase()}
-        </Button>
+        <Button onClick={() => null}>Add new </Button>
       </Box>
     </Fragment>
   );
