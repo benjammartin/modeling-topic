@@ -4,13 +4,13 @@ import Demo from '@/components/demo-wrapper';
 import Field from '@/components/field';
 import List from '@/components/primitives/list';
 import styles from './styles.module.css';
-import { Fragment } from 'react/jsx-runtime';
 import Testimonial from '@/slices/testimonial';
 import Frame from '@/components/frame';
+import AppContextProvider from '@/contexts/app-provider';
 
 function SolutionOne() {
   return (
-    <Fragment>
+    <AppContextProvider>
       <Demo>
         <Frame scale={0.396}>
           <Testimonial />
@@ -35,7 +35,7 @@ function SolutionOne() {
           <GroupeAsTabs items={mocks.repeatables} />
         </Slice>
       </Demo>
-    </Fragment>
+    </AppContextProvider>
   );
 }
 
