@@ -6,12 +6,15 @@ import List from '@/components/primitives/list';
 import styles from './styles.module.css';
 import { Fragment } from 'react/jsx-runtime';
 import Testimonial from '@/slices/testimonial';
+import Frame from '@/components/frame';
 
 function SolutionOne() {
   return (
     <Fragment>
-      <Demo type='slice'>
-        <Testimonial />
+      <Demo>
+        <Frame scale={0.396}>
+          <Testimonial />
+        </Frame>
       </Demo>
       <Demo>
         <Slice label={mocks.name}>

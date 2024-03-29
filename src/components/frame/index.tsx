@@ -1,8 +1,11 @@
 import Box from '../primitives/box';
 import React from 'react';
 
-const Frame: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const SCALE_FACTOR = 0.130667;
+const Frame: React.FC<{ children: React.ReactNode; scale?: number }> = ({
+  scale = 0.130667,
+  children,
+}) => {
+  const SCALE_FACTOR = scale;
   const SLICE_WIDTH = 1600;
   const ref = React.useRef<HTMLIFrameElement>(null);
   const [height, setHeight] = React.useState<number>(500);

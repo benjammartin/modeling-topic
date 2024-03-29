@@ -662,6 +662,8 @@ img {
 
 .section-ps {
   background: white;
+  border-radius: 6px;
+  overflow: hidden;
 }
 
 .justify-center {
@@ -670,6 +672,7 @@ img {
 
 .section-ps-yellow {
   background: rgb(246, 196, 17);
+  border-radius: 6px;
 }
 
 .section-ps-pink {

@@ -3,10 +3,9 @@ import styles from './styles.module.css';
 
 const Demo: React.FC<{
   children: React.ReactNode;
-  type?: 'slice' | 'component';
-}> = ({ children, type = 'component', ...props }) => {
+}> = ({ children, ...props }) => {
   return (
-    <Box as='div' {...props} className={styles.root} data-type={type}>
+    <Box as='div' {...props} className={styles.root}>
       {children}
     </Box>
   );
