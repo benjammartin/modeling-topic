@@ -2,6 +2,7 @@ import SliceCard from '../card';
 import Hereo from '@/slices/hereo';
 import Box from '../primitives/box';
 import styles from './styles.module.css';
+import Feature from '@/slices/feature';
 
 const TableSlice: React.FC = () => {
   return (
@@ -10,7 +11,7 @@ const TableSlice: React.FC = () => {
         <Hereo />
       </SliceCard>
       <SliceCard>
-        <Hereo />
+        <Feature />
       </SliceCard>
       <SliceCard>
         <Hereo />
