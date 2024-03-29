@@ -319,46 +319,6 @@ img {
     margin-right: 0;
   }
 }
-@font-face {
-  font-family: 'Relative';
-  src: url('/__assets/6177739448baa66404ce1d9c/6177746a5f7b0244353a13e6_Relative-Medium.ttf')
-    format('truetype');
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Relative';
-  src: url('/__assets/6177739448baa66404ce1d9c/6177746a17c7a083b39984ce_Relative-Book.ttf')
-    format('truetype');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Relative';
-  src: url('/__assets/6177739448baa66404ce1d9c/6177740cd65a21552252b349_Relative-Bold.ttf')
-    format('truetype');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Relative Faux';
-  src: url('/__assets/6177739448baa66404ce1d9c/6596225190cf72849d5b0a22_Relative%20Faux.otf')
-    format('opentype');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Relative Mono';
-  src: url('/__assets/6177739448baa66404ce1d9c/65f93c2588eb2e05e483548c_Relative%20Mono%2010%20Pitch.otf')
-    format('opentype');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
 
 .section-ps {
   background: white;

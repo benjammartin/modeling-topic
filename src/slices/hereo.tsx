@@ -30,7 +30,7 @@ const Hereo = () => {
               </div>
               <div className='header1_image-wrapper'>
                 <img
-                  src='https://assets.website-files.com/624380709031623bfe4aee60/6243807090316203124aee66_placeholder-image.svg'
+                  src='https://ca.slack-edge.com/T34F9KTPT-U02DQTA81T2-92380ff34d29-512'
                   loading='eager'
                   alt=''
                   className='header1_image'
