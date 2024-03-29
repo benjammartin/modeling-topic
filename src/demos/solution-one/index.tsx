@@ -17,7 +17,7 @@ function SolutionOne() {
         </Frame>
       </Demo>
       <Demo>
-        <Slice label={mocks.name}>
+        <Slice label={mocks.name} id='testimonial'>
           <List
             className={styles.list}
             items={mocks.fields}

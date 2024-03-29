@@ -16,7 +16,7 @@ const SolutionOnePageBuilder = () => {
           <TableSlice />
         </Layout.Sidebar>
         <Layout.Main>
-          <Slice label={mocks.name}>
+          <Slice label={mocks.name} id='hereo'>
             <List
               items={mocks.fields}
               renderItem={(props, key) => {
@@ -32,7 +32,7 @@ const SolutionOnePageBuilder = () => {
             />
             <Tabs items={mocks.repeatables} />
           </Slice>
-          <Slice label={mocks.name}>
+          <Slice label={mocks.name} id='testimonial'>
             <List
               items={mocks.fields}
               renderItem={(props, key) => {
@@ -48,7 +48,7 @@ const SolutionOnePageBuilder = () => {
             />
             <Tabs items={mocks.repeatables} />
           </Slice>
-          <Slice label={mocks.name}>
+          <Slice label={mocks.name} id='features'>
             <List
               items={mocks.fields}
               renderItem={(props, key) => {

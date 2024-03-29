@@ -22,7 +22,7 @@ interface AppContextType {
 }
 
 const INITIAL_STATE: AppState = {
-  selected: null,
+  selected: 'hereo',
 };
 
 const AppContext = React.createContext<AppContextType>({
