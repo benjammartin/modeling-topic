@@ -9,7 +9,7 @@ import GroupWrapper from '@/components/group-wrapper';
 function SolutionTwo() {
   return (
     <Demo>
-      <Slice label={mocks.name}>
+      <Slice label={mocks.name} id='testimonial'>
         <List
           className={styles.list}
           items={mocks.fields}

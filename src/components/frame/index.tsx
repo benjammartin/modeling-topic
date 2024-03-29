@@ -17,7 +17,7 @@ const Frame: React.FC<{ children: React.ReactNode; scale?: number }> = ({
   }, [height]);
   React.useEffect(() => {
     setResize(height * SCALE_FACTOR);
-  }, [height, scale]);
+  }, [height, SCALE_FACTOR]);
   return (
     <Box
       as='div'
