@@ -13,13 +13,13 @@ const TableSlice: React.FC = () => {
         <Hereo />
       </SliceCard>
       <SliceCard>
+        <Testimonial />
+      </SliceCard>
+      <SliceCard>
         <Feature />
       </SliceCard>
       <SliceCard>
         <CallToAction />
-      </SliceCard>
-      <SliceCard>
-        <Testimonial />
       </SliceCard>
     </Box>
   );
