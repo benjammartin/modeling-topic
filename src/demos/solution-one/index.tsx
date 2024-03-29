@@ -4,28 +4,35 @@ import Demo from '@/components/demo-wrapper';
 import Field from '@/components/field';
 import List from '@/components/primitives/list';
 import styles from './styles.module.css';
+import { Fragment } from 'react/jsx-runtime';
+import Testimonial from '@/slices/testimonial';
 
 function SolutionOne() {
   return (
-    <Demo>
-      <Slice label={mocks.name}>
-        <List
-          className={styles.list}
-          items={mocks.fields}
-          renderItem={(props, key) => {
-            return (
-              <Field
-                key={key}
-                type={props.type}
-                value={props.value}
-                name={props.name}
-              />
-            );
-          }}
-        />
-        <GroupeAsTabs items={mocks.repeatables} />
-      </Slice>
-    </Demo>
+    <Fragment>
+      <Demo type='slice'>
+        <Testimonial />
+      </Demo>
+      <Demo>
+        <Slice label={mocks.name}>
+          <List
+            className={styles.list}
+            items={mocks.fields}
+            renderItem={(props, key) => {
+              return (
+                <Field
+                  key={key}
+                  type={props.type}
+                  value={props.value}
+                  name={props.name}
+                />
+              );
+            }}
+          />
+          <GroupeAsTabs items={mocks.repeatables} />
+        </Slice>
+      </Demo>
+    </Fragment>
   );
 }
 

@@ -1,12 +1,12 @@
 import Box from '@/components/primitives/box';
 import styles from './styles.module.css';
 
-const Demo: React.FC<{ children: React.ReactNode }> = ({
-  children,
-  ...props
-}) => {
+const Demo: React.FC<{
+  children: React.ReactNode;
+  type?: 'slice' | 'component';
+}> = ({ children, type = 'component', ...props }) => {
   return (
-    <Box as='div' {...props} className={styles.root}>
+    <Box as='div' {...props} className={styles.root} data-type={type}>
       {children}
     </Box>
   );

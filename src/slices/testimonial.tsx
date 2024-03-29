@@ -6,7 +6,7 @@ const Testimonial = () => {
       <div className='padding-global'>
         <div className='container-large'>
           <div className='padding-section-large'>
-            <div className='margin-bottom margin-xxlarge'>
+            <div className='margin-bottom margin-small'>
               <div className='text-align-center'>
                 <div className='max-width-large align-center'>
                   <div className='margin-bottom margin-small'>
@@ -16,20 +16,19 @@ const Testimonial = () => {
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                   </p>
                 </div>
-              </div>
-            </div>
-            <div className='margin-top'>
-              <div className='margin-bottom margin-xxlarge'>
-                <div className='button-group justify-center '>
-                  <a href='#' className='button w-button'>
-                    Button
-                  </a>
-                  <a href='#' className='button is-secondary w-button'>
-                    Button
-                  </a>
+                <div>
+                  <div className='button-group justify-center margin-small'>
+                    <a href='#' className='button w-button'>
+                      Button
+                    </a>
+                    <a href='#' className='button is-secondary w-button'>
+                      Button
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
+
             <div className='testimonial17_component'>
               <div className='testimonial17_content'>
                 <div className='margin-bottom margin-small'>
