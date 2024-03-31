@@ -6,7 +6,7 @@ import Accordion from '@/components/accordion';
 ``;
 
 interface TabsProps {
-  items: Array<SolutionOneRepeatable>;
+  items: Array<NormalizedField>;
 }
 
 const Tabs: React.FC<TabsProps> = ({ items }) => {
@@ -31,7 +31,7 @@ const Tabs: React.FC<TabsProps> = ({ items }) => {
           items={items}
           renderItem={(item, i) => (
             <RadixTabs.Content value={item.id} key={i}>
-              <Accordion items={item.items} label={item.name} />
+              <Accordion id={item.id} items={item.children} name={item.name} />
             </RadixTabs.Content>
           )}
         />

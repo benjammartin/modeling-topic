@@ -12,6 +12,7 @@ export function getNormalizedSlice(schema: Schema) {
       name: schema.name,
       children: fieldsKeys,
       schema: schema.fields,
+      display: schema.display,
     },
   };
   return { slice, sliceKey: id, fields, fieldsKeys };

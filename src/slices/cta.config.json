@@ -2,6 +2,7 @@
   "id": "cta",
   "name": "Calltoaction",
   "type": "slice",
+  "display": "collapsible",
   "fields": {
     "title": {
       "config": {
@@ -17,10 +18,10 @@
         "placeholder": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
       }
     },
-    "buttons": {
+    "titi": {
       "config": {
         "type": "array",
-        "name": "Button",
+        "name": "Titi",
         "placeholder": [
           {
             "title": "Card 1",
@@ -45,10 +46,10 @@
         }
       }
     },
-    "cards": {
+    "tete": {
       "config": {
         "type": "array",
-        "name": "Card",
+        "name": "Tete",
         "placeholder": [
           {
             "title": "Card 1",

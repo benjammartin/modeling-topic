@@ -3,6 +3,7 @@ import { produce } from 'immer';
 import React from 'react';
 import hereoconfig from '@/slices/hereo.config.json';
 import ctaconfig from '@/slices/cta.config.json';
+import featuresconfig from '@/slices/features.config.json';
 // Represents the payloads for each action type
 
 type UpdateProps = {
@@ -33,6 +34,7 @@ interface AppContextType {
 
 const hereo = getNormalizedSlice(hereoconfig);
 const calltoaction = getNormalizedSlice(ctaconfig);
+const features = getNormalizedSlice(featuresconfig);
 const INITIAL_STATE: AppState = {
   selected: 'hereo',
   builder: {
@@ -41,12 +43,14 @@ const INITIAL_STATE: AppState = {
       type: 'page',
       name: 'root',
       props: {},
-      children: [hereo.sliceKey, calltoaction.sliceKey],
+      children: [hereo.sliceKey, calltoaction.sliceKey, features.sliceKey],
     },
     ...hereo.slice,
     ...hereo.fields,
     ...calltoaction.slice,
     ...calltoaction.fields,
+    ...features.slice,
+    ...features.fields,
   },
   anchors: {
     hereo: React.createRef(),
