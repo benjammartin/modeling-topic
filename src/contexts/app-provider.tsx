@@ -4,6 +4,7 @@ import React from 'react';
 import hereoconfig from '@/slices/hereo.config.json';
 import ctaconfig from '@/slices/cta.config.json';
 import featuresconfig from '@/slices/features.config.json';
+import testimoniamconfig from '@/slices/testimonial.config.json';
 // Represents the payloads for each action type
 
 type UpdateProps = {
@@ -35,6 +36,7 @@ interface AppContextType {
 const hereo = getNormalizedSlice(hereoconfig);
 const calltoaction = getNormalizedSlice(ctaconfig);
 const features = getNormalizedSlice(featuresconfig);
+const testimonial = getNormalizedSlice(testimoniamconfig);
 const INITIAL_STATE: AppState = {
   selected: hereo.sliceKey,
   builder: {
@@ -43,7 +45,12 @@ const INITIAL_STATE: AppState = {
       type: 'page',
       name: 'root',
       props: {},
-      children: [hereo.sliceKey, features.sliceKey, calltoaction.sliceKey],
+      children: [
+        hereo.sliceKey,
+        testimonial.sliceKey,
+        features.sliceKey,
+        calltoaction.sliceKey,
+      ],
     },
     ...hereo.slice,
     ...hereo.fields,
@@ -51,11 +58,14 @@ const INITIAL_STATE: AppState = {
     ...calltoaction.fields,
     ...features.slice,
     ...features.fields,
+    ...testimonial.slice,
+    ...testimonial.fields,
   },
   anchors: {
     [hereo.sliceKey]: React.createRef(),
     [features.sliceKey]: React.createRef(),
     [calltoaction.sliceKey]: React.createRef(),
+    [testimonial.sliceKey]: React.createRef(),
   },
 };
 

@@ -1,0 +1,68 @@
+{
+  "id": "testimonial",
+  "name": "Testimonial",
+  "type": "slice",
+  "display": "tabs",
+  "fields": {
+    "title": {
+      "config": {
+        "type": "text",
+        "name": "Title",
+        "placeholder": "Hero title"
+      }
+    },
+    "description": {
+      "config": {
+        "type": "text",
+        "name": "Description",
+        "placeholder": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+      }
+    },
+    "buttons": {
+      "config": {
+        "type": "array",
+        "name": "Button",
+        "placeholder": []
+      },
+      "fields": {
+        "label": {
+          "config": {
+            "type": "text",
+            "name": "Label",
+            "placeholder": "Enter button label here"
+          }
+        },
+        "kind": {
+          "config": {
+            "type": "text",
+            "name": "Kind",
+            "placeholder": "Enter button kind here"
+          }
+        }
+      }
+    },
+    "cards": {
+      "config": {
+        "type": "array",
+        "name": "Card",
+        "placeholder": []
+      },
+      "fields": {
+        "title": {
+          "config": {
+            "type": "text",
+            "name": "Title",
+            "placeholder": "Enter card title here"
+          }
+        },
+        "description": {
+          "config": {
+            "type": "text",
+            "name": "Description",
+            "placeholder": "Enter card description here"
+          }
+        }
+      }
+    }
+  }
+}

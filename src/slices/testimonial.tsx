@@ -1,6 +1,13 @@
 import './slices.css';
 
-const Testimonial = () => {
+interface TestimonialProps {
+  title: string;
+  description: string;
+  button: Array<{ label: string; kind: string }>;
+  card: Array<{ title: string; description: string }>;
+}
+
+const Testimonial: React.FC<TestimonialProps> = ({ card, button }) => {
   return (
     <section className='section_testimonial17 SECTION_TO_KEEP section-ps'>
       <div className='padding-global'>
@@ -18,45 +25,29 @@ const Testimonial = () => {
                 </div>
                 <div>
                   <div className='button-group justify-center margin-small'>
-                    <a href='#' className='button w-button'>
-                      Button
-                    </a>
-                    <a href='#' className='button is-secondary w-button'>
-                      Button
-                    </a>
+                    {button.map(({ label }, id) => {
+                      return (
+                        <a href='#' key={id} className='button w-button'>
+                          {label}
+                        </a>
+                      );
+                    })}
                   </div>
                 </div>
               </div>
             </div>
 
             <div className='testimonial17_component'>
-              <div className='testimonial17_content'>
-                <div className='margin-bottom margin-small'>
-                  <div className='text-size-medium'>
-                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Suspendisse varius enim in eros elementum tristique. Duis
-                    cursus, mi quis viverra ornare."
+              {card.map(({ title, description }) => {
+                return (
+                  <div className='testimonial17_content'>
+                    <div className='margin-bottom margin-small'>
+                      <h3 className='text-size-medium'>{title}</h3>
+                      <div className='text-size-medium'>{description}</div>
+                    </div>
                   </div>
-                </div>
-              </div>
-              <div className='testimonial17_content'>
-                <div className='margin-bottom margin-small'>
-                  <div className='text-size-medium'>
-                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Suspendisse varius enim in eros elementum tristique. Duis
-                    cursus, mi quis viverra ornare."
-                  </div>
-                </div>
-              </div>
-              <div className='testimonial17_content'>
-                <div className='margin-bottom margin-small'>
-                  <div className='text-size-medium'>
-                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Suspendisse varius enim in eros elementum tristique. Duis
-                    cursus, mi quis viverra ornare."
-                  </div>
-                </div>
-              </div>
+                );
+              })}
             </div>
           </div>
         </div>
