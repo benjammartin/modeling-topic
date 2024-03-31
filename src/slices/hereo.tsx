@@ -1,5 +1,4 @@
 import './slices.css';
-import pic from './pic.avif';
 
 interface HereoProps {
   title: string;
@@ -9,7 +8,7 @@ interface HereoProps {
 
 const Hereo: React.FC<HereoProps> = ({ title, description, button }) => {
   return (
-    <header className='section_header1 SECTION_TO_KEEP section-ps-yellow '>
+    <header className='section_header1 SECTION_TO_KEEP section-ps-yellow'>
       <div className='padding-global'>
         <div className='container-large'>
           <div className='padding-section-large'>
@@ -30,14 +29,6 @@ const Hereo: React.FC<HereoProps> = ({ title, description, button }) => {
                     })}
                   </div>
                 </div>
-              </div>
-              <div className='header1_image-wrapper'>
-                <img
-                  src={pic}
-                  loading='eager'
-                  alt=''
-                  className='header1_image'
-                />
               </div>
             </div>
           </div>
