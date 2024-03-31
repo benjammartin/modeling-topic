@@ -3,7 +3,7 @@ import Demo from '@/components/demo-wrapper';
 import Field from '@/components/field';
 import List from '@/components/primitives/list';
 import styles from './styles.module.css';
-import Groups from '@/components/accordion';
+///import Groups from '@/components/accordion';
 import GroupWrapper from '@/components/group-wrapper';
 
 function SolutionTwo() {
@@ -16,15 +16,12 @@ function SolutionTwo() {
           renderItem={(props, key) => {
             switch (props.type) {
               case 'group':
-                return (
-                  <GroupWrapper label={props.name}>
-                    <Groups key={key} items={props.items} label={props.name} />
-                  </GroupWrapper>
-                );
+                return <GroupWrapper label={props.name}>WIP</GroupWrapper>;
               default:
                 return (
                   <Field
                     key={key}
+                    id={props.id}
                     type={props.type}
                     value={props.value}
                     name={props.name}
@@ -37,6 +34,7 @@ function SolutionTwo() {
     </Demo>
   );
 }
+//**  <Groups key={key} items={props.items} label={props.name} /> */
 
 export default SolutionTwo;
 

@@ -1,4 +1,4 @@
-import GroupeAsTabs from '@/components/groups-as-tabs/group-as-tabs';
+//import GroupeAsTabs from '@/components/groups-as-tabs/group-as-tabs';
 import Slice from '@/components/slice';
 import Demo from '@/components/demo-wrapper';
 import Field from '@/components/field';
@@ -24,6 +24,7 @@ function SolutionOne() {
             renderItem={(props, key) => {
               return (
                 <Field
+                  id={props.id}
                   key={key}
                   type={props.type}
                   value={props.value}
@@ -32,7 +33,6 @@ function SolutionOne() {
               );
             }}
           />
-          <GroupeAsTabs items={mocks.repeatables} />
         </Slice>
       </Demo>
     </AppContextProvider>
@@ -40,6 +40,8 @@ function SolutionOne() {
 }
 
 export default SolutionOne;
+
+// *** <GroupeAsTabs items={mocks.repeatables} /> ***
 
 const mocks: SolutionOneSlice = {
   id: '0',
