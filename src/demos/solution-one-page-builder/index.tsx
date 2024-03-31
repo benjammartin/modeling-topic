@@ -112,8 +112,6 @@ const Editor = () => {
         return acc;
       }, []);
 
-      console.log('fields', fields);
-
       return (
         <Slice key={slice} id={slice} label={slice}>
           <List

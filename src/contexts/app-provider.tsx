@@ -36,7 +36,7 @@ const hereo = getNormalizedSlice(hereoconfig);
 const calltoaction = getNormalizedSlice(ctaconfig);
 const features = getNormalizedSlice(featuresconfig);
 const INITIAL_STATE: AppState = {
-  selected: 'hereo',
+  selected: hereo.sliceKey,
   builder: {
     root: {
       id: 'root',

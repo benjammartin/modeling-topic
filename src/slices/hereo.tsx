@@ -1,4 +1,5 @@
 import './slices.css';
+import pic from './pic.avif';
 
 interface HereoProps {
   title: string;
@@ -22,7 +23,7 @@ const Hereo: React.FC<HereoProps> = ({ title, description, button }) => {
                   <div className='button-group'>
                     {button.map(({ label }, id) => {
                       return (
-                        <a href='#' key={id} className='button  w-button'>
+                        <a href='#' key={id} className='button w-button'>
                           {label}
                         </a>
                       );
@@ -32,7 +33,7 @@ const Hereo: React.FC<HereoProps> = ({ title, description, button }) => {
               </div>
               <div className='header1_image-wrapper'>
                 <img
-                  src='https://ca.slack-edge.com/T34F9KTPT-U02DQTA81T2-92380ff34d29-512'
+                  src={pic}
                   loading='eager'
                   alt=''
                   className='header1_image'
