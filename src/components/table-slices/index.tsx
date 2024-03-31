@@ -5,8 +5,14 @@ import styles from './styles.module.css';
 import Feature from '@/slices/feature';
 import CallToAction from '@/slices/cta';
 import Testimonial from '@/slices/testimonial';
+import { useCurrentAppContext } from '@/contexts/app-provider';
+import { getProps } from '@/lib/get-props';
 
 const TableSlice: React.FC = () => {
+  const { state } = useCurrentAppContext();
+  const props = getProps(state.builder['root'], state);
+
+  console.log('props', props);
   return (
     <Box as='nav' className={styles.root}>
       <SliceCard id='hereo'>

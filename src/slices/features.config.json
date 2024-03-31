@@ -1,6 +1,6 @@
 {
-  "id": "cta",
-  "name": "Calltoaction",
+  "id": "feature",
+  "name": "Features",
   "type": "slice",
   "display": "tabs",
   "fields": {
