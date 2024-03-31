@@ -1,4 +1,4 @@
-import { getNormalizedSlice } from '@/lib/utils';
+import { getNormalizedItem, getNormalizedSlice } from '@/lib/utils';
 import { produce } from 'immer';
 import React from 'react';
 import hereoconfig from '@/slices/hereo.config.json';
@@ -14,6 +14,10 @@ type UpdateProps = {
 type ActionPayloads = {
   SELECT_ELEMENT: string;
   UPDATE_PROPS: UpdateProps;
+  ADD_ITEM: {
+    schema: Fields;
+    id: string;
+  };
 };
 
 // Represents the available actions
@@ -82,6 +86,12 @@ const reducer = produce((draft: AppState, action: AvailableAction) => {
     case 'UPDATE_PROPS': {
       draft.builder[action.payload.id].props[action.payload.name] =
         action.payload.value;
+      break;
+    }
+    case 'ADD_ITEM': {
+      const items = getNormalizedItem(action.payload.schema);
+      draft.builder[action.payload.id].children.push(items.itemKey);
+      draft.builder = { ...draft.builder, ...items.item, ...items.fields };
       break;
     }
   }

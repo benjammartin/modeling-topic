@@ -8,6 +8,7 @@ type NormalizedField = {
   type: string;
   props: Record<string, any>;
   children: string[];
+  schema?: Fields;
 };
 
 /** SCHEMA */

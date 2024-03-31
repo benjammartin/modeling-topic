@@ -20,7 +20,7 @@ export function getProps(normalized: NormalizedField, state: AppState) {
         };
         break;
       default:
-        acc[component.name] = { id: value, content: 'Demo value' };
+        acc[component.name] = { id: value, content: '' };
     }
     return acc;
   }, {});

@@ -16,6 +16,62 @@
         "name": "Description",
         "placeholder": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
       }
+    },
+    "buttons": {
+      "config": {
+        "type": "array",
+        "name": "Button",
+        "placeholder": [
+          {
+            "title": "Card 1",
+            "kind": "Card 1 description"
+          }
+        ]
+      },
+      "fields": {
+        "title": {
+          "config": {
+            "type": "text",
+            "name": "Title",
+            "placeholder": "Enter card title here"
+          }
+        },
+        "kind": {
+          "config": {
+            "type": "text",
+            "name": "Description",
+            "placeholder": "Enter card description here"
+          }
+        }
+      }
+    },
+    "cards": {
+      "config": {
+        "type": "array",
+        "name": "Card",
+        "placeholder": [
+          {
+            "title": "Card 1",
+            "kind": "Card 1 description"
+          }
+        ]
+      },
+      "fields": {
+        "title": {
+          "config": {
+            "type": "text",
+            "name": "Title",
+            "placeholder": "Enter card title here"
+          }
+        },
+        "description": {
+          "config": {
+            "type": "text",
+            "name": "Description",
+            "placeholder": "Enter card description here"
+          }
+        }
+      }
     }
   }
 }

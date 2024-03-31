@@ -11,13 +11,14 @@ export function getNormalizedSlice(schema: Schema) {
       type: schema.type,
       name: schema.name,
       children: fieldsKeys,
+      schema: schema.fields,
     },
   };
   return { slice, sliceKey: id, fields, fieldsKeys };
 }
 
 export function getNormalizedFields(schema: Fields) {
-  let subFields: Array<NormalizedField> = [];
+  const subFields: Array<NormalizedField> = [];
   const data = Object.keys(schema).reduce(
     (obj: NormalizedFields, field: string) => {
       const type = schema[field].config.type;
@@ -31,18 +32,24 @@ export function getNormalizedFields(schema: Fields) {
           obj[id] = {
             id: id,
             type: schema[field].config.type,
-            name: field,
+            name: schema[field].config.name,
             props: {},
             children: [itemKey],
+            schema: schema[field].fields,
           };
           return obj;
         default:
           obj[id] = {
             id: id,
             type: schema[field].config.type,
-            name: field,
+            name: schema[field].config.name,
             props: {},
             children: [],
+            schema: {
+              [field]: {
+                config: schema[field].config,
+              },
+            },
           };
           return obj;
       }
@@ -58,7 +65,6 @@ export function getNormalizedFields(schema: Fields) {
 export function getNormalizedItem(fields: Fields) {
   const id = `item-${nanoid()}`;
   const { fields: normalized, fieldsKeys } = getNormalizedFields(fields);
-
   return {
     fields: normalized,
     itemKey: id,
@@ -69,6 +75,7 @@ export function getNormalizedItem(fields: Fields) {
         name: 'item',
         children: fieldsKeys,
         props: {},
+        schema: fields,
       },
     },
   };

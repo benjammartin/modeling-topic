@@ -16,9 +16,21 @@ import { useCurrentAppContext } from '@/contexts/app-provider';
 
 const Accordion: React.FC<{
   items: Array<string>;
-}> = ({ items }) => {
+  id: string;
+  name: string;
+}> = ({ items, id, name }) => {
   const [prime] = items;
-  const { state } = useCurrentAppContext();
+  const { state, dispatch } = useCurrentAppContext();
+
+  const onAddNewItem = () => {
+    dispatch({
+      type: 'ADD_ITEM',
+      payload: {
+        schema: state.builder[id].schema as Fields,
+        id: id,
+      },
+    });
+  };
   return (
     <Fragment>
       <RadixAccordion.Root
@@ -32,14 +44,14 @@ const Accordion: React.FC<{
           <List
             items={items}
             renderItem={(item, i) => {
-              const ids = state.builder[item].children;
+              const ids = state.builder[item]?.children;
               const fields = getFields(ids, state);
               return (
-                <AccordionItem className={styles.item} key={i} value={prime}>
+                <AccordionItem className={styles.item} key={i} value={item}>
                   <AccordionTrigger className={styles.trigger}>
                     <Box as='span'>
                       <Chevron className={styles.chevron} />
-                      <Item /> {`${'label'} - ${prime}`}
+                      <Item /> {name} • {i}
                     </Box>
                     <Box className={styles.actions}>
                       <Box className={styles.move}>
@@ -77,7 +89,9 @@ const Accordion: React.FC<{
         )}
       </RadixAccordion.Root>
       <Box as='footer' className={styles.footer}>
-        <Button onClick={() => null}>Add new </Button>
+        <Button onClick={onAddNewItem}>
+          Add new {name.toLocaleLowerCase()}
+        </Button>
       </Box>
     </Fragment>
   );

@@ -9,11 +9,10 @@ import AppContextProvider, {
   useCurrentAppContext,
 } from '@/contexts/app-provider';
 import GroupWrapper from '@/components/group-wrapper';
-import { getFields } from '@/lib/get-props';
+import { getFields, getProps } from '@/lib/get-props';
+import GroupWrapperCollapsed from '@/components/group-wrapper-collapsed';
 
 const SolutionOnePageBuilder = () => {
-  const { state } = useCurrentAppContext();
-  const main = 'root';
   return (
     <AppContextProvider>
       <Navigation />
@@ -22,37 +21,7 @@ const SolutionOnePageBuilder = () => {
           <TableSlice />
         </Layout.Sidebar>
         <Layout.Main>
-          {state.builder[main].children.map((slice) => {
-            const ids = state.builder[slice].children;
-            const fields = getFields(ids, state);
-            return (
-              <Slice id={slice} label={slice}>
-                <List
-                  items={fields}
-                  renderItem={(props, _) => {
-                    switch (props.type) {
-                      case 'array':
-                        return (
-                          <GroupWrapper label={props.name}>
-                            <Groups key={_} items={props.children} />
-                          </GroupWrapper>
-                        );
-                      default:
-                        return (
-                          <Field
-                            id={props.id}
-                            key={props.id}
-                            type={props.type}
-                            value={'xx'}
-                            name={props.name}
-                          />
-                        );
-                    }
-                  }}
-                />
-              </Slice>
-            );
-          })}
+          <Editor />
         </Layout.Main>
       </Layout.Root>
     </AppContextProvider>
@@ -61,8 +30,44 @@ const SolutionOnePageBuilder = () => {
 
 export default SolutionOnePageBuilder;
 
-/**<Groups
-                              key={key}
-                              items={props.items}
-                              label={props.name}
-                            /> */
+const Editor = () => {
+  const main = 'root';
+  const { state } = useCurrentAppContext();
+  return state.builder[main].children.map((slice) => {
+    const ids = state.builder[slice].children;
+    const fields = getFields(ids, state);
+
+    return (
+      <Slice key={slice} id={slice} label={slice}>
+        <List
+          items={fields}
+          renderItem={(props, _) => {
+            switch (props.type) {
+              case 'array':
+                return (
+                  <GroupWrapperCollapsed label={props.name}>
+                    <Groups
+                      id={props.id}
+                      name={props.name}
+                      key={_}
+                      items={props.children}
+                    />
+                  </GroupWrapperCollapsed>
+                );
+              default:
+                return (
+                  <Field
+                    id={props.id}
+                    key={props.id}
+                    type={props.type}
+                    value={'xx'}
+                    name={props.name}
+                  />
+                );
+            }
+          }}
+        />
+      </Slice>
+    );
+  });
+};

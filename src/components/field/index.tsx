@@ -9,7 +9,7 @@ const Field: React.FC<{
   value: string;
   type: Omit<SolutionOneFieldType, 'group-item'>;
 }> = ({ name, value, id, ...props }) => {
-  const { dispatch } = useCurrentAppContext();
+  const { state, dispatch } = useCurrentAppContext();
   const onHandleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     dispatch({
       type: 'UPDATE_PROPS',
@@ -25,7 +25,7 @@ const Field: React.FC<{
         as='input'
         onChange={onHandleChange}
         placeholder='Field content'
-        value=''
+        value={state.builder[id].props[name] || value}
         className={styles.input}
         data-type={props.type}
       />
