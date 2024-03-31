@@ -112,20 +112,24 @@ const Editor = () => {
         return acc;
       }, []);
 
+      console.log('fields', fields);
+
       return (
         <Slice key={slice} id={slice} label={slice}>
           <List
             items={fields}
             renderItem={(props) => {
-              return (
-                <Field
-                  id={props.id}
-                  key={props.id}
-                  type={props.type}
-                  value={'xx'}
-                  name={props.name}
-                />
-              );
+              if (props.type != 'array') {
+                return (
+                  <Field
+                    id={props.id}
+                    key={props.id}
+                    type={props.type}
+                    value={'xx'}
+                    name={props.name}
+                  />
+                );
+              }
             }}
           />
           <GroupeAsTabs items={tabs} />
