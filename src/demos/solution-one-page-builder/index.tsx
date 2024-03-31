@@ -9,7 +9,7 @@ import AppContextProvider, {
   useCurrentAppContext,
 } from '@/contexts/app-provider';
 import GroupWrapper from '@/components/group-wrapper';
-import { getFields } from '@/lib/get-props';
+import { getFields, getProps } from '@/lib/get-props';
 import GroupWrapperCollapsed from '@/components/group-wrapper-collapsed';
 import GroupeAsTabs from '@/components/groups-as-tabs/group-as-tabs';
 

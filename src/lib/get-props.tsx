@@ -1,34 +1,42 @@
+type Field = {
+  [key: string]: string | undefined;
+};
+
+type Props = {
+  [key: string]: string | Field[] | Field | Props;
+};
+
 export function getProps(normalized: NormalizedField, state: AppState) {
-  const props = normalized.children.reduce((acc: any, value: string) => {
+  return normalized.children.reduce((acc: Props, value: string) => {
     const slice = state.builder[value];
-    acc[slice.name] = slice.children.reduce((acc: any, value: string) => {
-      const component = state.builder[value];
-      const type = component.type;
-      switch (type) {
-        case 'array':
-          return (
-            (acc[component.name.toLocaleLowerCase()] = component.children.map(
-              (child) => {
-                return state.builder[child].children.reduce((acc, c) => {
-                  const item = state.builder[c];
-                  return (acc[item.name] = item.props[item.name]);
-                }, {});
+    acc[slice.name] = slice.children.reduce(
+      (innerAcc: Props, innerValue: string) => {
+        const component = state.builder[innerValue];
+        const type = component.type;
+        const componentName = component.name.toLocaleLowerCase();
+
+        if (type === 'array') {
+          innerAcc[componentName] = component.children.map((child) => {
+            return state.builder[child].children.reduce(
+              (childAcc: Field, c) => {
+                const item = state.builder[c];
+                childAcc[item.name.toLocaleLowerCase()] = item.props[item.name];
+                return childAcc;
               },
-            )),
-            acc
-          );
-        default:
-          return (
-            (acc[component.name.toLocaleLowerCase()] =
-              component.props[component.name]),
-            acc
-          );
-      }
-    }, {});
+              {},
+            );
+          });
+        } else {
+          innerAcc[componentName] = component.props[component.name];
+        }
+
+        return innerAcc;
+      },
+      {},
+    );
 
     return acc;
   }, {});
-  return props;
 }
 
 export function getFields(ids: Array<string>, state: AppState) {

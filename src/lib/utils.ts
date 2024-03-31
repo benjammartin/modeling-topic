@@ -34,7 +34,9 @@ export function getNormalizedFields(schema: Fields) {
             id: id,
             type: schema[field].config.type,
             name: schema[field].config.name,
-            props: {},
+            props: {
+              [schema[field].config.name]: schema[field].config.placeholder,
+            },
             children: [itemKey],
             schema: schema[field].fields,
           };
@@ -44,7 +46,9 @@ export function getNormalizedFields(schema: Fields) {
             id: id,
             type: schema[field].config.type,
             name: schema[field].config.name,
-            props: {},
+            props: {
+              [schema[field].config.name]: schema[field].config.placeholder,
+            },
             children: [],
             schema: {
               [field]: {
