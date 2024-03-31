@@ -1,11 +1,5 @@
-import SolutionOne from './demos/solution-one';
-
 function App() {
-  return (
-    <>
-      <SolutionOne />
-    </>
-  );
+  return <>xx</>;
 }
 
 export default App;
