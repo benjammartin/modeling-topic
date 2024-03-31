@@ -22,6 +22,7 @@ const Tabs: React.FC<TabsProps> = ({ items }) => {
               value={item.id}
               key={i}
               className={styles.trigger}
+              asChild
             >
               <Box as='p'>{item.name + 's'}</Box>
             </RadixTabs.Trigger>

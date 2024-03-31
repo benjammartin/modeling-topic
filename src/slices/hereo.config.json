@@ -22,54 +22,21 @@
       "config": {
         "type": "array",
         "name": "Button",
-        "placeholder": [
-          {
-            "title": "Card 1",
-            "kind": "Card 1 description"
-          }
-        ]
+        "placeholder": {}
       },
       "fields": {
         "title": {
           "config": {
             "type": "text",
-            "name": "Title",
-            "placeholder": "Enter card title here"
+            "name": "Label",
+            "placeholder": "Click here"
           }
         },
         "kind": {
           "config": {
             "type": "text",
-            "name": "Description",
-            "placeholder": "Enter card description here"
-          }
-        }
-      }
-    },
-    "cards": {
-      "config": {
-        "type": "array",
-        "name": "Card",
-        "placeholder": [
-          {
-            "title": "Card 1",
-            "kind": "Card 1 description"
-          }
-        ]
-      },
-      "fields": {
-        "title": {
-          "config": {
-            "type": "text",
-            "name": "Title",
-            "placeholder": "Enter card title here"
-          }
-        },
-        "description": {
-          "config": {
-            "type": "text",
-            "name": "Description",
-            "placeholder": "Enter card description here"
+            "name": "Kind",
+            "placeholder": "Primary"
           }
         }
       }

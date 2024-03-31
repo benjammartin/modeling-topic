@@ -1,7 +1,6 @@
 import Box from '@/components/primitives/box';
 import * as Collapsible from '@radix-ui/react-collapsible';
 import styles from './styles.module.css';
-import Item from '../icons/item';
 import Chevron from '../icons/chevron';
 
 const GroupWrapperCollapsed: React.FC<{

@@ -49,22 +49,24 @@ const Accordion: React.FC<{
               return (
                 <AccordionItem className={styles.item} key={i} value={item}>
                   <AccordionTrigger className={styles.trigger}>
-                    <Box as='span'>
-                      <Chevron className={styles.chevron} />
-                      <Item /> {name} • {i}
-                    </Box>
-                    <Box className={styles.actions}>
-                      <Box className={styles.move}>
-                        <ButtonIcon direction='left'>
-                          <Movedown />
-                        </ButtonIcon>
-                        <ButtonIcon direction='right'>
-                          <Moveup />
+                    <Box>
+                      <Box as='span'>
+                        <Chevron className={styles.chevron} />
+                        <Item /> {name} • {i}
+                      </Box>
+                      <Box className={styles.actions}>
+                        <Box className={styles.move}>
+                          <ButtonIcon direction='left'>
+                            <Movedown />
+                          </ButtonIcon>
+                          <ButtonIcon direction='right'>
+                            <Moveup />
+                          </ButtonIcon>
+                        </Box>
+                        <ButtonIcon>
+                          <Trash />
                         </ButtonIcon>
                       </Box>
-                      <ButtonIcon>
-                        <Trash />
-                      </ButtonIcon>
                     </Box>
                   </AccordionTrigger>
                   <AccordionContent className={styles.content}>
@@ -127,6 +129,7 @@ const AccordionTrigger: React.FC<{
   ) => (
     <RadixAccordion.Header className={styles.header}>
       <RadixAccordion.Trigger
+        asChild
         className={className}
         ref={forwardedRef}
         {...props}

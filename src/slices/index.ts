@@ -2,6 +2,7 @@ import hero from './hereo';
 import heroConfig from './hereo.config.json';
 import ctaConfig from './cta.config.json';
 import CallToAction from './cta';
+import Feature from './feature';
 
 export const configs = {
   hero: heroConfig,
@@ -14,5 +15,6 @@ interface Components {
 
 export const components: Components = {
   Hero: hero,
-  Cta: CallToAction,
+  Calltoaction: CallToAction,
+  Features: Feature,
 };

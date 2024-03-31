@@ -43,20 +43,19 @@ const INITIAL_STATE: AppState = {
       type: 'page',
       name: 'root',
       props: {},
-      children: [hereo.sliceKey],
+      children: [hereo.sliceKey, features.sliceKey, calltoaction.sliceKey],
     },
     ...hereo.slice,
     ...hereo.fields,
-    /**    ...calltoaction.slice,
+    ...calltoaction.slice,
     ...calltoaction.fields,
     ...features.slice,
-    ...features.fields */
+    ...features.fields,
   },
   anchors: {
-    hereo: React.createRef(),
-    features: React.createRef(),
-    testimonial: React.createRef(),
-    calltoaction: React.createRef(),
+    [hereo.sliceKey]: React.createRef(),
+    [features.sliceKey]: React.createRef(),
+    [calltoaction.sliceKey]: React.createRef(),
   },
 };
 

@@ -9,7 +9,7 @@ import AppContextProvider, {
   useCurrentAppContext,
 } from '@/contexts/app-provider';
 import GroupWrapper from '@/components/group-wrapper';
-import { getFields, getProps } from '@/lib/get-props';
+import { getFields } from '@/lib/get-props';
 import GroupWrapperCollapsed from '@/components/group-wrapper-collapsed';
 import GroupeAsTabs from '@/components/groups-as-tabs/group-as-tabs';
 
@@ -46,7 +46,7 @@ const Editor = () => {
             renderItem={(props, _) => {
               if (props.type === 'array') {
                 return (
-                  <GroupWrapperCollapsed label={props.name}>
+                  <GroupWrapperCollapsed label={props.name} key={props.id}>
                     <Groups
                       id={props.id}
                       name={props.name}
@@ -79,7 +79,7 @@ const Editor = () => {
             renderItem={(props, _) => {
               if (props.type === 'array') {
                 return (
-                  <GroupWrapper label={props.name}>
+                  <GroupWrapper label={props.name} key={props.id}>
                     <Groups
                       id={props.id}
                       name={props.name}
@@ -116,7 +116,7 @@ const Editor = () => {
         <Slice key={slice} id={slice} label={slice}>
           <List
             items={fields}
-            renderItem={(props, _) => {
+            renderItem={(props) => {
               return (
                 <Field
                   id={props.id}

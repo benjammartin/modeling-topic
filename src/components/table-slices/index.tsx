@@ -1,32 +1,30 @@
 import SliceCard from '../card';
-import Hereo from '@/slices/hereo';
 import Box from '../primitives/box';
 import styles from './styles.module.css';
-import Feature from '@/slices/feature';
-import CallToAction from '@/slices/cta';
-import Testimonial from '@/slices/testimonial';
 import { useCurrentAppContext } from '@/contexts/app-provider';
-import { getProps } from '@/lib/get-props';
+import { getSlices } from '@/lib/get-props';
+import List from '../primitives/list';
+import * as Slices from '@/slices';
 
 const TableSlice: React.FC = () => {
   const { state } = useCurrentAppContext();
-  const props = getProps(state.builder['root'], state);
+  const slices = getSlices(state.builder['root'], state);
+  const list = Object.keys(slices);
 
-  console.log('props', props);
+  const renderSlice = (slice: string) => {
+    const { id, props } = slices[slice];
+    const Component = Slices.components[slice];
+
+    return (
+      <SliceCard key={id} id={id}>
+        <Component {...props} />
+      </SliceCard>
+    );
+  };
+
   return (
     <Box as='nav' className={styles.root}>
-      <SliceCard id='hereo'>
-        <Hereo />
-      </SliceCard>
-      <SliceCard id='testimonial'>
-        <Testimonial />
-      </SliceCard>
-      <SliceCard id='features'>
-        <Feature />
-      </SliceCard>
-      <SliceCard id='calltoaction'>
-        <CallToAction />
-      </SliceCard>
+      <List items={list} renderItem={renderSlice} />
     </Box>
   );
 };
