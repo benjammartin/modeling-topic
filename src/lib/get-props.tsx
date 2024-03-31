@@ -1,6 +1,6 @@
 type Prop = Record<string, string>;
 
-type Props = Record<string, Array<Prop>>;
+type Props = Record<string, Array<Prop> | Prop>;
 
 interface Slice {
   [key: string]: {

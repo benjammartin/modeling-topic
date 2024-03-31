@@ -26,20 +26,22 @@ export function getNormalizedFields(schema: Fields) {
       const id = `field-${nanoid()}`;
       switch (type) {
         case 'array':
-          const { item, fields, itemKey } = getNormalizedItem(
-            schema[field].fields as Fields,
-          );
-          subFields.push(Object.assign({}, item, fields));
-          obj[id] = {
-            id: id,
-            type: schema[field].config.type,
-            name: schema[field].config.name,
-            props: {
-              [schema[field].config.name]: schema[field].config.placeholder,
-            },
-            children: [itemKey],
-            schema: schema[field].fields,
-          };
+          {
+            const { item, fields, itemKey } = getNormalizedItem(
+              schema[field].fields as Fields,
+            );
+            subFields.push(Object.assign({}, item, fields));
+            obj[id] = {
+              id: id,
+              type: schema[field].config.type,
+              name: schema[field].config.name,
+              props: {
+                [schema[field].config.name]: schema[field].config.placeholder,
+              },
+              children: [itemKey],
+              schema: schema[field].fields,
+            };
+          }
           return obj;
         default:
           obj[id] = {

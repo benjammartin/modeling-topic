@@ -7,7 +7,7 @@ const Field: React.FC<{
   id: string;
   name: string;
   value: string;
-  type: Omit<SolutionOneFieldType, 'group-item'>;
+  type: string;
 }> = ({ name, value, id, ...props }) => {
   const { state, dispatch } = useCurrentAppContext();
   const onHandleChange = (e: React.ChangeEvent<HTMLInputElement>) => {

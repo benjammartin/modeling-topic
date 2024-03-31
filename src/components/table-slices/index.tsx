@@ -11,8 +11,6 @@ const TableSlice: React.FC = () => {
   const slices = getSlices(state.builder['root'], state);
   const list = Object.keys(slices);
 
-  console.log(state);
-
   const renderSlice = (slice: string) => {
     const { id, props } = slices[slice];
     const Component = Slices.components[slice];

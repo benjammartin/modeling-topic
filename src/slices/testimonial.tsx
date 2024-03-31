@@ -1,6 +1,6 @@
 import './slices.css';
 
-interface TestimonialProps {
+export interface TestimonialProps {
   title: string;
   description: string;
   button: Array<{ label: string; kind: string }>;

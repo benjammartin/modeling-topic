@@ -5,17 +5,16 @@ import Field from '@/components/field';
 import Navigation from '@/components/navigation';
 import Groups from '@/components/accordion';
 import TableSlice from '@/components/table-slices';
-import AppContextProvider, {
-  useCurrentAppContext,
-} from '@/contexts/app-provider';
+import { useCurrentAppContext } from '@/contexts/app-provider';
 import GroupWrapper from '@/components/group-wrapper';
 import { getFields } from '@/lib/get-props';
 import GroupWrapperCollapsed from '@/components/group-wrapper-collapsed';
 import GroupeAsTabs from '@/components/groups-as-tabs/group-as-tabs';
+import { Fragment } from 'react/jsx-runtime';
 
 const SolutionOnePageBuilder = () => {
   return (
-    <AppContextProvider>
+    <Fragment>
       <Navigation />
       <Layout.Root>
         <Layout.Sidebar>
@@ -25,7 +24,7 @@ const SolutionOnePageBuilder = () => {
           <Editor />
         </Layout.Main>
       </Layout.Root>
-    </AppContextProvider>
+    </Fragment>
   );
 };
 
