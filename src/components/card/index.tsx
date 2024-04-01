@@ -24,7 +24,6 @@ const SliceCard: React.FC<{
   };
 
   const onSelect = () => {
-    console.log('onSelect', id);
     dispatch({ type: 'SELECT_ELEMENT', payload: id });
     handleScroll(state.anchors[id]);
   };

@@ -20,6 +20,7 @@ const Accordion: React.FC<{
   name: string;
 }> = ({ items, id, name }) => {
   const [prime] = items;
+  const [defaultValue, setDefaultValue] = React.useState<string>(prime);
   const { state, dispatch } = useCurrentAppContext();
 
   const onAddNewItem = () => {
@@ -31,11 +32,19 @@ const Accordion: React.FC<{
       },
     });
   };
+
+  React.useEffect(() => {
+    if (items.length > 0) {
+      setDefaultValue(items[items.length - 1]);
+    }
+  }, [items]);
+
   return (
     <Fragment>
       <RadixAccordion.Root
         type='single'
         defaultValue={prime}
+        value={defaultValue}
         collapsible
         className={styles.root}
         orientation='vertical'

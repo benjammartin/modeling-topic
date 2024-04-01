@@ -31,6 +31,7 @@ export function getNormalizedFields(schema: Fields) {
               schema[field].fields as Fields,
             );
             subFields.push(Object.assign({}, item, fields));
+
             obj[id] = {
               id: id,
               type: schema[field].config.type,
@@ -42,8 +43,9 @@ export function getNormalizedFields(schema: Fields) {
               schema: schema[field].fields,
             };
           }
+
           return obj;
-        default:
+        default: {
           obj[id] = {
             id: id,
             type: schema[field].config.type,
@@ -58,7 +60,9 @@ export function getNormalizedFields(schema: Fields) {
               },
             },
           };
+
           return obj;
+        }
       }
     },
     {},
@@ -77,7 +81,6 @@ export function getNormalizedFields(schema: Fields) {
 export function getNormalizedItem(fields: Fields) {
   const id = `item-${nanoid()}`;
   const { fields: normalized, fieldsKeys } = getNormalizedFields(fields);
-
   return {
     fields: normalized,
     itemKey: id,
@@ -93,3 +96,26 @@ export function getNormalizedItem(fields: Fields) {
     },
   };
 }
+
+/** TODO */
+
+/**class Item {
+  public id: string;
+  public type: string;
+  public name: string;
+  public props: Record<string, string>;
+  public schema: Fields;
+  public children: Array<string>;
+  constructor(public field: Field) {
+    this.id = `${field.config.type}-${nanoid()}`;
+    this.type = this.field.config.type;
+    this.name = this.field.config.name;
+    this.props = {
+      [this.name]: this.field.config.placeholder as string,
+    };
+    this.schema = {
+      [this.name]: { config: this.field.config },
+    };
+    this.children = [];
+  }
+} */
