@@ -1,6 +1,7 @@
 import Box from '@/components/primitives/box';
 import styles from './styles.module.css';
 import { useCurrentAppContext } from '@/contexts/app-provider';
+import { Scramble } from '../scramble';
 
 const Slice: React.FC<{
   children: React.ReactNode;
@@ -25,7 +26,9 @@ const Slice: React.FC<{
       onClick={onSelect}
     >
       <Box as='header' className={styles.header}>
-        <Box>{label}</Box>
+        <Box>
+          <Scramble content={label} size={2} />
+        </Box>
       </Box>
       <Box as='main' className={styles.main}>
         {children}

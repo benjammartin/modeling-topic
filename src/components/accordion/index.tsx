@@ -45,6 +45,7 @@ const Accordion: React.FC<{
         type='single'
         defaultValue={prime}
         value={defaultValue}
+        onValueChange={(value) => setDefaultValue(value)}
         collapsible
         className={styles.root}
         orientation='vertical'
