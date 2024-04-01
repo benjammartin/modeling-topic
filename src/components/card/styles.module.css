@@ -72,3 +72,9 @@
   letter-spacing: 0;
   font-weight: 400;
 }
+
+.actions {
+  align-items: center;
+  display: flex;
+  gap: 8px;
+}

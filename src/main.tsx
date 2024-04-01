@@ -17,7 +17,7 @@ const router = createBrowserRouter([
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.Fragment>
+  <React.StrictMode>
     <RouterProvider router={router} />
-  </React.Fragment>,
+  </React.StrictMode>,
 );

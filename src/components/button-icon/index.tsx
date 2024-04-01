@@ -6,15 +6,12 @@ type DirProps = 'default' | 'middle' | 'left' | 'right';
 const ButtonIcon: React.FC<{
   children: React.ReactNode;
   direction?: DirProps;
-}> = ({ children, direction = 'default' }) => {
-  const handleClick = (e: React.MouseEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
-  };
+  onClick?: (e: React.MouseEvent) => void;
+}> = ({ children, direction = 'default', onClick }) => {
   return (
     <Box
       as='button'
-      onClick={handleClick}
+      onClick={onClick}
       className={styles.root}
       data-direction={direction}
     >
