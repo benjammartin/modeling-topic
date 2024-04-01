@@ -39,7 +39,7 @@ const Editor = () => {
     const fields = getFields(ids, state);
     if (display === 'collapsible') {
       return (
-        <Slice key={slice} id={slice} label={slice}>
+        <Slice key={slice} id={slice} label={state.builder[slice].name}>
           <List
             items={fields}
             renderItem={(props, _) => {
@@ -72,7 +72,7 @@ const Editor = () => {
     }
     if (display === 'default') {
       return (
-        <Slice key={slice} id={slice} label={slice}>
+        <Slice key={slice} id={slice} label={state.builder[slice].name}>
           <List
             items={fields}
             renderItem={(props, _) => {
@@ -112,7 +112,7 @@ const Editor = () => {
       }, []);
 
       return (
-        <Slice key={slice} id={slice} label={slice}>
+        <Slice key={slice} id={slice} label={state.builder[slice].name}>
           <List
             items={fields}
             renderItem={(props) => {

@@ -69,9 +69,15 @@ export function getNormalizedFields(schema: Fields) {
   };
 }
 
+/**
+ * Generates a normalized item with a unique ID and normalized fields.
+ *
+ * @param {Fields} fields - The fields to normalize.
+ */
 export function getNormalizedItem(fields: Fields) {
   const id = `item-${nanoid()}`;
   const { fields: normalized, fieldsKeys } = getNormalizedFields(fields);
+
   return {
     fields: normalized,
     itemKey: id,

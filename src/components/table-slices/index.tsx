@@ -14,9 +14,12 @@ const TableSlice: React.FC = () => {
   const renderSlice = (slice: string) => {
     const { id, props } = slices[slice];
     const Component = Slices.components[slice];
+    const { name } = state.builder[id];
+
+    console.log('Component', state.builder[id]);
 
     return (
-      <SliceCard key={id} id={id}>
+      <SliceCard key={id} id={id} name={name}>
         <Component {...props} />
       </SliceCard>
     );
@@ -24,7 +27,7 @@ const TableSlice: React.FC = () => {
 
   return (
     <Box as='nav' className={styles.root}>
-      <List items={list} renderItem={renderSlice} />
+      <List className={styles.list} items={list} renderItem={renderSlice} />
     </Box>
   );
 };

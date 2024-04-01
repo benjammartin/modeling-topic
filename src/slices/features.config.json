@@ -2,7 +2,7 @@
   "id": "feature",
   "name": "Features",
   "type": "slice",
-  "display": "tabs",
+  "display": "collapsible",
   "fields": {
     "title": {
       "config": {

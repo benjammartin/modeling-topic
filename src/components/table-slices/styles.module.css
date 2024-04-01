@@ -3,6 +3,6 @@
   top: 96px;
 }
 
-.root > * + * {
+.list > * + * {
   margin-top: 16px;
 }

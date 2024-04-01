@@ -9,7 +9,8 @@ import * as Card from '@/components/primitives/card';
 const SliceCard: React.FC<{
   children: React.ReactNode;
   id: string;
-}> = ({ children, id }) => {
+  name: string;
+}> = ({ children, id, name }) => {
   const { state, dispatch } = useCurrentAppContext();
 
   const handleScroll = (ref: React.RefObject<HTMLElement>) => {
@@ -48,7 +49,7 @@ const SliceCard: React.FC<{
       <Card.Metas className={styles.metas}>
         <Box>
           <Box as='p' className={styles.title}>
-            Header
+            {name}
           </Box>
           <Box as='p' className={styles.variation}>
             Default
