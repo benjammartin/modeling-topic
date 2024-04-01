@@ -39,6 +39,7 @@
   flex: 1 1 0%;
   background: #f9f8f9;
   cursor: pointer;
+  position: relative;
 }
 
 .trigger:hover {

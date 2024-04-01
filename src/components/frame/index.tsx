@@ -2,7 +2,7 @@ import Box from '../primitives/box';
 import React from 'react';
 
 const Frame: React.FC<{ children: React.ReactNode; scale?: number }> = ({
-  scale = 0.134667,
+  scale = 0.127667,
   children,
 }) => {
   const SCALE_FACTOR = scale;

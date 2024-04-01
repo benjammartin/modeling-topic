@@ -21,6 +21,7 @@ const Accordion: React.FC<{
 }> = ({ items, id, name }) => {
   const [prime] = items;
   const [defaultValue, setDefaultValue] = React.useState<string>(prime);
+
   const { state, dispatch } = useCurrentAppContext();
 
   const onAddNewItem = () => {
@@ -132,12 +133,18 @@ const AccordionItem: React.FC<{
 const AccordionTrigger: React.FC<{
   children: React.ReactNode;
   className?: string;
+  onMouseOver?: React.MouseEventHandler<HTMLHeadingElement> | undefined;
+  onMouseLeave?: React.MouseEventHandler<HTMLHeadingElement> | undefined;
 }> = React.forwardRef(
   (
-    { children, className, ...props },
+    { children, className, onMouseOver, onMouseLeave, ...props },
     forwardedRef: React.Ref<HTMLButtonElement>,
   ) => (
-    <RadixAccordion.Header className={styles.header}>
+    <RadixAccordion.Header
+      className={styles.header}
+      onMouseOver={onMouseOver}
+      onMouseLeave={onMouseLeave}
+    >
       <RadixAccordion.Trigger
         asChild
         className={className}
