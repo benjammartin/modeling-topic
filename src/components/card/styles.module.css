@@ -7,7 +7,6 @@
 
 .root[data-selected='true'] {
   opacity: 1;
-  pointer-events: none;
 }
 
 .display {
@@ -74,6 +73,8 @@
 }
 
 .actions {
+  position: relative;
+  z-index: 3;
   align-items: center;
   display: flex;
   gap: 8px;
