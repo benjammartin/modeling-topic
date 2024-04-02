@@ -38,9 +38,9 @@ const Testimonial: React.FC<TestimonialProps> = ({ card, button }) => {
             </div>
 
             <div className='testimonial17_component'>
-              {card.map(({ title, description }) => {
+              {card.map(({ title, description }, id) => {
                 return (
-                  <div className='testimonial17_content'>
+                  <div key={id} className='testimonial17_content'>
                     <div className='margin-bottom margin-small'>
                       <h3 className='text-size-medium'>{title}</h3>
                       <div className='text-size-medium'>{description}</div>

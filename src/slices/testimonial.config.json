@@ -2,7 +2,7 @@
   "id": "testimonial",
   "name": "Testimonial",
   "type": "slice",
-  "display": "collapsible",
+  "display": "tabs",
   "fields": {
     "title": {
       "config": {
