@@ -4,6 +4,9 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './reset.css';
 import SolutionOnePageBuilder from './demos/solution-one-page-builder/index.tsx';
 import AppContextProvider from './contexts/app-provider.tsx';
+import SolutionOneTabsPageBuilder from './demos/solution-one-tabs/index.tsx';
+import SolutionThreePageBuilder from './demos/solution-three-collaps-group/index.tsx';
+import SolutionTwoPageBuilder from './demos/solution-two/index.tsx';
 
 const router = createBrowserRouter([
   {
@@ -11,6 +14,30 @@ const router = createBrowserRouter([
     element: (
       <AppContextProvider>
         <SolutionOnePageBuilder />
+      </AppContextProvider>
+    ),
+  },
+  {
+    path: '/solution-one',
+    element: (
+      <AppContextProvider>
+        <SolutionOneTabsPageBuilder />
+      </AppContextProvider>
+    ),
+  },
+  {
+    path: '/solution-three',
+    element: (
+      <AppContextProvider>
+        <SolutionThreePageBuilder />
+      </AppContextProvider>
+    ),
+  },
+  {
+    path: '/solution-two',
+    element: (
+      <AppContextProvider>
+        <SolutionTwoPageBuilder />
       </AppContextProvider>
     ),
   },
