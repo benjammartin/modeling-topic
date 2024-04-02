@@ -1,8 +1,9 @@
+import { useCurrentAppContext } from '@/contexts/app-provider';
 import Box from '../primitives/box';
 import React from 'react';
 
 const Frame: React.FC<{ children: React.ReactNode; scale?: number }> = ({
-  scale = 0.127667,
+  scale = 0.135,
   children,
 }) => {
   const SCALE_FACTOR = scale;
@@ -10,14 +11,15 @@ const Frame: React.FC<{ children: React.ReactNode; scale?: number }> = ({
   const ref = React.useRef<HTMLIFrameElement>(null);
   const [height, setHeight] = React.useState<number>(500);
   const [resize, setResize] = React.useState<number>(100);
+  const { state } = useCurrentAppContext();
   React.useEffect(() => {
     if (ref.current) {
       setHeight(ref.current.scrollHeight || 500);
     }
-  }, [height]);
+  }, [height, state.builder]);
   React.useEffect(() => {
     setResize(height * SCALE_FACTOR);
-  }, [height, SCALE_FACTOR]);
+  }, [height, SCALE_FACTOR, state.builder]);
   return (
     <Box
       as='div'

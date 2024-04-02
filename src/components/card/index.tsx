@@ -42,7 +42,9 @@ const SliceCard: React.FC<{
     >
       <Card.Preview className={styles.preview}>
         <Box as='div' className={styles.display}>
-          <Box as='div'>1</Box>
+          <Box as='div' className={styles.position}>
+            1
+          </Box>
           <Box as='div' className={styles.main}>
             <Frame>{children}</Frame>
           </Box>
