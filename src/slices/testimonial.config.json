@@ -8,14 +8,14 @@
       "config": {
         "type": "text",
         "name": "Title",
-        "placeholder": "Hero title"
+        "placeholder": "Client Testimonials"
       }
     },
     "description": {
       "config": {
         "type": "text",
         "name": "Description",
-        "placeholder": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+        "placeholder": "We create products and experiences that grow ambitious brands."
       }
     },
     "buttons": {
@@ -29,7 +29,7 @@
           "config": {
             "type": "text",
             "name": "Label",
-            "placeholder": "Enter button label here"
+            "placeholder": "See what we can do"
           }
         },
         "kind": {
@@ -52,14 +52,14 @@
           "config": {
             "type": "text",
             "name": "Title",
-            "placeholder": "Enter card title here"
+            "placeholder": "Apples"
           }
         },
         "description": {
           "config": {
             "type": "text",
             "name": "Description",
-            "placeholder": "Enter card description here"
+            "placeholder": "ABC blew me away with their incredible service and creativity. They nailed it! - Sarah Johnson"
           }
         }
       }

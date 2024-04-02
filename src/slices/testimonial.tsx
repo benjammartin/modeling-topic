@@ -7,7 +7,12 @@ export interface TestimonialProps {
   card: Array<{ title: string; description: string }>;
 }
 
-const Testimonial: React.FC<TestimonialProps> = ({ card, button }) => {
+const Testimonial: React.FC<TestimonialProps> = ({
+  title,
+  description,
+  card,
+  button,
+}) => {
   return (
     <section className='section_testimonial17 SECTION_TO_KEEP section-ps'>
       <div className='padding-global'>
@@ -17,11 +22,9 @@ const Testimonial: React.FC<TestimonialProps> = ({ card, button }) => {
               <div className='text-align-center'>
                 <div className='max-width-large align-center'>
                   <div className='margin-bottom margin-small'>
-                    <h2>Headline</h2>
+                    <h2>{title}</h2>
                   </div>
-                  <p className='text-size-medium'>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  </p>
+                  <p className='text-size-medium'>{description}</p>
                 </div>
                 <div>
                   <div className='button-group justify-center margin-small'>
