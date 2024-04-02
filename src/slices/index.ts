@@ -4,6 +4,7 @@ import ctaConfig from './cta.config.json';
 import CallToAction from './cta';
 import Feature from './feature';
 import Testimonial from './testimonial';
+import FAQ from './faq';
 
 export const configs = {
   hero: heroConfig,
@@ -19,4 +20,5 @@ export const components: Components = {
   Calltoaction: CallToAction,
   Features: Feature,
   Testimonial: Testimonial,
+  FAQ: FAQ,
 };
