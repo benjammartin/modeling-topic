@@ -8,20 +8,20 @@
       "config": {
         "type": "text",
         "name": "Title",
-        "placeholder": "Hero title"
+        "placeholder": "ABC Agency"
       }
     },
     "description": {
       "config": {
         "type": "text",
         "name": "Description",
-        "placeholder": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        "placeholder": "We are a design and innovation company. Find growth for your brand."
       }
     },
-    "clients": {
+    "buttons": {
       "config": {
         "type": "array",
-        "name": "Client",
+        "name": "Button",
         "placeholder": {}
       },
       "fields": {
@@ -29,7 +29,7 @@
           "config": {
             "type": "text",
             "name": "Label",
-            "placeholder": "Click here"
+            "placeholder": "Contact"
           }
         },
         "kind": {

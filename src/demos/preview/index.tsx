@@ -1,7 +1,6 @@
 import Box from '@/components/primitives/box';
 import { useCurrentAppContext } from '@/contexts/app-provider';
 import { getSlices } from '@/lib/get-props';
-
 import * as Slices from '@/slices';
 import List from '@/components/primitives/list';
 
