@@ -12,7 +12,7 @@ const Hereo: React.FC<HereoProps> = ({ title, description, client }) => {
       <div className='padding-global'>
         <div className='container-large'>
           <div className='padding-section-large'>
-            <div className='w-layout-grid header1_component'>
+            <div className='header1_component'>
               <div className='header1_content'>
                 <div className='margin-bottom margin-small'>
                   <h1>{title}</h1>
