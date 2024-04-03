@@ -1,6 +1,17 @@
+import React from 'react';
 import './slices.css';
 
-const CallToAction = () => {
+interface CallToActionProps {
+  title: string;
+  description: string;
+  button: string;
+}
+
+const CallToAction: React.FC<CallToActionProps> = ({
+  title,
+  description,
+  button,
+}) => {
   return (
     <section className='section_cta7 SECTION_TO_KEEP section-ps-cyan'>
       <div className='padding-global'>
@@ -10,19 +21,14 @@ const CallToAction = () => {
               <div className='cta7_content'>
                 <div className='max-width-large'>
                   <div className='margin-bottom margin-xsmall'>
-                    <h3>Medium length heading goes here</h3>
+                    <h3>{title}</h3>
                   </div>
-                  <p className='text-size-medium'>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.{' '}
-                  </p>
+                  <p className='text-size-medium'>{description}</p>
                 </div>
               </div>
               <div className='cta7_button-row'>
                 <a href='#' className='button w-button'>
-                  Button
-                </a>
-                <a href='#' className='button is-secondary w-button'>
-                  Button
+                  {button}
                 </a>
               </div>
             </div>
