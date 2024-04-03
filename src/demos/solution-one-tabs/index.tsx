@@ -47,6 +47,7 @@ const Editor = () => {
             if (props.type != 'array') {
               return (
                 <Field
+                  format={props.format}
                   id={props.id}
                   key={props.id}
                   type={props.type}

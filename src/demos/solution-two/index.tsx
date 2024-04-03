@@ -53,6 +53,7 @@ const Editor = () => {
             } else {
               return (
                 <Field
+                  format={props.format}
                   id={props.id}
                   key={props.id}
                   type={props.type}

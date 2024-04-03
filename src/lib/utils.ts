@@ -50,6 +50,7 @@ export function getNormalizedFields(schema: Fields) {
             id: id,
             type: schema[field].config.type,
             name: schema[field].config.name,
+            format: schema[field].config.format,
             props: {
               [schema[field].config.name]: schema[field].config.placeholder,
             },

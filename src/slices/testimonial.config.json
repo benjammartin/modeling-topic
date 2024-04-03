@@ -8,7 +8,8 @@
       "config": {
         "type": "text",
         "name": "Title",
-        "placeholder": "Client Testimonials"
+        "placeholder": "Client Testimonials",
+        "format": "headingTwo"
       }
     },
     "description": {
@@ -52,7 +53,8 @@
           "config": {
             "type": "text",
             "name": "Title",
-            "placeholder": "Apples"
+            "placeholder": "Apples",
+            "format": "headingThree"
           }
         },
         "description": {

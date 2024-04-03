@@ -12,6 +12,7 @@ type NormalizedField = {
   children: string[];
   schema?: Fields;
   display?: Display;
+  format?: string;
 };
 
 /** SCHEMA */
@@ -19,6 +20,7 @@ interface Config {
   type: string;
   name: string;
   placeholder: unknown;
+  format?: string;
 }
 
 interface Field {

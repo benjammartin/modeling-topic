@@ -8,14 +8,16 @@
       "config": {
         "type": "text",
         "name": "Title",
-        "placeholder": "ABC Agency"
+        "placeholder": "ABC Agency",
+        "format": "headingOne"
       }
     },
     "description": {
       "config": {
         "type": "text",
         "name": "Description",
-        "placeholder": "We are a design and innovation company. Find growth for your brand."
+        "placeholder": "We are a design and innovation company. Find growth for your brand.",
+        "format": "paragraph"
       }
     },
     "buttons": {

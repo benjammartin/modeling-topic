@@ -1,18 +1,29 @@
-const FAQ = () => {
+interface FAQProps {
+  title: string;
+  description: string;
+  bottom_title: string;
+  bottom_description: string;
+  button: string;
+}
+
+const FAQ: React.FC<FAQProps> = ({
+  title,
+  description,
+  bottom_description,
+  bottom_title,
+  button,
+}) => {
   return (
-    <div className='padding-global section-ps-pink'>
+    <div className='padding-global section-ps-orange'>
       <div className='container-small'>
         <div className='padding-section-large'>
           <div className='margin-bottom margin-xxlarge'>
             <div className='text-align-center'>
               <div className='max-width-large'>
                 <div className='margin-bottom margin-small'>
-                  <h2>FAQs</h2>
+                  <h2>{title}</h2>
                 </div>
-                <p className='text-size-medium'>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Suspendisse varius enim in eros elementum tristique.{' '}
-                </p>
+                <p className='text-size-medium'>{description}</p>
               </div>
             </div>
           </div>
@@ -78,14 +89,12 @@ const FAQ = () => {
             <div className='text-align-center'>
               <div className='max-width-medium align-center'>
                 <div className='margin-bottom margin-xsmall'>
-                  <h4>Still have questions?</h4>
+                  <h4>{bottom_title}</h4>
                 </div>
-                <p className='text-size-medium'>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                </p>
+                <p className='text-size-medium'>{bottom_description}</p>
                 <div className='margin-top margin-medium'>
                   <a href='#' className='button is-secondary w-button'>
-                    Contact
+                    {button}
                   </a>
                 </div>
               </div>

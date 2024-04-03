@@ -87,6 +87,7 @@ const Accordion: React.FC<{
                       renderItem={(item, key) => (
                         <Field
                           id={item.id}
+                          format={item.format}
                           type={item.type}
                           name={item.name}
                           value={item.id}

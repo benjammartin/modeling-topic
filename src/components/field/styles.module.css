@@ -28,12 +28,17 @@
   border-style: solid;
 }
 
-.input[data-type='headingOne'] {
+.input[data-format='headingOne'] {
   font-size: 32px;
-  font-weight: 600;
+  font-weight: 700;
 }
 
-.input[data-type='headingTwo'] {
+.input[data-format='headingTwo'] {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.input[data-format='headingThree'] {
   font-size: 18px;
-  font-weight: 600;
+  font-weight: 700;
 }

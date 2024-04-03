@@ -57,6 +57,7 @@ const Editor = () => {
               } else {
                 return (
                   <Field
+                    format={props.format}
                     id={props.id}
                     key={props.id}
                     type={props.type}
@@ -90,6 +91,7 @@ const Editor = () => {
               } else {
                 return (
                   <Field
+                    format={props.format}
                     id={props.id}
                     key={props.id}
                     type={props.type}
@@ -123,6 +125,7 @@ const Editor = () => {
                     key={props.id}
                     type={props.type}
                     value={'xx'}
+                    format={props.format}
                     name={props.name}
                   />
                 );

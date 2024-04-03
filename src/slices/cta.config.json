@@ -8,7 +8,8 @@
       "config": {
         "type": "text",
         "name": "Title",
-        "placeholder": "The Cost of a Boring Experience"
+        "placeholder": "The Cost of a Boring Experience",
+        "format": "headingTwo"
       }
     },
     "description": {

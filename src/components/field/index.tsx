@@ -8,7 +8,8 @@ const Field: React.FC<{
   name: string;
   value: string;
   type: string;
-}> = ({ name, value, id, ...props }) => {
+  format?: string;
+}> = ({ name, value, id, format = 'text', ...props }) => {
   const { state, dispatch } = useCurrentAppContext();
   const onHandleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     dispatch({
@@ -27,7 +28,7 @@ const Field: React.FC<{
         placeholder='Field content'
         value={state.builder[id].props[name] || value}
         className={styles.input}
-        data-type={props.type}
+        data-format={format}
       />
     </Box>
   );
