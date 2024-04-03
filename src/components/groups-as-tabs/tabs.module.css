@@ -44,6 +44,7 @@
   position: relative;
   z-index: 2;
   border-bottom: 1px solid transparent;
+  transition: all 0.2s;
 }
 
 .trigger[data-state='inactive'] {

@@ -8,7 +8,6 @@ import * as Slices from '@/slices';
 
 const TableSlice: React.FC = () => {
   const { state } = useCurrentAppContext();
-  console.log(state);
   const slices = getSlices(state.builder['root'], state);
   const list = Object.keys(slices);
 

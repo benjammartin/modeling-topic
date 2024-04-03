@@ -13,6 +13,7 @@ import Moveup from '../icons/moveup';
 import Button from '../button';
 import { getFields } from '@/lib/get-props';
 import { useCurrentAppContext } from '@/contexts/app-provider';
+import clsx from 'clsx';
 
 const Accordion: React.FC<{
   items: Array<string>;
@@ -80,7 +81,7 @@ const Accordion: React.FC<{
                       </Box>
                     </Box>
                   </AccordionTrigger>
-                  <AccordionContent className={styles.content}>
+                  <AccordionContent>
                     <List
                       className={styles.list}
                       items={fields}
@@ -166,8 +167,12 @@ const AccordionContent: React.FC<{
     { children, className, ...props },
     forwardedRef: React.Ref<HTMLDivElement>,
   ) => (
-    <RadixAccordion.Content ref={forwardedRef} {...props}>
-      <Box as='div' className={className}>
+    <RadixAccordion.Content
+      ref={forwardedRef}
+      {...props}
+      className={styles.content}
+    >
+      <Box as='div' className={styles.innercontent}>
         {children}
       </Box>
     </RadixAccordion.Content>
