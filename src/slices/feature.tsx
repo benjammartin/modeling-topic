@@ -1,6 +1,18 @@
 import './slices.css';
 
-const Feature = () => {
+interface FeatureProps {
+  tag: string;
+  title: string;
+  description: string;
+  metric: Array<{ figure: string; description: string }>;
+}
+
+const Feature: React.FC<FeatureProps> = ({
+  title,
+  tag,
+  description,
+  metric,
+}) => {
   return (
     <section className='section_layout83 section-ps-pink'>
       <div className='padding-global'>
@@ -9,36 +21,25 @@ const Feature = () => {
             <div className='w-layout-grid layout83_component'>
               <div className='layout83_content-left'>
                 <div className='margin-bottom margin-xsmall'>
-                  <div className='text-weight-semibold'>Tagline</div>
+                  <div className='text-weight-semibold'>{tag}</div>
                 </div>
-                <h2>Medium length section heading goes here</h2>
+                <h2>{title}</h2>
               </div>
               <div className='layout83_content-right'>
                 <div className='margin-bottom margin-medium'>
-                  <p className='text-size-medium'>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Suspendisse varius enim in eros elementum tristique. Duis
-                    cursus, mi quis viverra ornare, eros dolor interdum nulla,
-                    ut commodo diam libero vitae erat.
-                  </p>
+                  <p className='text-size-medium'>{description}</p>
                 </div>
                 <div className='w-layout-grid layout83_item-list'>
-                  <div className='layout83_text-wrapper'>
-                    <div className='margin-bottom margin-xxsmall'>
-                      <div className='heading-style-h2'>50%</div>
-                    </div>
-                    <div>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.{' '}
-                    </div>
-                  </div>
-                  <div className='layout83_text-wrapper'>
-                    <div className='margin-bottom margin-xxsmall'>
-                      <div className='heading-style-h2'>50%</div>
-                    </div>
-                    <div>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.{' '}
-                    </div>
-                  </div>
+                  {metric.map(({ figure, description }, id) => {
+                    return (
+                      <div key={id} className='layout83_text-wrapper'>
+                        <div className='margin-bottom margin-xxsmall'>
+                          <div className='heading-style-h2'>{figure}%</div>
+                        </div>
+                        <div>{description}</div>
+                      </div>
+                    );
+                  })}
                 </div>
                 <div className='margin-top margin-medium'>
                   <div className='button-group'>
