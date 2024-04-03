@@ -15,7 +15,8 @@
       "config": {
         "type": "text",
         "name": "Title",
-        "placeholder": "Goggle: Uncovering growth through experiences people love."
+        "placeholder": "Goggle: Uncovering growth through experiences people love.",
+        "format": "headingTwo"
       }
     },
     "description": {
