@@ -13,7 +13,6 @@ import Moveup from '../icons/moveup';
 import Button from '../button';
 import { getFields } from '@/lib/get-props';
 import { useCurrentAppContext } from '@/contexts/app-provider';
-import clsx from 'clsx';
 
 const Accordion: React.FC<{
   items: Array<string>;
