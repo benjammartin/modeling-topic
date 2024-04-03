@@ -58,7 +58,7 @@ const Editor = () => {
             }
           }}
         />
-        <GroupeAsTabs items={tabs} />
+        {tabs.length > 0 && <GroupeAsTabs items={tabs} />}
       </Slice>
     );
   });
