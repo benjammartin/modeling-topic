@@ -6,6 +6,7 @@ import ctaconfig from '@/slices/cta.config.json';
 import featuresconfig from '@/slices/features.config.json';
 import testimoniamconfig from '@/slices/testimonial.config.json';
 import faqconfig from '@/slices/faq.config.json';
+import demo from '@/demo.config.json';
 // Represents the payloads for each action type
 
 type UpdateProps = {
@@ -34,45 +35,16 @@ interface AppContextType {
   dispatch: React.Dispatch<AvailableAction>;
 }
 
-const hereo = getNormalizedSlice(hereoconfig);
-const calltoaction = getNormalizedSlice(ctaconfig);
-const features = getNormalizedSlice(featuresconfig);
-const testimonial = getNormalizedSlice(testimoniamconfig);
-const FAQ = getNormalizedSlice(faqconfig);
 const INITIAL_STATE: AppState = {
-  selected: hereo.sliceKey,
-  builder: {
-    root: {
-      id: 'root',
-      type: 'page',
-      name: 'root',
-      props: {},
-      children: [
-        hereo.sliceKey,
-        testimonial.sliceKey,
-        features.sliceKey,
-        calltoaction.sliceKey,
-        FAQ.sliceKey,
-      ],
+  selected: Object.keys(demo)[1],
+  builder: demo as any,
+  anchors: Object.keys(demo).reduce(
+    (acc: Record<string, React.RefObject<HTMLDivElement>>, key) => {
+      acc[key] = React.createRef();
+      return acc;
     },
-    ...hereo.slice,
-    ...hereo.fields,
-    ...calltoaction.slice,
-    ...calltoaction.fields,
-    ...features.slice,
-    ...features.fields,
-    ...testimonial.slice,
-    ...testimonial.fields,
-    ...FAQ.slice,
-    ...FAQ.fields,
-  },
-  anchors: {
-    [hereo.sliceKey]: React.createRef(),
-    [features.sliceKey]: React.createRef(),
-    [calltoaction.sliceKey]: React.createRef(),
-    [testimonial.sliceKey]: React.createRef(),
-    [FAQ.sliceKey]: React.createRef(),
-  },
+    {},
+  ),
 };
 
 const AppContext = React.createContext<AppContextType>({

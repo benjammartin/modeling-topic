@@ -2,7 +2,7 @@ import List from '@/components/primitives/list';
 import Box from '@/components/primitives/box';
 import * as RadixAccordion from '@radix-ui/react-accordion';
 import styles from './styles.module.css';
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect, useLayoutEffect, useRef } from 'react';
 import Field from '../field';
 import Item from '../icons/item';
 import Chevron from '../icons/chevron';
@@ -20,7 +20,6 @@ const Accordion: React.FC<{
   name: string;
 }> = ({ items, id, name }) => {
   const [defaultValue, setDefaultValue] = React.useState<string>();
-
   const { state, dispatch } = useCurrentAppContext();
 
   const onAddNewItem = () => {
@@ -32,12 +31,6 @@ const Accordion: React.FC<{
       },
     });
   };
-
-  React.useEffect(() => {
-    if (items.length > 1) {
-      setDefaultValue(items[items.length - 1]);
-    }
-  }, [items]);
 
   return (
     <Fragment>
