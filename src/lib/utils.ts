@@ -1,6 +1,7 @@
 import { customAlphabet } from 'nanoid';
-
 const nanoid = customAlphabet('1234567890abcdef', 10);
+
+import democonfig from '@/slices/hereo.config.json';
 
 export function getNormalizedSlice(schema: Schema) {
   const id = `slice-${nanoid()}`;
@@ -98,25 +99,158 @@ export function getNormalizedItem(fields: Fields) {
   };
 }
 
-/** TODO */
+/**REWORK */
 
-/**class Item {
-  public id: string;
-  public type: string;
-  public name: string;
-  public props: Record<string, string>;
-  public schema: Fields;
-  public children: Array<string>;
-  constructor(public field: Field) {
-    this.id = `${field.config.type}-${nanoid()}`;
-    this.type = this.field.config.type;
-    this.name = this.field.config.name;
-    this.props = {
-      [this.name]: this.field.config.placeholder as string,
-    };
-    this.schema = {
-      [this.name]: { config: this.field.config },
-    };
+const demo = {
+  id: 'feature_twin',
+  type: 'SharedSlice',
+  name: 'FeatureTwin',
+  display: 'default',
+  description: 'FeatureTwin',
+  fields: {
+    title: {
+      type: 'StructuredText',
+      config: {
+        label: 'title',
+        placeholder: '',
+        allowTargetBlank: true,
+        single:
+          'paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl',
+      },
+    },
+    description: {
+      type: 'StructuredText',
+      config: {
+        label: 'description',
+        placeholder: '',
+        allowTargetBlank: true,
+        single:
+          'paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl',
+      },
+    },
+    buttons: {
+      type: 'Group',
+      config: {
+        label: 'buttons',
+        repeat: 'true',
+        fields: {
+          title: {
+            config: {
+              type: 'text',
+              name: 'Label',
+              placeholder: 'Contact',
+            },
+          },
+          kind: {
+            config: {
+              type: 'text',
+              name: 'Kind',
+              placeholder: 'Primary',
+            },
+          },
+        },
+      },
+    },
+  },
+};
+
+interface SliceFromSchemaProps {
+  name: string;
+  id: string;
+  type: string;
+}
+
+class Slice implements SliceFromSchemaProps {
+  readonly id: string;
+  readonly name: string;
+  readonly type: string;
+  readonly children: Array<string>;
+  constructor(schema: SliceFromSchemaProps) {
+    this.id = `${schema.type}-${nanoid()}`;
+    this.name = schema.name;
+    this.type = schema.type;
     this.children = [];
   }
-} */
+}
+
+interface FieldFromSchemaProps {
+  type: string;
+}
+
+class StructuredTextField {
+  readonly id: string;
+  readonly type: string;
+  constructor(schema: FieldFromSchemaProps) {
+    this.id = `${schema.type}-${nanoid()}`;
+    this.type = schema.type;
+  }
+}
+
+interface GroupFieldFromSchemaProps {
+  type: string;
+  config: {
+    fields: Record<string, FieldFromSchemaProps>;
+  };
+}
+
+class GroupField {
+  readonly id: string;
+  readonly type: string;
+  readonly children: Array<string>;
+  constructor(schema: GroupFieldFromSchemaProps) {
+    this.id = `${schema.type}-${nanoid()}`;
+    this.type = schema.type;
+    this.children = Object.keys(map(schema.config.fields));
+  }
+}
+
+const slice = new Slice(demo);
+
+function create(schema: any) {
+  switch (schema.type) {
+    case 'Group':
+      return new GroupField(schema);
+    default:
+      return new StructuredTextField(schema);
+  }
+}
+
+function map(fields: Record<string, any>) {
+  return Object.values(fields).reduce((acc, schema) => {
+    const field = create(schema);
+    return {
+      ...acc,
+      [field.id]: field,
+    };
+  }, {});
+}
+
+console.log(map(demo.fields));
+
+console.log(slice);
+
+/**  buttons: {
+      type: 'Group',
+      config: {
+        label: 'buttons',
+        repeat: 'true',
+        fields: {
+          title: {
+            config: {
+              type: 'text',
+              name: 'Label',
+              placeholder: 'Contact',
+            },
+          },
+          kind: {
+            config: {
+              type: 'text',
+              name: 'Kind',
+              placeholder: 'Primary',
+            },
+          },
+        },
+      },
+    }, */
+
+/** */

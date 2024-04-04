@@ -19,8 +19,7 @@ const Accordion: React.FC<{
   id: string;
   name: string;
 }> = ({ items, id, name }) => {
-  const [prime] = items;
-  const [defaultValue, setDefaultValue] = React.useState<string>(prime);
+  const [defaultValue, setDefaultValue] = React.useState<string>();
 
   const { state, dispatch } = useCurrentAppContext();
 
@@ -35,7 +34,7 @@ const Accordion: React.FC<{
   };
 
   React.useEffect(() => {
-    if (items.length > 0) {
+    if (items.length > 1) {
       setDefaultValue(items[items.length - 1]);
     }
   }, [items]);
@@ -44,7 +43,6 @@ const Accordion: React.FC<{
     <Fragment>
       <RadixAccordion.Root
         type='single'
-        defaultValue={prime}
         value={defaultValue}
         onValueChange={(value) => setDefaultValue(value)}
         collapsible
@@ -63,7 +61,7 @@ const Accordion: React.FC<{
                     <Box>
                       <Box as='span'>
                         <Chevron className={styles.chevron} />
-                        <Item /> {name} • {i}
+                        <Item /> {name} • {i + 1}
                       </Box>
                       <Box className={styles.actions}>
                         <Box className={styles.move}>
