@@ -1,11 +1,6 @@
 import { getNormalizedItem, getNormalizedSlice } from '@/lib/utils';
 import { produce } from 'immer';
 import React from 'react';
-import hereoconfig from '@/slices/hereo.config.json';
-import ctaconfig from '@/slices/cta.config.json';
-import featuresconfig from '@/slices/features.config.json';
-import testimoniamconfig from '@/slices/testimonial.config.json';
-import faqconfig from '@/slices/faq.config.json';
 import demo from '@/demo.config.json';
 // Represents the payloads for each action type
 

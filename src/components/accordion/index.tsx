@@ -2,7 +2,7 @@ import List from '@/components/primitives/list';
 import Box from '@/components/primitives/box';
 import * as RadixAccordion from '@radix-ui/react-accordion';
 import styles from './styles.module.css';
-import React, { Fragment, useEffect, useLayoutEffect, useRef } from 'react';
+import React, { Fragment } from 'react';
 import Field from '../field';
 import Item from '../icons/item';
 import Chevron from '../icons/chevron';
