@@ -1,4 +1,5 @@
 import { customAlphabet } from 'nanoid';
+import React from 'react';
 const nanoid = customAlphabet('1234567890abcdef', 10);
 
 export function getNormalizedSlice(schema: Schema) {
@@ -96,5 +97,3 @@ export function getNormalizedItem(fields: Fields) {
     },
   };
 }
-
-/**REWORK */

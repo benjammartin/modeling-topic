@@ -377,7 +377,7 @@
     "name": "Title",
     "format": "headingThree",
     "props": {
-      "Title": "Hello"
+      "Title": "JustAte"
     },
     "children": [],
     "schema": {
@@ -396,7 +396,7 @@
     "type": "text",
     "name": "Description",
     "props": {
-      "Description": "Second"
+      "Description": "We uncovered new sources of growth for our product, thanks to ABC's creativity. - Noah Ling"
     },
     "children": [],
     "schema": {

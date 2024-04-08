@@ -1,4 +1,4 @@
-import { getNormalizedItem } from '@/lib/utils';
+import { getNormalizedItem, getNormalizedSlice } from '@/lib/utils';
 import { produce } from 'immer';
 import React from 'react';
 import demo from '@/demo.config.json';
