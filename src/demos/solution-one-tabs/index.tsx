@@ -16,9 +16,7 @@ const SolutionOneTabsPageBuilder = () => {
     <Fragment>
       <Navigation />
       <Layout.Root>
-        <Layout.Sidebar>
-          <TableSlice />
-        </Layout.Sidebar>
+        <Layout.Sidebar>TODO</Layout.Sidebar>
         <Layout.Main>
           <Editor />
         </Layout.Main>

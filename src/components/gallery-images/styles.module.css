@@ -20,11 +20,19 @@
   border: 1px dashed #dcdbdd;
   border-radius: 6px;
   font-size: 14px;
-  padding-inline: 4px;
-  padding-block: 4px;
+  padding-inline: 8px;
+  padding-block: 8px;
 }
 
 .input:focus-visible {
   outline: none;
   border-style: solid;
+}
+
+.list {
+  margin-bottom: 8px;
+}
+
+.list > * + * {
+  margin-top: 8px;
 }

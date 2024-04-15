@@ -1,4 +1,8 @@
-import { getNormalizedItem, getNormalizedSlice } from '@/lib/utils';
+import {
+  getNormalizedImage,
+  getNormalizedItem,
+  getNormalizedSlice,
+} from '@/lib/utils';
 import { produce } from 'immer';
 import React from 'react';
 
@@ -16,6 +20,9 @@ type ActionPayloads = {
   UPDATE_PROPS: UpdateProps;
   ADD_ITEM: {
     schema: Fields;
+    id: string;
+  };
+  ADD_IMAGE: {
     id: string;
   };
 };
@@ -85,6 +92,12 @@ const reducer = produce((draft: AppState, action: AvailableAction) => {
       const items = getNormalizedItem(action.payload.schema);
       draft.builder[action.payload.id].children.push(items.itemKey);
       draft.builder = { ...draft.builder, ...items.item, ...items.fields };
+      break;
+    }
+    case 'ADD_IMAGE': {
+      const image = getNormalizedImage();
+      draft.builder[action.payload.id].children.push(image.id);
+      draft.builder = { ...draft.builder, [image.id]: image };
       break;
     }
   }

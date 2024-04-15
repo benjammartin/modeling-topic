@@ -37,7 +37,7 @@
               "config": {
                 "type": "gallery",
                 "name": "Images",
-                "placeholder": "Goggle: Uncovering growth through experiences people love."
+                "placeholder": []
               }
             },
             "title": {

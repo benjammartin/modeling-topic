@@ -24,14 +24,27 @@ const GalleryImages: React.FC<{
       payload: { id, name, value: e.target.value },
     });
   };
+
+  const onAddNewItem = () => {
+    dispatch({
+      type: 'ADD_IMAGE',
+      payload: {
+        id: id,
+      },
+    });
+  };
   return (
     <Box as='div' {...props} className={styles.root}>
       <Box as='label' className={styles.label}>
         <Box>{name}</Box>
       </Box>
       <Box as='div' onChange={onHandleChange} className={styles.input}>
-        <List items={images} renderItem={(item) => <ImageItem />} />
-        <Button onClick={() => {}}>Add new image</Button>
+        <List
+          className={styles.list}
+          items={images}
+          renderItem={(item) => <ImageItem src={item.props.src} />}
+        />
+        <Button onClick={onAddNewItem}>Add new image</Button>
       </Box>
     </Box>
   );
