@@ -4,7 +4,6 @@ import List from '@/components/primitives/list';
 import Field from '@/components/field';
 import Navigation from '@/components/navigation';
 import Groups from '@/components/accordion';
-import TableSlice from '@/components/table-slices';
 import { useCurrentAppContext } from '@/contexts/app-provider';
 import { getFields } from '@/lib/get-props';
 import GroupWrapperCollapsed from '@/components/group-wrapper-collapsed';

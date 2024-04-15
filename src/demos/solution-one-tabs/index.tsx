@@ -3,12 +3,9 @@ import Slice from '@/components/slice';
 import List from '@/components/primitives/list';
 import Field from '@/components/field';
 import Navigation from '@/components/navigation';
-import TableSlice from '@/components/table-slices';
 import { useCurrentAppContext } from '@/contexts/app-provider';
 import { getFields } from '@/lib/get-props';
-import * as RadixTabs from '@radix-ui/react-tabs';
 import { Fragment } from 'react/jsx-runtime';
-import Box from '@/components/primitives/box';
 import TabsV2 from '@/components/tabs-v2/tabs-v2';
 
 const SolutionOneTabsPageBuilder = () => {
