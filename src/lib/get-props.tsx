@@ -18,7 +18,6 @@ export function getSlices(normalized: NormalizedField, state: AppState): Slice {
         const component = state.builder[innerValue];
         const type = component.type;
         const componentName = component.name.toLocaleLowerCase();
-
         if (type === 'array') {
           innerAcc[componentName] = component.children.map((child) => {
             return state.builder[child].children.reduce((childAcc: Prop, c) => {

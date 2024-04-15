@@ -1,0 +1,22 @@
+    "title": {
+      "config": {
+        "type": "text",
+        "name": "Title",
+        "placeholder": "The Cost of a Boring Experience",
+        "format": "headingTwo"
+      }
+    },
+    "description": {
+      "config": {
+        "type": "text",
+        "name": "Description",
+        "placeholder": "In the quest for differentiation, creativity is not just an asset. It’s a necessity."
+      }
+    },
+    "button": {
+      "config": {
+        "type": "text",
+        "name": "Button",
+        "placeholder": "Read article"
+      }
+    }

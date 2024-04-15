@@ -1,7 +1,8 @@
-import { getNormalizedItem } from '@/lib/utils';
+import { getNormalizedItem, getNormalizedSlice } from '@/lib/utils';
 import { produce } from 'immer';
 import React from 'react';
-import demo from '@/demo.config.json';
+
+import cta from '@/slices/cta.config.json';
 // Represents the payloads for each action type
 
 type UpdateProps = {
@@ -30,16 +31,22 @@ interface AppContextType {
   dispatch: React.Dispatch<AvailableAction>;
 }
 
+const demo = getNormalizedSlice(cta);
+
 const INITIAL_STATE: AppState = {
-  selected: Object.keys(demo)[1],
-  builder: demo as any,
-  anchors: Object.keys(demo).reduce(
-    (acc: Record<string, React.RefObject<HTMLDivElement>>, key) => {
-      acc[key] = React.createRef();
-      return acc;
+  selected: demo.sliceKey,
+  builder: {
+    root: {
+      id: 'root',
+      type: 'page',
+      name: 'root',
+      props: {},
+      children: [demo.sliceKey],
     },
-    {},
-  ),
+    ...demo.fields,
+    ...demo.slice,
+  },
+  anchors: {},
 };
 
 const AppContext = React.createContext<AppContextType>({

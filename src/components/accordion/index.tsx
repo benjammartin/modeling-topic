@@ -13,6 +13,7 @@ import Moveup from '../icons/moveup';
 import Button from '../button';
 import { getFields } from '@/lib/get-props';
 import { useCurrentAppContext } from '@/contexts/app-provider';
+import GalleryImages from '../gallery-images';
 
 const Accordion: React.FC<{
   items: Array<string>;
@@ -75,16 +76,32 @@ const Accordion: React.FC<{
                     <List
                       className={styles.list}
                       items={fields}
-                      renderItem={(item, key) => (
-                        <Field
-                          id={item.id}
-                          format={item.format}
-                          type={item.type}
-                          name={item.name}
-                          value={item.id}
-                          key={key}
-                        />
-                      )}
+                      renderItem={(item, key) => {
+                        switch (item.type) {
+                          case 'gallery':
+                            return (
+                              <GalleryImages
+                                id={item.id}
+                                format={item.format}
+                                type={item.type}
+                                name={item.name}
+                                value={item.id}
+                                key={key}
+                              />
+                            );
+                          default:
+                            return (
+                              <Field
+                                id={item.id}
+                                format={item.format}
+                                type={item.type}
+                                name={item.name}
+                                value={item.id}
+                                key={key}
+                              />
+                            );
+                        }
+                      }}
                     />
                   </AccordionContent>
                 </AccordionItem>

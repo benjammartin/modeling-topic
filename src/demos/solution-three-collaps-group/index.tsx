@@ -15,9 +15,7 @@ const SolutionThreePageBuilder = () => {
     <Fragment>
       <Navigation />
       <Layout.Root>
-        <Layout.Sidebar>
-          <TableSlice />
-        </Layout.Sidebar>
+        <Layout.Sidebar>xxx</Layout.Sidebar>
         <Layout.Main>
           <Editor />
         </Layout.Main>
@@ -35,7 +33,7 @@ const Editor = () => {
     const ids = state.builder[slice].children;
     const fields = getFields(ids, state);
     return (
-      <Slice key={slice} id={slice} label={state.builder[slice].name}>
+      <Slice key={slice} id={slice} label='TOTO'>
         <List
           items={fields}
           renderItem={(props, _) => {
@@ -68,3 +66,32 @@ const Editor = () => {
     );
   });
 };
+
+/**<List
+          items={fields}
+          renderItem={(props, _) => {
+            if (props.type === 'array') {
+              return (
+                <GroupWrapperCollapsed label={props.name} key={props.id}>
+                  <Groups
+                    id={props.id}
+                    name={props.name}
+                    key={_}
+                    items={props.children}
+                  />
+                </GroupWrapperCollapsed>
+              );
+            } else {
+              return (
+                <Field
+                  format={props.format}
+                  id={props.id}
+                  key={props.id}
+                  type={props.type}
+                  value={'xx'}
+                  name={props.name}
+                />
+              );
+            }
+          }}
+        /> */

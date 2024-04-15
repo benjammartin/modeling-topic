@@ -2,28 +2,54 @@
   "id": "cta",
   "name": "Calltoaction",
   "type": "slice",
-  "display": "collapsible",
   "fields": {
     "title": {
       "config": {
         "type": "text",
         "name": "Title",
-        "placeholder": "The Cost of a Boring Experience",
-        "format": "headingTwo"
+        "placeholder": "Goggle: Uncovering growth through experiences people love.",
+        "format": "paragraph"
       }
     },
-    "description": {
+    "tabs": {
       "config": {
-        "type": "text",
-        "name": "Description",
-        "placeholder": "In the quest for differentiation, creativity is not just an asset. It’s a necessity."
-      }
-    },
-    "button": {
-      "config": {
-        "type": "text",
-        "name": "Button",
-        "placeholder": "Read article"
+        "type": "array",
+        "name": "Tab",
+        "placeholder": []
+      },
+      "fields": {
+        "title": {
+          "config": {
+            "type": "text",
+            "name": "Title",
+            "placeholder": "Goggle: Uncovering growth through experiences people love.",
+            "format": "paragraph"
+          }
+        },
+        "groups": {
+          "config": {
+            "type": "array",
+            "name": "Group",
+            "placeholder": []
+          },
+          "fields": {
+            "images": {
+              "config": {
+                "type": "gallery",
+                "name": "Images",
+                "placeholder": "Goggle: Uncovering growth through experiences people love."
+              }
+            },
+            "title": {
+              "config": {
+                "type": "text",
+                "name": "Title",
+                "placeholder": "Goggle: Uncovering growth through experiences people love.",
+                "format": "paragraph"
+              }
+            }
+          }
+        }
       }
     }
   }

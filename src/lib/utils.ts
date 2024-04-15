@@ -11,7 +11,6 @@ export function getNormalizedSlice(schema: Schema) {
       name: schema.name,
       children: fieldsKeys,
       schema: schema.fields,
-      display: schema.display,
     },
   };
   return { slice, sliceKey: id, fields, fieldsKeys };
@@ -19,18 +18,32 @@ export function getNormalizedSlice(schema: Schema) {
 
 export function getNormalizedFields(schema: Fields) {
   const subFields: Array<NormalizedField> = [];
+  let imageItem = {};
   const data = Object.keys(schema).reduce(
     (obj: NormalizedFields, field: string) => {
       const type = schema[field].config.type;
-      const id = `field-${nanoid()}`;
+      const id = `${schema[field].config.type}-${nanoid()}`;
       switch (type) {
+        case 'gallery':
+          const image = getNormalizedImage();
+          imageItem = { [image.id]: image };
+          obj[id] = {
+            id: id,
+            type: schema[field].config.type,
+            name: schema[field].config.name,
+            props: {
+              [schema[field].config.name]: schema[field].config.placeholder,
+            },
+            children: [image.id],
+            schema: schema[field].fields,
+          };
+          return obj;
         case 'array':
           {
             const { item, fields, itemKey } = getNormalizedItem(
               schema[field].fields as Fields,
             );
             subFields.push(Object.assign({}, item, fields));
-
             obj[id] = {
               id: id,
               type: schema[field].config.type,
@@ -68,7 +81,7 @@ export function getNormalizedFields(schema: Fields) {
     {},
   );
   return {
-    fields: Object.assign({}, ...subFields, data),
+    fields: Object.assign({}, ...subFields, imageItem, data),
     fieldsKeys: Object.keys(data),
   };
 }
@@ -94,5 +107,20 @@ export function getNormalizedItem(fields: Fields) {
         schema: fields,
       },
     },
+  };
+}
+
+export function getNormalizedImage() {
+  const id = `image-${nanoid()}`;
+  return {
+    id: id,
+    type: 'image-item',
+    name: 'image',
+    children: [],
+    props: {
+      src: 'https://images.prismic.io/slicemachine-blank/26d81419-4d65-46b8-853e-8ea902e160c1_groovy.png',
+      alt: 'xxxxxxxx',
+    },
+    schema: {},
   };
 }

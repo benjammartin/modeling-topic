@@ -2,8 +2,6 @@ type NormalizedFields = {
   [key: string]: NormalizedField;
 };
 
-type Display = 'default' | 'tabs' | 'collapsible';
-
 type NormalizedField = {
   id: string;
   name: string;
@@ -11,7 +9,6 @@ type NormalizedField = {
   props: Record<string, any>;
   children: string[];
   schema?: Fields;
-  display?: Display;
   format?: string;
 };
 
@@ -33,7 +30,6 @@ interface Schema {
   name: string;
   type: string;
   fields: Record<string, Field>;
-  display: string;
 }
 
 type Fields = Record<string, Field>;
