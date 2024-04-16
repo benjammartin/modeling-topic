@@ -6,7 +6,6 @@ export interface TestimonialProps {
   title: string;
   description: string;
   label: string;
-  kind: string;
   tab: Array<{
     title: string;
     description: string;
@@ -19,7 +18,6 @@ const Testimonial: React.FC<TestimonialProps> = ({
   description,
   tab,
   label,
-  kind,
 }) => {
   return (
     <section className='section_testimonial17 SECTION_TO_KEEP section-ps'>
