@@ -24,7 +24,7 @@ const GalleryImages: React.FC<{
     });
   };
 
-  const onAddNewItem = () => {
+  const onAddNewItem = async () => {
     dispatch({
       type: 'ADD_IMAGE',
       payload: {
@@ -41,7 +41,9 @@ const GalleryImages: React.FC<{
         <List
           className={styles.list}
           items={images}
-          renderItem={(item) => <ImageItem src={item.props.src} />}
+          renderItem={(item) => (
+            <ImageItem key={item.id} src={item.props.src} />
+          )}
         />
         <Button onClick={onAddNewItem}>Add new image</Button>
       </Box>

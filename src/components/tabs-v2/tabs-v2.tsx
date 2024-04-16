@@ -48,7 +48,7 @@ const TabsV2: React.FC<TabsV2Props> = (props) => {
               >
                 <Box as='div'>
                   <Drag />
-                  <Box as='p' contentEditable>
+                  <Box as='p'>
                     {item.name} {i + 1}{' '}
                   </Box>
                   <More />

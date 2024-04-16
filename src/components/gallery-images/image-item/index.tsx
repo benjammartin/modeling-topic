@@ -3,6 +3,8 @@ import styles from './styles.module.css';
 import ButtonIcon from '@/components/button-icon';
 import Trash from '@/components/icons/delete';
 import Drag from '@/components/icons/drag';
+import Crop from '@/components/icons/crop';
+import Replace from '@/components/icons/replace';
 
 const ImageItem: React.FC<{ src: string }> = ({ src }) => {
   return (
@@ -20,10 +22,10 @@ const ImageItem: React.FC<{ src: string }> = ({ src }) => {
           </Box>
           <Box as='div' className={styles.actions}>
             <ButtonIcon>
-              <Trash />
+              <Crop />
             </ButtonIcon>
             <ButtonIcon>
-              <Trash />
+              <Replace />
             </ButtonIcon>
             <ButtonIcon>
               <Trash />

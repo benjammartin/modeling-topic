@@ -26,7 +26,7 @@ const Field: React.FC<{
         as='input'
         onChange={onHandleChange}
         placeholder='Field content'
-        value={state.builder[id].props[name] || value}
+        value={state.builder[id].props[name]}
         className={styles.input}
         data-format={format}
       />

@@ -47,7 +47,11 @@ const Testimonial: React.FC<TestimonialProps> = ({
                   items={tab}
                   className='tabs-list'
                   renderItem={(props, i) => (
-                    <Tabs.Trigger className='trigger-tab' value={i.toString()}>
+                    <Tabs.Trigger
+                      key={i}
+                      className='trigger-tab'
+                      value={i.toString()}
+                    >
                       <h3 className='text-size-medium'>{props.title}</h3>
                     </Tabs.Trigger>
                   )}
@@ -56,7 +60,7 @@ const Testimonial: React.FC<TestimonialProps> = ({
               <List
                 items={tab}
                 renderItem={(props, i) => (
-                  <Tabs.Content value={i.toString()}>
+                  <Tabs.Content key={i} value={i.toString()}>
                     <div className='testimonial17_component'>
                       {props.card.map(({ title, description }, id) => {
                         console.log(props);
