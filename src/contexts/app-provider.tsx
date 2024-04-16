@@ -7,6 +7,7 @@ import { produce } from 'immer';
 import React from 'react';
 
 import cta from '@/slices/cta.config.json';
+import testimonial from '@/slices/testimonial.config.json';
 // Represents the payloads for each action type
 
 type UpdateProps = {
@@ -38,20 +39,23 @@ interface AppContextType {
   dispatch: React.Dispatch<AvailableAction>;
 }
 
-const demo = getNormalizedSlice(cta);
+const CTA_SLICE = getNormalizedSlice(cta);
+const TES_SLICE = getNormalizedSlice(testimonial);
 
 const INITIAL_STATE: AppState = {
-  selected: demo.sliceKey,
+  selected: CTA_SLICE.sliceKey,
   builder: {
     root: {
       id: 'root',
       type: 'page',
       name: 'root',
       props: {},
-      children: [demo.sliceKey],
+      children: [CTA_SLICE.sliceKey, TES_SLICE.sliceKey],
     },
-    ...demo.fields,
-    ...demo.slice,
+    ...CTA_SLICE.fields,
+    ...CTA_SLICE.slice,
+    ...TES_SLICE.fields,
+    ...TES_SLICE.slice,
   },
   anchors: {},
 };

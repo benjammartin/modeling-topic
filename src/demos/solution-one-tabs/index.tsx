@@ -3,9 +3,12 @@ import Slice from '@/components/slice';
 import List from '@/components/primitives/list';
 import Field from '@/components/field';
 import Navigation from '@/components/navigation';
+import TableSlice from '@/components/table-slices';
 import { useCurrentAppContext } from '@/contexts/app-provider';
 import { getFields } from '@/lib/get-props';
+
 import { Fragment } from 'react/jsx-runtime';
+
 import TabsV2 from '@/components/tabs-v2/tabs-v2';
 
 const SolutionOneTabsPageBuilder = () => {
@@ -13,7 +16,9 @@ const SolutionOneTabsPageBuilder = () => {
     <Fragment>
       <Navigation />
       <Layout.Root>
-        <Layout.Sidebar>TODO</Layout.Sidebar>
+        <Layout.Sidebar>
+          <TableSlice />
+        </Layout.Sidebar>
         <Layout.Main>
           <Editor />
         </Layout.Main>
@@ -56,5 +61,3 @@ const Editor = () => {
     );
   });
 };
-
-/**  {tabs.length > 0 && <TabsV2 items={tabs} />} */

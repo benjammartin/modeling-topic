@@ -17,7 +17,6 @@ const GalleryImages: React.FC<{
   const { state, dispatch } = useCurrentAppContext();
   const ids = state.builder[id].children;
   const images = getFields(ids, state);
-  console.log(images);
   const onHandleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     dispatch({
       type: 'UPDATE_PROPS',

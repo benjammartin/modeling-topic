@@ -16,6 +16,7 @@ const TableSlice: React.FC = () => {
     const Component = Slices.components[slice];
     const { name } = state.builder[id];
 
+    console.log(props);
     return (
       <SliceCard key={id} id={id} name={name}>
         <Component {...props} />

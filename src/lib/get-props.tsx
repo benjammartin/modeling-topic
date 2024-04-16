@@ -12,26 +12,10 @@ interface Slice {
 export function getSlices(normalized: NormalizedField, state: AppState): Slice {
   const slice = normalized.children.reduce((acc: Slice, value: string) => {
     const slice = state.builder[value];
+    console.log(getProps(slice, state));
     acc[slice.name] = {
       id: slice.id,
-      props: slice.children.reduce((innerAcc: Props, innerValue: string) => {
-        const component = state.builder[innerValue];
-        const type = component.type;
-        const componentName = component.name.toLocaleLowerCase();
-        if (type === 'array') {
-          innerAcc[componentName] = component.children.map((child) => {
-            return state.builder[child].children.reduce((childAcc: Prop, c) => {
-              const item = state.builder[c];
-              childAcc[item.name.toLocaleLowerCase()] = item.props[item.name];
-              return childAcc;
-            }, {});
-          });
-        } else {
-          innerAcc[componentName] = component.props[component.name];
-        }
-
-        return innerAcc;
-      }, {}),
+      props: getProps(slice, state),
     };
     return acc;
   }, {});
@@ -39,6 +23,33 @@ export function getSlices(normalized: NormalizedField, state: AppState): Slice {
   return {
     ...slice,
   };
+}
+
+function getProps(slice: NormalizedField, state: AppState) {
+  return slice.children.reduce((acc: Props, id: string) => {
+    const { type, name, props, children } = state.builder[id];
+    const prop = name.toLocaleLowerCase();
+    switch (type) {
+      case 'gallery':
+        acc[prop] = children.reduce((childAcc: Array<any>, c) => {
+          const item = state.builder[c];
+          childAcc.push(item.props);
+          return childAcc;
+        }, []);
+        break;
+      case 'array':
+        acc[prop] = children.reduce((childAcc: Array<any>, c) => {
+          const item = state.builder[c];
+          childAcc.push(getProps(item, state));
+          return childAcc;
+        }, []);
+        break;
+      default:
+        acc[name.toLocaleLowerCase()] = props[name];
+        break;
+    }
+    return acc;
+  }, {});
 }
 
 export function getFields(ids: Array<string>, state: AppState) {

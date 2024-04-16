@@ -755,3 +755,27 @@ img {
 .section-ps-orange {
   background: rgb(255, 110, 37);
 }
+
+.trigger-tab {
+  color: black;
+  background: rgb(216, 216, 216);
+  padding: 8px 16px;
+}
+.trigger-tab[data-state='active'] {
+  color: white;
+  background: black;
+  padding: 8px 16px;
+}
+
+.tabs {
+  margin-bottom: 32px;
+}
+
+.tabs-list {
+  display: flex;
+  overflow-y: auto;
+  position: relative;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 32px;
+}

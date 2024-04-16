@@ -30,7 +30,7 @@ const TabsV2: React.FC<TabsV2Props> = (props) => {
   };
 
   return (
-    <GroupWrapperCollapsed label='xxx'>
+    <GroupWrapperCollapsed label={props.item.name}>
       <RadixTabs.Root className={styles.root} defaultValue={prime.id}>
         <RadixTabs.List className={styles.list}>
           <List
