@@ -59,14 +59,14 @@ const Accordion: React.FC<{
                       </Box>
                       <Box className={styles.actions}>
                         <Box className={styles.move}>
-                          <ButtonIcon direction='left'>
+                          <ButtonIcon type='outline' direction='left'>
                             <Movedown />
                           </ButtonIcon>
-                          <ButtonIcon direction='right'>
+                          <ButtonIcon type='outline' direction='right'>
                             <Moveup />
                           </ButtonIcon>
                         </Box>
-                        <ButtonIcon>
+                        <ButtonIcon type='outline'>
                           <Trash />
                         </ButtonIcon>
                       </Box>

@@ -8,6 +8,9 @@ import Groups from '@/components/accordion';
 import GroupWrapperCollapsed from '../group-wrapper-collapsed';
 import Field from '../field';
 import ButtonIcon from '../button-icon';
+import More from '../icons/more';
+import Drag from '../icons/drag';
+import Add from '../icons/add';
 
 interface TabsV2Props {
   item: NormalizedField;
@@ -43,13 +46,19 @@ const TabsV2: React.FC<TabsV2Props> = (props) => {
                 className={styles.trigger}
                 asChild
               >
-                <Box as='p'>
-                  {item.name} {i + 1}
+                <Box as='div'>
+                  <Drag />
+                  <Box as='p' contentEditable>
+                    {item.name} {i + 1}{' '}
+                  </Box>
+                  <More />
                 </Box>
               </RadixTabs.Trigger>
             )}
           />
-          <ButtonIcon onClick={onAddNewItem}>+</ButtonIcon>
+          <ButtonIcon type='ghost' onClick={onAddNewItem}>
+            <Add />
+          </ButtonIcon>
         </RadixTabs.List>
         <List
           items={tabs}

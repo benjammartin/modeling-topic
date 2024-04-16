@@ -5,7 +5,8 @@ import * as Tabs from '@radix-ui/react-tabs';
 export interface TestimonialProps {
   title: string;
   description: string;
-  button: Array<{ label: string; kind: string }>;
+  label: string;
+  kind: string;
   tab: Array<{
     title: string;
     description: string;
@@ -17,7 +18,8 @@ const Testimonial: React.FC<TestimonialProps> = ({
   title,
   description,
   tab,
-  button,
+  label,
+  kind,
 }) => {
   return (
     <section className='section_testimonial17 SECTION_TO_KEEP section-ps'>
@@ -34,13 +36,9 @@ const Testimonial: React.FC<TestimonialProps> = ({
                 </div>
                 <div>
                   <div className='button-group justify-center margin-small'>
-                    {button.map(({ label }, id) => {
-                      return (
-                        <a href='#' key={id} className='button w-button'>
-                          {label}
-                        </a>
-                      );
-                    })}
+                    <a href='#' className='button w-button'>
+                      {label}
+                    </a>
                   </div>
                 </div>
               </div>

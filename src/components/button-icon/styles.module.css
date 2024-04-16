@@ -1,14 +1,12 @@
 .root {
   all: unset;
-  background: red;
   width: 26px;
   height: 26px;
   display: flex;
   place-items: center;
   place-content: center;
-  background: #fff;
-  box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.04);
   cursor: pointer;
+  transition: all 0.3s;
 }
 
 .root[data-direction='default'] {
@@ -32,4 +30,21 @@
 
 .root:hover {
   background: #f9f8f9;
+}
+
+.root[data-type='ghost'] {
+  border: 1px solid transparent;
+  background: transparent;
+  box-shadow: transparent;
+}
+
+.root[data-type='ghost']:hover {
+  border: 1px solid #dcdbdd;
+  background: #fff;
+  box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.04);
+}
+
+.root[data-type='filled'] {
+  background: #fff;
+  box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.04);
 }

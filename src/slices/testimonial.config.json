@@ -19,27 +19,18 @@
         "placeholder": "We create products and experiences that grow ambitious brands."
       }
     },
-    "buttons": {
+    "label": {
       "config": {
-        "type": "array",
-        "name": "Button",
-        "placeholder": []
-      },
-      "fields": {
-        "label": {
-          "config": {
-            "type": "text",
-            "name": "Label",
-            "placeholder": "See what we can do"
-          }
-        },
-        "kind": {
-          "config": {
-            "type": "text",
-            "name": "Kind",
-            "placeholder": "Enter button kind here"
-          }
-        }
+        "type": "text",
+        "name": "Label",
+        "placeholder": "See what we can do"
+      }
+    },
+    "kind": {
+      "config": {
+        "type": "text",
+        "name": "Kind",
+        "placeholder": "Enter button kind here"
       }
     },
     "tabs": {

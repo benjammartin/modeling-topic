@@ -12,6 +12,7 @@
   padding: 2px 4px;
   font-weight: 500;
   line-height: 0.75rem; /* 120% */
+  z-index: 0;
 }
 
 .input {
