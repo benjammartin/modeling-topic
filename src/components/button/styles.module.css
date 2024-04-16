@@ -4,7 +4,6 @@
   background: var(--Gray-Shade-01, #fff);
   min-height: 32px;
   padding-inline: 16px;
-  width: 100%;
 
   /* Shadows/depth 01 */
   box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.04);
