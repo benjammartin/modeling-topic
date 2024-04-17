@@ -25,6 +25,7 @@ type ActionPayloads = {
   };
   ADD_IMAGE: {
     id: string;
+    src: string;
   };
 };
 
@@ -100,6 +101,7 @@ const reducer = produce((draft: AppState, action: AvailableAction) => {
     }
     case 'ADD_IMAGE': {
       const image = getNormalizedImage();
+      image.props.src = action.payload.src;
       draft.builder[action.payload.id].children.push(image.id);
       draft.builder = { ...draft.builder, [image.id]: image };
       break;

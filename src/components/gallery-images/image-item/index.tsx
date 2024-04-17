@@ -12,7 +12,7 @@ const ImageItem: React.FC<{ src: string }> = ({ src }) => {
       <Box as='div' className={styles.left}>
         <Drag />
         <Box className={styles.thumbnail}>
-          <Box as='img' src={src} />
+          <Box as='img' className={styles.image} src={src} />
         </Box>
       </Box>
       <Box as='div' className={styles.right}>

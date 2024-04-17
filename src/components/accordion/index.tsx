@@ -170,10 +170,7 @@ const AccordionContent: React.FC<{
   children: React.ReactNode;
   className?: string;
 }> = React.forwardRef(
-  (
-    { children, className, ...props },
-    forwardedRef: React.Ref<HTMLDivElement>,
-  ) => (
+  ({ children, ...props }, forwardedRef: React.Ref<HTMLDivElement>) => (
     <RadixAccordion.Content
       ref={forwardedRef}
       {...props}

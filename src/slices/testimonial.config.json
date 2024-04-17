@@ -19,20 +19,6 @@
         "placeholder": "We create products and experiences that grow ambitious brands."
       }
     },
-    "label": {
-      "config": {
-        "type": "text",
-        "name": "Label",
-        "placeholder": "See what we can do"
-      }
-    },
-    "kind": {
-      "config": {
-        "type": "text",
-        "name": "Kind",
-        "placeholder": "Enter button kind here"
-      }
-    },
     "tabs": {
       "config": {
         "type": "array",
@@ -52,6 +38,37 @@
           "config": {
             "type": "array",
             "name": "Card",
+            "placeholder": []
+          },
+          "fields": {
+            "title": {
+              "config": {
+                "type": "text",
+                "name": "Title",
+                "placeholder": "Card Title",
+                "format": "headingThree"
+              }
+            },
+            "description": {
+              "config": {
+                "type": "text",
+                "name": "Description",
+                "placeholder": "Card Description"
+              }
+            },
+            "images": {
+              "config": {
+                "type": "gallery",
+                "name": "Image",
+                "placeholder": []
+              }
+            }
+          }
+        },
+        "aumary": {
+          "config": {
+            "type": "array",
+            "name": "Amaury",
             "placeholder": []
           },
           "fields": {

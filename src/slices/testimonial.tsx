@@ -9,7 +9,11 @@ export interface TestimonialProps {
   tab: Array<{
     title: string;
     description: string;
-    card: Array<{ title: string; description: string }>;
+    card: Array<{
+      title: string;
+      description: string;
+      image: Array<{ src: string; alt: string }>;
+    }>;
   }>;
 }
 
@@ -17,7 +21,6 @@ const Testimonial: React.FC<TestimonialProps> = ({
   title,
   description,
   tab,
-  label,
 }) => {
   return (
     <section className='section_testimonial17 SECTION_TO_KEEP section-ps'>
@@ -31,13 +34,6 @@ const Testimonial: React.FC<TestimonialProps> = ({
                     <h2>{title}</h2>
                   </div>
                   <p className='text-size-medium'>{description}</p>
-                </div>
-                <div>
-                  <div className='button-group justify-center margin-small'>
-                    <a href='#' className='button w-button'>
-                      {label}
-                    </a>
-                  </div>
                 </div>
               </div>
             </div>
@@ -62,7 +58,7 @@ const Testimonial: React.FC<TestimonialProps> = ({
                 renderItem={(props, i) => (
                   <Tabs.Content key={i} value={i.toString()}>
                     <div className='testimonial17_component'>
-                      {props.card.map(({ title, description }, id) => {
+                      {props.card.map(({ title, description, image }, id) => {
                         console.log(props);
                         return (
                           <div key={id} className='testimonial17_content'>
@@ -70,6 +66,20 @@ const Testimonial: React.FC<TestimonialProps> = ({
                               <h3 className='text-size-medium'>{title}</h3>
                               <div className='text-size-medium'>
                                 {description}
+                              </div>
+                              <div>
+                                <List
+                                  className='testimonial17_image-list'
+                                  items={image}
+                                  renderItem={({ src }) => {
+                                    return (
+                                      <img
+                                        src={src}
+                                        className='testimonial17_image'
+                                      />
+                                    );
+                                  }}
+                                />
                               </div>
                             </div>
                           </div>

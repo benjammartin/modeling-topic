@@ -779,3 +779,12 @@ img {
   gap: 12px;
   margin-bottom: 32px;
 }
+
+.testimonial17_image-list {
+  margin-top: 32px;
+  display: flex;
+}
+
+.testimonial17_image {
+  width: 64px;
+}

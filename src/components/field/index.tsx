@@ -9,7 +9,7 @@ const Field: React.FC<{
   value: string;
   type: string;
   format?: string;
-}> = ({ name, value, id, format = 'text', ...props }) => {
+}> = ({ name, id, format = 'text', ...props }) => {
   const { state, dispatch } = useCurrentAppContext();
   const onHandleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     dispatch({

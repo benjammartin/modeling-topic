@@ -2,10 +2,10 @@ import Box from '@/components/primitives/box';
 import styles from './styles.module.css';
 import React from 'react';
 import { useCurrentAppContext } from '@/contexts/app-provider';
-import Button from '../button';
 import { getFields } from '@/lib/get-props';
 import List from '../primitives/list';
 import ImageItem from './image-item';
+import Medias from './medias';
 
 const GalleryImages: React.FC<{
   id: string;
@@ -13,7 +13,7 @@ const GalleryImages: React.FC<{
   value: string;
   type: string;
   format?: string;
-}> = ({ name, value, id, format = 'text', ...props }) => {
+}> = ({ name, id, ...props }) => {
   const { state, dispatch } = useCurrentAppContext();
   const ids = state.builder[id].children;
   const images = getFields(ids, state);
@@ -24,14 +24,6 @@ const GalleryImages: React.FC<{
     });
   };
 
-  const onAddNewItem = async () => {
-    dispatch({
-      type: 'ADD_IMAGE',
-      payload: {
-        id: id,
-      },
-    });
-  };
   return (
     <Box as='div' {...props} className={styles.root}>
       <Box as='label' className={styles.label}>
@@ -45,20 +37,10 @@ const GalleryImages: React.FC<{
             <ImageItem key={item.id} src={item.props.src} />
           )}
         />
-        <Button onClick={onAddNewItem}>Add new image</Button>
+        <Medias parentId={id} />
       </Box>
     </Box>
   );
 };
 
 export default GalleryImages;
-
-/**  <Box
-          as='input'
-          onChange={onHandleChange}
-          placeholder='Field content'
-          type='file'
-          value=''
-          className={styles.input}
-          data-format={format}
-        /> */
