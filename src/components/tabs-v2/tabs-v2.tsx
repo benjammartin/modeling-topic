@@ -14,6 +14,8 @@ import Add from '../icons/add';
 
 interface TabsV2Props {
   item: NormalizedField;
+  name: string;
+  id: string;
 }
 
 const TabsV2: React.FC<TabsV2Props> = (props) => {
@@ -48,8 +50,8 @@ const TabsV2: React.FC<TabsV2Props> = (props) => {
               >
                 <Box as='div'>
                   <Drag />
-                  <Box as='p'>
-                    {item.name} {i + 1}{' '}
+                  <Box as='p' contentEditable>
+                    {props.name} {i + 1}{' '}
                   </Box>
                   <More />
                 </Box>

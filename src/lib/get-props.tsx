@@ -12,7 +12,6 @@ interface Slice {
 export function getSlices(normalized: NormalizedField, state: AppState): Slice {
   const slice = normalized.children.reduce((acc: Slice, value: string) => {
     const slice = state.builder[value];
-    console.log(getProps(slice, state));
     acc[slice.name] = {
       id: slice.id,
       props: getProps(slice, state),

@@ -6,11 +6,11 @@ export interface TestimonialProps {
   title: string;
   description: string;
   label: string;
-  tab: Array<{
-    title: string;
+  place: Array<{
+    name: string;
     description: string;
-    card: Array<{
-      title: string;
+    restaurant: Array<{
+      name: string;
       description: string;
       image: Array<{ src: string; alt: string }>;
     }>;
@@ -20,7 +20,7 @@ export interface TestimonialProps {
 const Testimonial: React.FC<TestimonialProps> = ({
   title,
   description,
-  tab,
+  place,
 }) => {
   return (
     <section className='section_testimonial17 SECTION_TO_KEEP section-ps'>
@@ -40,7 +40,7 @@ const Testimonial: React.FC<TestimonialProps> = ({
             <Tabs.Root defaultValue='0' orientation='vertical' className='tabs'>
               <Tabs.List aria-label='tabs example'>
                 <List
-                  items={tab}
+                  items={place}
                   className='tabs-list'
                   renderItem={(props, i) => (
                     <Tabs.Trigger
@@ -48,43 +48,44 @@ const Testimonial: React.FC<TestimonialProps> = ({
                       className='trigger-tab'
                       value={i.toString()}
                     >
-                      <h3 className='text-size-medium'>{props.title}</h3>
+                      <h3 className='text-size-medium'>{props.name}</h3>
                     </Tabs.Trigger>
                   )}
                 />
               </Tabs.List>
               <List
-                items={tab}
+                items={place}
                 renderItem={(props, i) => (
                   <Tabs.Content key={i} value={i.toString()}>
                     <div className='testimonial17_component'>
-                      {props.card.map(({ title, description, image }, id) => {
-                        console.log(props);
-                        return (
-                          <div key={id} className='testimonial17_content'>
-                            <div className='margin-bottom margin-small'>
-                              <h3 className='text-size-medium'>{title}</h3>
-                              <div className='text-size-medium'>
-                                {description}
-                              </div>
-                              <div>
-                                <List
-                                  className='testimonial17_image-list'
-                                  items={image}
-                                  renderItem={({ src }) => {
-                                    return (
-                                      <img
-                                        src={src}
-                                        className='testimonial17_image'
-                                      />
-                                    );
-                                  }}
-                                />
+                      {props.restaurant.map(
+                        ({ name, description, image }, id) => {
+                          return (
+                            <div key={id} className='testimonial17_content'>
+                              <div className='margin-bottom margin-small'>
+                                <h3 className='text-size-medium'>{name}</h3>
+                                <div className='text-size-medium'>
+                                  {description}
+                                </div>
+                                <div>
+                                  <List
+                                    className='testimonial17_image-list'
+                                    items={image}
+                                    renderItem={({ src }) => {
+                                      return (
+                                        <img
+                                          src={src}
+                                          className='testimonial17_image'
+                                        />
+                                      );
+                                    }}
+                                  />
+                                </div>
                               </div>
                             </div>
-                          </div>
-                        );
-                      })}
+                          );
+                        },
+                      )}
                     </div>
                   </Tabs.Content>
                 )}

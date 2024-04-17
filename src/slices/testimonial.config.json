@@ -19,64 +19,33 @@
         "placeholder": "We create products and experiences that grow ambitious brands."
       }
     },
-    "tabs": {
+    "places": {
       "config": {
         "type": "array",
-        "name": "Tab",
+        "name": "Place",
         "placeholder": []
       },
       "fields": {
-        "title": {
+        "name": {
           "config": {
             "type": "text",
-            "name": "Title",
-            "placeholder": "Apples",
+            "name": "Name",
+            "placeholder": "New York",
             "format": "headingThree"
           }
         },
-        "cards": {
+        "restaurants": {
           "config": {
             "type": "array",
-            "name": "Card",
+            "name": "Restaurant",
             "placeholder": []
           },
           "fields": {
-            "title": {
+            "name": {
               "config": {
                 "type": "text",
-                "name": "Title",
-                "placeholder": "Card Title",
-                "format": "headingThree"
-              }
-            },
-            "description": {
-              "config": {
-                "type": "text",
-                "name": "Description",
-                "placeholder": "Card Description"
-              }
-            },
-            "images": {
-              "config": {
-                "type": "gallery",
-                "name": "Image",
-                "placeholder": []
-              }
-            }
-          }
-        },
-        "aumary": {
-          "config": {
-            "type": "array",
-            "name": "Amaury",
-            "placeholder": []
-          },
-          "fields": {
-            "title": {
-              "config": {
-                "type": "text",
-                "name": "Title",
-                "placeholder": "Card Title",
+                "name": "Name",
+                "placeholder": "Clover Hill",
                 "format": "headingThree"
               }
             },

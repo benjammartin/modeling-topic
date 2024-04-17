@@ -8,6 +8,9 @@ import React from 'react';
 
 import cta from '@/slices/cta.config.json';
 import testimonial from '@/slices/testimonial.config.json';
+import hereo from '@/slices/hereo.config.json';
+import features from '@/slices/features.config.json';
+import faq from '@/slices/faq.config.json';
 // Represents the payloads for each action type
 
 type UpdateProps = {
@@ -27,6 +30,10 @@ type ActionPayloads = {
     id: string;
     src: string;
   };
+  REORDER: {
+    id: string;
+    items: Array<string>;
+  };
 };
 
 // Represents the available actions
@@ -40,8 +47,11 @@ interface AppContextType {
   dispatch: React.Dispatch<AvailableAction>;
 }
 
+const HEREO_SLICE = getNormalizedSlice(hereo);
 const CTA_SLICE = getNormalizedSlice(cta);
 const TES_SLICE = getNormalizedSlice(testimonial);
+const FAQ_SLICE = getNormalizedSlice(faq);
+const FEATURES_SLICE = getNormalizedSlice(features);
 
 const INITIAL_STATE: AppState = {
   selected: CTA_SLICE.sliceKey,
@@ -51,12 +61,24 @@ const INITIAL_STATE: AppState = {
       type: 'page',
       name: 'root',
       props: {},
-      children: [CTA_SLICE.sliceKey, TES_SLICE.sliceKey],
+      children: [
+        HEREO_SLICE.sliceKey,
+        TES_SLICE.sliceKey,
+        CTA_SLICE.sliceKey,
+        FEATURES_SLICE.sliceKey,
+        FAQ_SLICE.sliceKey,
+      ],
     },
+    ...HEREO_SLICE.fields,
+    ...HEREO_SLICE.slice,
     ...CTA_SLICE.fields,
     ...CTA_SLICE.slice,
     ...TES_SLICE.fields,
     ...TES_SLICE.slice,
+    ...FAQ_SLICE.fields,
+    ...FAQ_SLICE.slice,
+    ...FEATURES_SLICE.fields,
+    ...FEATURES_SLICE.slice,
   },
   anchors: {},
 };
@@ -91,6 +113,10 @@ const reducer = produce((draft: AppState, action: AvailableAction) => {
     case 'UPDATE_PROPS': {
       draft.builder[action.payload.id].props[action.payload.name] =
         action.payload.value;
+      break;
+    }
+    case 'REORDER': {
+      draft.builder[action.payload.id].children = action.payload.items;
       break;
     }
     case 'ADD_ITEM': {

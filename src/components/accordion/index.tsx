@@ -2,7 +2,7 @@ import List from '@/components/primitives/list';
 import Box from '@/components/primitives/box';
 import * as RadixAccordion from '@radix-ui/react-accordion';
 import styles from './styles.module.css';
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect } from 'react';
 import Field from '../field';
 import Item from '../icons/item';
 import Chevron from '../icons/chevron';
@@ -14,6 +14,8 @@ import Button from '../button';
 import { getFields } from '@/lib/get-props';
 import { useCurrentAppContext } from '@/contexts/app-provider';
 import GalleryImages from '../gallery-images';
+import { useDragAndDrop } from '@formkit/drag-and-drop/react';
+import { animations } from '@formkit/drag-and-drop';
 
 const Accordion: React.FC<{
   items: Array<string>;
@@ -22,6 +24,27 @@ const Accordion: React.FC<{
 }> = ({ items, id, name }) => {
   const [defaultValue, setDefaultValue] = React.useState<string>();
   const { state, dispatch } = useCurrentAppContext();
+
+  const [parent, elements, _setValues] = useDragAndDrop<
+    HTMLUListElement,
+    string
+  >(items, {
+    plugins: [animations()],
+  });
+
+  useEffect(() => {
+    _setValues(items);
+  }, [items, _setValues]);
+
+  useEffect(() => {
+    dispatch({
+      type: 'REORDER',
+      payload: {
+        items: elements,
+        id: id,
+      },
+    });
+  }, [elements, dispatch, id]);
 
   const onAddNewItem = () => {
     dispatch({
@@ -43,19 +66,23 @@ const Accordion: React.FC<{
         className={styles.root}
         orientation='vertical'
       >
-        {items.length && (
-          <List
-            items={items}
-            renderItem={(item, i) => {
+        <Box ref={parent}>
+          {elements.length &&
+            elements.map((item, i) => {
               const ids = state.builder[item]?.children;
               const fields = getFields(ids, state);
               return (
-                <AccordionItem className={styles.item} key={i} value={item}>
+                <AccordionItem
+                  className={styles.item}
+                  key={item}
+                  value={item}
+                  data-label={item}
+                >
                   <AccordionTrigger className={styles.trigger}>
                     <Box>
                       <Box as='span'>
                         <Chevron className={styles.chevron} />
-                        <Item /> {name} • {i + 1}
+                        <Item /> {item} • {i + 1}
                       </Box>
                       <Box className={styles.actions}>
                         <Box className={styles.move}>
@@ -106,9 +133,8 @@ const Accordion: React.FC<{
                   </AccordionContent>
                 </AccordionItem>
               );
-            }}
-          />
-        )}
+            })}
+        </Box>
       </RadixAccordion.Root>
       <Box as='footer' className={styles.footer}>
         <Button onClick={onAddNewItem}>
@@ -119,24 +145,25 @@ const Accordion: React.FC<{
   );
 };
 
-const AccordionItem: React.FC<{
-  children: React.ReactNode;
-  className?: string;
-  value: string;
-}> = React.forwardRef(
+const AccordionItem = React.forwardRef<
+  HTMLDivElement,
+  { children: React.ReactNode; className: string; value: string }
+>(
   (
     { children, className, value, ...props },
-    forwardedRef: React.Ref<HTMLDivElement>,
-  ) => (
-    <RadixAccordion.Item
-      className={className}
-      ref={forwardedRef}
-      value={value}
-      {...props}
-    >
-      {children}
-    </RadixAccordion.Item>
-  ),
+    ref: React.Ref<HTMLDivElement>,
+  ) => {
+    return (
+      <RadixAccordion.Item
+        ref={ref}
+        value={value}
+        {...props}
+        className={className}
+      >
+        {children}
+      </RadixAccordion.Item>
+    );
+  },
 );
 
 const AccordionTrigger: React.FC<{

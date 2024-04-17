@@ -42,7 +42,14 @@ const Editor = () => {
           renderItem={(props) => {
             switch (props.type) {
               case 'array':
-                return <TabsV2 key={props.id} item={props} />;
+                return (
+                  <TabsV2
+                    id={props.id}
+                    name={props.name}
+                    key={props.id}
+                    item={props}
+                  />
+                );
               default:
                 return (
                   <Field
