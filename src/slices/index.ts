@@ -18,7 +18,7 @@ interface Components {
 export const components: Components = {
   Hero: hero,
   Calltoaction: CallToAction,
-  Features: Feature,
+  Announcement: Feature,
   Highlights: Highlights,
-  FAQ: FAQ,
+  Events: FAQ,
 };

@@ -612,7 +612,7 @@
   "slice-3393481a4a": {
     "id": "slice-3393481a4a",
     "type": "slice",
-    "name": "FAQ",
+    "name": "Events",
     "children": [
       "text-ec0b12e410",
       "text-6a8628921e",
@@ -714,7 +714,7 @@
     "type": "text",
     "name": "Tag",
     "props": {
-      "Tag": "Portfolio highlight"
+      "Tag": "Latest"
     },
     "children": [],
     "schema": {
@@ -793,7 +793,7 @@
   "slice-dba6bb2990": {
     "id": "slice-dba6bb2990",
     "type": "slice",
-    "name": "Features",
+    "name": "Announcement",
     "children": [
       "text-ac1b495b30",
       "text-911d5a41d2",
@@ -805,7 +805,7 @@
         "config": {
           "type": "text",
           "name": "Tag",
-          "placeholder": "Portfolio highlight"
+          "placeholder": "Latest"
         }
       },
       "title": {
