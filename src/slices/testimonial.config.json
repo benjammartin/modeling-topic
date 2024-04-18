@@ -1,6 +1,6 @@
 {
-  "id": "testimonial",
-  "name": "Testimonial",
+  "id": "highlights",
+  "name": "Highlights",
   "type": "slice",
   "display": "tabs",
   "fields": {

@@ -3,7 +3,7 @@ import heroConfig from './hereo.config.json';
 import ctaConfig from './cta.config.json';
 import CallToAction from './cta';
 import Feature from './feature';
-import Testimonial from './testimonial';
+import Highlights from './testimonial';
 import FAQ from './faq';
 
 export const configs = {
@@ -19,6 +19,6 @@ export const components: Components = {
   Hero: hero,
   Calltoaction: CallToAction,
   Features: Feature,
-  Testimonial: Testimonial,
+  Highlights: Highlights,
   FAQ: FAQ,
 };

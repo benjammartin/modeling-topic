@@ -469,7 +469,7 @@
   "slice-cb40f51ec9": {
     "id": "slice-cb40f51ec9",
     "type": "slice",
-    "name": "Testimonial",
+    "name": "Highlights",
     "children": ["text-359345e3ee", "text-dc58008433", "array-5de3e7d650"],
     "schema": {
       "title": {
