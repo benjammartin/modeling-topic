@@ -40,7 +40,6 @@ button {
 }
 
 button {
-  -webkit-appearance: button;
   cursor: pointer;
 }
 
