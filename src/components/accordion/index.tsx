@@ -82,7 +82,7 @@ const Accordion: React.FC<{
                     <Box>
                       <Box as='span'>
                         <Chevron className={styles.chevron} />
-                        <Item /> {item} • {i + 1}
+                        <Item /> {name} • {i + 1}
                       </Box>
                       <Box className={styles.actions}>
                         <Box className={styles.move}>
