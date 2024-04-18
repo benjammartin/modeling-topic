@@ -39,8 +39,10 @@ interface AppContextType {
   dispatch: React.Dispatch<AvailableAction>;
 }
 
+console.log(Object.keys(demo));
+
 const INITIAL_STATE: AppState = {
-  selected: Object.keys(demo)[1],
+  selected: 'slice-0a753c3f72',
   builder: demo as any,
   anchors: Object.keys(demo).reduce(
     (acc: Record<string, React.RefObject<HTMLDivElement>>, key) => {
