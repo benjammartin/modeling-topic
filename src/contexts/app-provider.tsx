@@ -1,16 +1,8 @@
-import {
-  getNormalizedImage,
-  getNormalizedItem,
-  getNormalizedSlice,
-} from '@/lib/utils';
+import { getNormalizedImage, getNormalizedItem } from '@/lib/utils';
 import { produce } from 'immer';
 import React from 'react';
 
-import cta from '@/slices/cta.config.json';
-import testimonial from '@/slices/testimonial.config.json';
-import hereo from '@/slices/hereo.config.json';
-import features from '@/slices/features.config.json';
-import faq from '@/slices/faq.config.json';
+import demo from '@/demo.config.json';
 // Represents the payloads for each action type
 
 type UpdateProps = {
@@ -47,40 +39,16 @@ interface AppContextType {
   dispatch: React.Dispatch<AvailableAction>;
 }
 
-const HEREO_SLICE = getNormalizedSlice(hereo);
-const CTA_SLICE = getNormalizedSlice(cta);
-const TES_SLICE = getNormalizedSlice(testimonial);
-const FAQ_SLICE = getNormalizedSlice(faq);
-const FEATURES_SLICE = getNormalizedSlice(features);
-
 const INITIAL_STATE: AppState = {
-  selected: CTA_SLICE.sliceKey,
-  builder: {
-    root: {
-      id: 'root',
-      type: 'page',
-      name: 'root',
-      props: {},
-      children: [
-        HEREO_SLICE.sliceKey,
-        TES_SLICE.sliceKey,
-        CTA_SLICE.sliceKey,
-        FEATURES_SLICE.sliceKey,
-        FAQ_SLICE.sliceKey,
-      ],
+  selected: Object.keys(demo)[1],
+  builder: demo as any,
+  anchors: Object.keys(demo).reduce(
+    (acc: Record<string, React.RefObject<HTMLDivElement>>, key) => {
+      acc[key] = React.createRef();
+      return acc;
     },
-    ...HEREO_SLICE.fields,
-    ...HEREO_SLICE.slice,
-    ...CTA_SLICE.fields,
-    ...CTA_SLICE.slice,
-    ...TES_SLICE.fields,
-    ...TES_SLICE.slice,
-    ...FAQ_SLICE.fields,
-    ...FAQ_SLICE.slice,
-    ...FEATURES_SLICE.fields,
-    ...FEATURES_SLICE.slice,
-  },
-  anchors: {},
+    {},
+  ),
 };
 
 const AppContext = React.createContext<AppContextType>({
@@ -139,6 +107,7 @@ const AppContextProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
   const [state, dispatch] = React.useReducer(reducer, INITIAL_STATE);
+  console.log(state);
   return (
     <AppContext.Provider value={{ state, dispatch }}>
       {children}

@@ -24,20 +24,6 @@ export function getNormalizedFields(schema: Fields) {
       const type = schema[field].config.type;
       const id = `${schema[field].config.type}-${nanoid()}`;
       switch (type) {
-        case 'gallery':
-          const image = getNormalizedImage();
-          imageItem = { [image.id]: image };
-          obj[id] = {
-            id: id,
-            type: schema[field].config.type,
-            name: schema[field].config.name,
-            props: {
-              [schema[field].config.name]: schema[field].config.placeholder,
-            },
-            children: [image.id],
-            schema: schema[field].fields,
-          };
-          return obj;
         case 'array':
           {
             const { item, fields, itemKey } = getNormalizedItem(

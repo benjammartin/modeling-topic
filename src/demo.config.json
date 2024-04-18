@@ -5,19 +5,78 @@
     "name": "root",
     "props": {},
     "children": [
-      "slice-1d3dadf1cb",
-      "slice-f8f9dbebb6",
-      "slice-9dbdaf93f1",
-      "slice-22d84e14a9",
-      "slice-d53cb9f318"
+      "slice-0a753c3f72",
+      "slice-cb40f51ec9",
+      "slice-12a2f9fa21",
+      "slice-dba6bb2990",
+      "slice-3393481a4a"
     ]
   },
-
-  "slice-1d3dadf1cb": {
-    "id": "slice-1d3dadf1cb",
+  "text-f4fe95a9b4": {
+    "id": "text-f4fe95a9b4",
+    "type": "text",
+    "name": "Title",
+    "format": "headingOne",
+    "props": {
+      "Title": "Restaurants in Paris"
+    },
+    "children": [],
+    "schema": {
+      "title": {
+        "config": {
+          "type": "text",
+          "name": "Title",
+          "placeholder": "ABC Agency",
+          "format": "headingOne"
+        }
+      }
+    }
+  },
+  "text-d5fcdbbc89": {
+    "id": "text-d5fcdbbc89",
+    "type": "text",
+    "name": "Description",
+    "format": "paragraph",
+    "props": {
+      "Description": "Enjoy the most scenic places in the city while having an unforgettable meal."
+    },
+    "children": [],
+    "schema": {
+      "description": {
+        "config": {
+          "type": "text",
+          "name": "Description",
+          "placeholder": "We are a design and innovation company. Find growth for your brand.",
+          "format": "paragraph"
+        }
+      }
+    }
+  },
+  "text-472cffc41a": {
+    "id": "text-472cffc41a",
+    "type": "text",
+    "name": "Button",
+    "format": "paragraph",
+    "props": {
+      "Button": "Browse"
+    },
+    "children": [],
+    "schema": {
+      "button": {
+        "config": {
+          "type": "text",
+          "name": "Button",
+          "placeholder": "Hello",
+          "format": "paragraph"
+        }
+      }
+    }
+  },
+  "slice-0a753c3f72": {
+    "id": "slice-0a753c3f72",
     "type": "slice",
     "name": "Hero",
-    "children": ["field-3d2220619d", "field-b2c597b6b4", "field-504ea626d5"],
+    "children": ["text-f4fe95a9b4", "text-d5fcdbbc89", "text-472cffc41a"],
     "schema": {
       "title": {
         "config": {
@@ -35,48 +94,83 @@
           "format": "paragraph"
         }
       },
-      "buttons": {
+      "button": {
         "config": {
-          "type": "array",
+          "type": "text",
           "name": "Button",
-          "placeholder": {}
-        },
-        "fields": {
-          "title": {
-            "config": {
-              "type": "text",
-              "name": "Label",
-              "placeholder": "Contact"
-            }
-          },
-          "kind": {
-            "config": {
-              "type": "text",
-              "name": "Kind",
-              "placeholder": "Primary"
-            }
-          }
+          "placeholder": "Hello",
+          "format": "paragraph"
         }
       }
-    },
-    "display": "default"
+    }
   },
-  "slice-f8f9dbebb6": {
-    "id": "slice-f8f9dbebb6",
-    "type": "slice",
-    "name": "Testimonial",
-    "children": [
-      "field-b27210218f",
-      "field-5820b6480a",
-      "field-81d1991564",
-      "field-100ea31f1a"
-    ],
+  "text-c978dd1c3a": {
+    "id": "text-c978dd1c3a",
+    "type": "text",
+    "name": "Title",
+    "format": "headingTwo",
+    "props": {
+      "Title": "The ‘Restaurants in Paris’ app"
+    },
+    "children": [],
     "schema": {
       "title": {
         "config": {
           "type": "text",
           "name": "Title",
-          "placeholder": "Client Testimonials",
+          "placeholder": "The Cost of a Boring Experience",
+          "format": "headingTwo"
+        }
+      }
+    }
+  },
+  "text-ac1bb898ae": {
+    "id": "text-ac1bb898ae",
+    "type": "text",
+    "name": "Description",
+    "props": {
+      "Description": "Available for free on iOS, our app brings together nearly 2,000 addresses across France and Belgium."
+    },
+    "children": [],
+    "schema": {
+      "description": {
+        "config": {
+          "type": "text",
+          "name": "Description",
+          "placeholder": "In the quest for differentiation, creativity is not just an asset. It’s a necessity."
+        }
+      }
+    }
+  },
+  "text-60ce4c4b08": {
+    "id": "text-60ce4c4b08",
+    "type": "text",
+    "name": "Button",
+    "props": {
+      "Button": "Download now"
+    },
+    "children": [],
+    "schema": {
+      "button": {
+        "config": {
+          "type": "text",
+          "name": "Button",
+          "placeholder": "Read article"
+        }
+      }
+    }
+  },
+  "slice-12a2f9fa21": {
+    "id": "slice-12a2f9fa21",
+    "type": "slice",
+    "name": "Calltoaction",
+    "children": ["text-c978dd1c3a", "text-ac1bb898ae", "text-60ce4c4b08"],
+    "schema": {
+      "title": {
+        "config": {
+          "type": "text",
+          "name": "Title",
+          "placeholder": "The Cost of a Boring Experience",
           "format": "headingTwo"
         }
       },
@@ -84,44 +178,45 @@
         "config": {
           "type": "text",
           "name": "Description",
-          "placeholder": "We create products and experiences that grow ambitious brands."
+          "placeholder": "In the quest for differentiation, creativity is not just an asset. It’s a necessity."
         }
       },
-      "buttons": {
+      "button": {
         "config": {
-          "type": "array",
+          "type": "text",
           "name": "Button",
-          "placeholder": []
-        },
-        "fields": {
-          "label": {
-            "config": {
-              "type": "text",
-              "name": "Label",
-              "placeholder": "See what we can do"
-            }
-          },
-          "kind": {
-            "config": {
-              "type": "text",
-              "name": "Kind",
-              "placeholder": "Enter button kind here"
-            }
-          }
+          "placeholder": "Read article"
+        }
+      }
+    }
+  },
+  "item-cf7e152a1e": {
+    "id": "item-cf7e152a1e",
+    "type": "group-item",
+    "name": "item",
+    "children": ["text-beecea5dd6", "array-fe76d8a8ec"],
+    "props": {},
+    "schema": {
+      "name": {
+        "config": {
+          "type": "text",
+          "name": "Name",
+          "placeholder": "New York",
+          "format": "headingThree"
         }
       },
-      "cards": {
+      "restaurants": {
         "config": {
           "type": "array",
-          "name": "Card",
+          "name": "Restaurant",
           "placeholder": []
         },
         "fields": {
-          "title": {
+          "name": {
             "config": {
               "type": "text",
-              "name": "Title",
-              "placeholder": "Apples",
+              "name": "Name",
+              "placeholder": "Clover Hill",
               "format": "headingThree"
             }
           },
@@ -129,85 +224,32 @@
             "config": {
               "type": "text",
               "name": "Description",
-              "placeholder": "ABC blew me away with their incredible service and creativity. They nailed it! - Sarah Johnson"
+              "placeholder": "Card Description"
+            }
+          },
+          "images": {
+            "config": {
+              "type": "gallery",
+              "name": "Image",
+              "placeholder": []
             }
           }
         }
       }
-    },
-    "display": "tabs"
+    }
   },
-  "item-5234096fb2": {
-    "id": "item-5234096fb2",
+  "item-91d36a7ea4": {
+    "id": "item-91d36a7ea4",
     "type": "group-item",
     "name": "item",
-    "children": ["field-cd615f2293", "field-374c94ee8b"],
+    "children": ["text-ef1fc48bd6", "text-e2292d9222", "gallery-101970ae3d"],
     "props": {},
     "schema": {
-      "label": {
+      "name": {
         "config": {
           "type": "text",
-          "name": "Label",
-          "placeholder": "See what we can do"
-        }
-      },
-      "kind": {
-        "config": {
-          "type": "text",
-          "name": "Kind",
-          "placeholder": "Enter button kind here"
-        }
-      }
-    }
-  },
-  "field-cd615f2293": {
-    "id": "field-cd615f2293",
-    "type": "text",
-    "name": "Label",
-    "props": {
-      "Label": "See what we can do"
-    },
-    "children": [],
-    "schema": {
-      "label": {
-        "config": {
-          "type": "text",
-          "name": "Label",
-          "placeholder": "See what we can do"
-        }
-      }
-    }
-  },
-  "field-374c94ee8b": {
-    "id": "field-374c94ee8b",
-    "type": "text",
-    "name": "Kind",
-    "props": {
-      "Kind": "Enter button kind here"
-    },
-    "children": [],
-    "schema": {
-      "kind": {
-        "config": {
-          "type": "text",
-          "name": "Kind",
-          "placeholder": "Enter button kind here"
-        }
-      }
-    }
-  },
-  "item-ba2f8205af": {
-    "id": "item-ba2f8205af",
-    "type": "group-item",
-    "name": "item",
-    "children": ["field-dd6a07b367", "field-0314e9b8bb"],
-    "props": {},
-    "schema": {
-      "title": {
-        "config": {
-          "type": "text",
-          "name": "Title",
-          "placeholder": "Apples",
+          "name": "Name",
+          "placeholder": "Clover Hill",
           "format": "headingThree"
         }
       },
@@ -215,37 +257,44 @@
         "config": {
           "type": "text",
           "name": "Description",
-          "placeholder": "ABC blew me away with their incredible service and creativity. They nailed it! - Sarah Johnson"
+          "placeholder": "Card Description"
+        }
+      },
+      "images": {
+        "config": {
+          "type": "gallery",
+          "name": "Image",
+          "placeholder": []
         }
       }
     }
   },
-  "field-dd6a07b367": {
-    "id": "field-dd6a07b367",
+  "text-ef1fc48bd6": {
+    "id": "text-ef1fc48bd6",
     "type": "text",
-    "name": "Title",
+    "name": "Name",
     "format": "headingThree",
     "props": {
-      "Title": "Apples"
+      "Name": "West Bangkok"
     },
     "children": [],
     "schema": {
-      "title": {
+      "name": {
         "config": {
           "type": "text",
-          "name": "Title",
-          "placeholder": "Apples",
+          "name": "Name",
+          "placeholder": "Clover Hill",
           "format": "headingThree"
         }
       }
     }
   },
-  "field-0314e9b8bb": {
-    "id": "field-0314e9b8bb",
+  "text-e2292d9222": {
+    "id": "text-e2292d9222",
     "type": "text",
     "name": "Description",
     "props": {
-      "Description": "ABC blew me away with their incredible service and creativity. They nailed it! - Sarah Johnson"
+      "Description": "Discover the warm atmosphere of one of the best Thai street food in town"
     },
     "children": [],
     "schema": {
@@ -253,18 +302,89 @@
         "config": {
           "type": "text",
           "name": "Description",
-          "placeholder": "ABC blew me away with their incredible service and creativity. They nailed it! - Sarah Johnson"
+          "placeholder": "Card Description"
         }
       }
     }
   },
-  "field-b27210218f": {
-    "id": "field-b27210218f",
+  "gallery-101970ae3d": {
+    "id": "gallery-101970ae3d",
+    "type": "gallery",
+    "name": "Image",
+    "props": {
+      "Image": []
+    },
+    "children": ["image-1977f21da1", "image-9bdee94e11"],
+    "schema": {
+      "images": {
+        "config": {
+          "type": "gallery",
+          "name": "Image",
+          "placeholder": []
+        }
+      }
+    }
+  },
+  "text-beecea5dd6": {
+    "id": "text-beecea5dd6",
+    "type": "text",
+    "name": "Name",
+    "format": "headingThree",
+    "props": {
+      "Name": "Thai"
+    },
+    "children": [],
+    "schema": {
+      "name": {
+        "config": {
+          "type": "text",
+          "name": "Name",
+          "placeholder": "New York",
+          "format": "headingThree"
+        }
+      }
+    }
+  },
+  "array-fe76d8a8ec": {
+    "id": "array-fe76d8a8ec",
+    "type": "array",
+    "name": "Restaurant",
+    "props": {
+      "Restaurant": []
+    },
+    "children": ["item-91d36a7ea4", "item-a796a67fad", "item-2a72b4f66b"],
+    "schema": {
+      "name": {
+        "config": {
+          "type": "text",
+          "name": "Name",
+          "placeholder": "Clover Hill",
+          "format": "headingThree"
+        }
+      },
+      "description": {
+        "config": {
+          "type": "text",
+          "name": "Description",
+          "placeholder": "Card Description"
+        }
+      },
+      "images": {
+        "config": {
+          "type": "gallery",
+          "name": "Image",
+          "placeholder": []
+        }
+      }
+    }
+  },
+  "text-359345e3ee": {
+    "id": "text-359345e3ee",
     "type": "text",
     "name": "Title",
     "format": "headingTwo",
     "props": {
-      "Title": "Client Testimonials"
+      "Title": "Restaurant Highlights"
     },
     "children": [],
     "schema": {
@@ -278,12 +398,12 @@
       }
     }
   },
-  "field-5820b6480a": {
-    "id": "field-5820b6480a",
+  "text-dc58008433": {
+    "id": "text-dc58008433",
     "type": "text",
     "name": "Description",
     "props": {
-      "Description": "We create products and experiences that grow ambitious brands."
+      "Description": "Browse the most popular restaurants ordered by type of cuisine."
     },
     "children": [],
     "schema": {
@@ -296,254 +416,67 @@
       }
     }
   },
-  "field-81d1991564": {
-    "id": "field-81d1991564",
+  "array-5de3e7d650": {
+    "id": "array-5de3e7d650",
     "type": "array",
-    "name": "Button",
+    "name": "Place",
     "props": {
-      "Button": []
+      "Place": []
     },
-    "children": ["item-5234096fb2"],
+    "children": ["item-cf7e152a1e", "item-4730eb42a4"],
     "schema": {
-      "label": {
+      "name": {
         "config": {
           "type": "text",
-          "name": "Label",
-          "placeholder": "See what we can do"
-        }
-      },
-      "kind": {
-        "config": {
-          "type": "text",
-          "name": "Kind",
-          "placeholder": "Enter button kind here"
-        }
-      }
-    }
-  },
-  "field-100ea31f1a": {
-    "id": "field-100ea31f1a",
-    "type": "array",
-    "name": "Card",
-    "props": {
-      "Card": []
-    },
-    "children": ["item-ba2f8205af", "item-f4c82a7b1f"],
-    "schema": {
-      "title": {
-        "config": {
-          "type": "text",
-          "name": "Title",
-          "placeholder": "Apples",
+          "name": "Name",
+          "placeholder": "New York",
           "format": "headingThree"
         }
       },
-      "description": {
+      "restaurants": {
         "config": {
-          "type": "text",
-          "name": "Description",
-          "placeholder": "ABC blew me away with their incredible service and creativity. They nailed it! - Sarah Johnson"
+          "type": "array",
+          "name": "Restaurant",
+          "placeholder": []
+        },
+        "fields": {
+          "name": {
+            "config": {
+              "type": "text",
+              "name": "Name",
+              "placeholder": "Clover Hill",
+              "format": "headingThree"
+            }
+          },
+          "description": {
+            "config": {
+              "type": "text",
+              "name": "Description",
+              "placeholder": "Card Description"
+            }
+          },
+          "images": {
+            "config": {
+              "type": "gallery",
+              "name": "Image",
+              "placeholder": []
+            }
+          }
         }
       }
     }
   },
-  "item-f4c82a7b1f": {
-    "id": "item-f4c82a7b1f",
-    "type": "group-item",
-    "name": "item",
-    "children": ["field-2bbe962aab", "field-b20a525f61"],
-    "props": {},
-    "schema": {
-      "title": {
-        "config": {
-          "type": "text",
-          "name": "Title",
-          "placeholder": "Apples",
-          "format": "headingThree"
-        }
-      },
-      "description": {
-        "config": {
-          "type": "text",
-          "name": "Description",
-          "placeholder": "ABC blew me away with their incredible service and creativity. They nailed it! - Sarah Johnson"
-        }
-      }
-    }
-  },
-  "field-2bbe962aab": {
-    "id": "field-2bbe962aab",
-    "type": "text",
-    "name": "Title",
-    "format": "headingThree",
-    "props": {
-      "Title": "JustAte"
-    },
-    "children": [],
-    "schema": {
-      "title": {
-        "config": {
-          "type": "text",
-          "name": "Title",
-          "placeholder": "Apples",
-          "format": "headingThree"
-        }
-      }
-    }
-  },
-  "field-b20a525f61": {
-    "id": "field-b20a525f61",
-    "type": "text",
-    "name": "Description",
-    "props": {
-      "Description": "We uncovered new sources of growth for our product, thanks to ABC's creativity. - Noah Ling"
-    },
-    "children": [],
-    "schema": {
-      "description": {
-        "config": {
-          "type": "text",
-          "name": "Description",
-          "placeholder": "ABC blew me away with their incredible service and creativity. They nailed it! - Sarah Johnson"
-        }
-      }
-    }
-  },
-  "item-3f471fda9f": {
-    "id": "item-3f471fda9f",
-    "type": "group-item",
-    "name": "item",
-    "children": ["field-d6da9e3611", "field-a69027cc5b"],
-    "props": {},
-    "schema": {
-      "title": {
-        "config": {
-          "type": "text",
-          "name": "Label",
-          "placeholder": "Contact"
-        }
-      },
-      "kind": {
-        "config": {
-          "type": "text",
-          "name": "Kind",
-          "placeholder": "Primary"
-        }
-      }
-    }
-  },
-  "field-d6da9e3611": {
-    "id": "field-d6da9e3611",
-    "type": "text",
-    "name": "Label",
-    "props": {
-      "Label": "Contact"
-    },
-    "children": [],
-    "schema": {
-      "title": {
-        "config": {
-          "type": "text",
-          "name": "Label",
-          "placeholder": "Contact"
-        }
-      }
-    }
-  },
-  "field-a69027cc5b": {
-    "id": "field-a69027cc5b",
-    "type": "text",
-    "name": "Kind",
-    "props": {
-      "Kind": "Primary"
-    },
-    "children": [],
-    "schema": {
-      "kind": {
-        "config": {
-          "type": "text",
-          "name": "Kind",
-          "placeholder": "Primary"
-        }
-      }
-    }
-  },
-  "field-3d2220619d": {
-    "id": "field-3d2220619d",
-    "type": "text",
-    "name": "Title",
-    "format": "headingOne",
-    "props": {
-      "Title": "ABC Agency"
-    },
-    "children": [],
-    "schema": {
-      "title": {
-        "config": {
-          "type": "text",
-          "name": "Title",
-          "placeholder": "ABC Agency",
-          "format": "headingOne"
-        }
-      }
-    }
-  },
-  "field-b2c597b6b4": {
-    "id": "field-b2c597b6b4",
-    "type": "text",
-    "name": "Description",
-    "format": "paragraph",
-    "props": {
-      "Description": "We are a design and innovation company. Find growth for your brand."
-    },
-    "children": [],
-    "schema": {
-      "description": {
-        "config": {
-          "type": "text",
-          "name": "Description",
-          "placeholder": "We are a design and innovation company. Find growth for your brand.",
-          "format": "paragraph"
-        }
-      }
-    }
-  },
-  "field-504ea626d5": {
-    "id": "field-504ea626d5",
-    "type": "array",
-    "name": "Button",
-    "props": {
-      "Button": {}
-    },
-    "children": ["item-3f471fda9f"],
-    "schema": {
-      "title": {
-        "config": {
-          "type": "text",
-          "name": "Label",
-          "placeholder": "Contact"
-        }
-      },
-      "kind": {
-        "config": {
-          "type": "text",
-          "name": "Kind",
-          "placeholder": "Primary"
-        }
-      }
-    }
-  },
-  "slice-22d84e14a9": {
-    "id": "slice-22d84e14a9",
+  "slice-cb40f51ec9": {
+    "id": "slice-cb40f51ec9",
     "type": "slice",
-    "name": "Calltoaction",
-    "children": ["field-8c0fb21e5a", "field-8ab82e1977", "field-f23e81f46b"],
+    "name": "Testimonial",
+    "children": ["text-359345e3ee", "text-dc58008433", "array-5de3e7d650"],
     "schema": {
       "title": {
         "config": {
           "type": "text",
           "name": "Title",
-          "placeholder": "The Cost of a Boring Experience",
+          "placeholder": "Client Testimonials",
           "format": "headingTwo"
         }
       },
@@ -551,26 +484,256 @@
         "config": {
           "type": "text",
           "name": "Description",
-          "placeholder": "In the quest for differentiation, creativity is not just an asset. It’s a necessity."
+          "placeholder": "We create products and experiences that grow ambitious brands."
         }
       },
-      "button": {
+      "places": {
         "config": {
-          "type": "text",
-          "name": "Button",
-          "placeholder": "Read article"
+          "type": "array",
+          "name": "Place",
+          "placeholder": []
+        },
+        "fields": {
+          "name": {
+            "config": {
+              "type": "text",
+              "name": "Name",
+              "placeholder": "New York",
+              "format": "headingThree"
+            }
+          },
+          "restaurants": {
+            "config": {
+              "type": "array",
+              "name": "Restaurant",
+              "placeholder": []
+            },
+            "fields": {
+              "name": {
+                "config": {
+                  "type": "text",
+                  "name": "Name",
+                  "placeholder": "Clover Hill",
+                  "format": "headingThree"
+                }
+              },
+              "description": {
+                "config": {
+                  "type": "text",
+                  "name": "Description",
+                  "placeholder": "Card Description"
+                }
+              },
+              "images": {
+                "config": {
+                  "type": "gallery",
+                  "name": "Image",
+                  "placeholder": []
+                }
+              }
+            }
+          }
         }
       }
-    },
-    "display": "collapsible"
+    }
   },
-  "field-8c0fb21e5a": {
-    "id": "field-8c0fb21e5a",
+  "text-ec0b12e410": {
+    "id": "text-ec0b12e410",
+    "type": "text",
+    "name": "Title",
+    "props": {
+      "Title": "Events"
+    },
+    "children": [],
+    "schema": {
+      "title": {
+        "config": {
+          "type": "text",
+          "name": "Title",
+          "placeholder": "Hero title"
+        }
+      }
+    }
+  },
+  "text-6a8628921e": {
+    "id": "text-6a8628921e",
+    "type": "text",
+    "name": "Description",
+    "props": {
+      "Description": "The full schedule of events, both in France and abroad, desperately imitated but never duplicated! Massive apéros, pop-up restaurants, culinary performances, mouthwatering live sets... Whip out your planners, people!"
+    },
+    "children": [],
+    "schema": {
+      "description": {
+        "config": {
+          "type": "text",
+          "name": "Description",
+          "placeholder": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+        }
+      }
+    }
+  },
+  "text-343ff38c89": {
+    "id": "text-343ff38c89",
+    "type": "text",
+    "name": "bottom_title",
+    "props": {
+      "bottom_title": "FAQs"
+    },
+    "children": [],
+    "schema": {
+      "bottom_title": {
+        "config": {
+          "type": "text",
+          "name": "bottom_title",
+          "placeholder": "FAQs"
+        }
+      }
+    }
+  },
+  "text-f8de6fb5eb": {
+    "id": "text-f8de6fb5eb",
+    "type": "text",
+    "name": "bottom_description",
+    "props": {
+      "bottom_description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique."
+    },
+    "children": [],
+    "schema": {
+      "bottom_description": {
+        "config": {
+          "type": "text",
+          "name": "bottom_description",
+          "placeholder": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique."
+        }
+      }
+    }
+  },
+  "slice-3393481a4a": {
+    "id": "slice-3393481a4a",
+    "type": "slice",
+    "name": "FAQ",
+    "children": [
+      "text-ec0b12e410",
+      "text-6a8628921e",
+      "text-343ff38c89",
+      "text-f8de6fb5eb"
+    ],
+    "schema": {
+      "title": {
+        "config": {
+          "type": "text",
+          "name": "Title",
+          "placeholder": "Hero title"
+        }
+      },
+      "description": {
+        "config": {
+          "type": "text",
+          "name": "Description",
+          "placeholder": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+        }
+      },
+      "bottom_title": {
+        "config": {
+          "type": "text",
+          "name": "bottom_title",
+          "placeholder": "FAQs"
+        }
+      },
+      "bottom_description": {
+        "config": {
+          "type": "text",
+          "name": "bottom_description",
+          "placeholder": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique."
+        }
+      }
+    }
+  },
+  "item-96a3326626": {
+    "id": "item-96a3326626",
+    "type": "group-item",
+    "name": "item",
+    "children": ["number-daeb4d2ada", "text-485f1c5602"],
+    "props": {},
+    "schema": {
+      "figure": {
+        "config": {
+          "type": "number",
+          "name": "Figure",
+          "placeholder": "50"
+        }
+      },
+      "description": {
+        "config": {
+          "type": "text",
+          "name": "Description",
+          "placeholder": "Increase in conversion following redesign"
+        }
+      }
+    }
+  },
+  "number-daeb4d2ada": {
+    "id": "number-daeb4d2ada",
+    "type": "number",
+    "name": "Figure",
+    "props": {
+      "Figure": "400"
+    },
+    "children": [],
+    "schema": {
+      "figure": {
+        "config": {
+          "type": "number",
+          "name": "Figure",
+          "placeholder": "50"
+        }
+      }
+    }
+  },
+  "text-485f1c5602": {
+    "id": "text-485f1c5602",
+    "type": "text",
+    "name": "Description",
+    "props": {
+      "Description": "Increase in conversion following redesign"
+    },
+    "children": [],
+    "schema": {
+      "description": {
+        "config": {
+          "type": "text",
+          "name": "Description",
+          "placeholder": "Increase in conversion following redesign"
+        }
+      }
+    }
+  },
+  "text-ac1b495b30": {
+    "id": "text-ac1b495b30",
+    "type": "text",
+    "name": "Tag",
+    "props": {
+      "Tag": "Portfolio highlight"
+    },
+    "children": [],
+    "schema": {
+      "tag": {
+        "config": {
+          "type": "text",
+          "name": "Tag",
+          "placeholder": "Portfolio highlight"
+        }
+      }
+    }
+  },
+  "text-911d5a41d2": {
+    "id": "text-911d5a41d2",
     "type": "text",
     "name": "Title",
     "format": "headingTwo",
     "props": {
-      "Title": "The Cost of a Boring Experience"
+      "Title": "The new ‘Restaurants in Paris’ France Guide is available!"
     },
     "children": [],
     "schema": {
@@ -578,18 +741,18 @@
         "config": {
           "type": "text",
           "name": "Title",
-          "placeholder": "The Cost of a Boring Experience",
+          "placeholder": "Goggle: Uncovering growth through experiences people love.",
           "format": "headingTwo"
         }
       }
     }
   },
-  "field-8ab82e1977": {
-    "id": "field-8ab82e1977",
+  "text-85590a72b1": {
+    "id": "text-85590a72b1",
     "type": "text",
     "name": "Description",
     "props": {
-      "Description": "In the quest for differentiation, creativity is not just an asset. It’s a necessity."
+      "Description": "Inside the latest edition, discover our top 400 restaurants, bars, wine cellars, shops and hotels from all over France that’ll be the talk of the town in 2024."
     },
     "children": [],
     "schema": {
@@ -597,38 +760,45 @@
         "config": {
           "type": "text",
           "name": "Description",
-          "placeholder": "In the quest for differentiation, creativity is not just an asset. It’s a necessity."
+          "placeholder": "Partnering with Goggle to drive their biggest bets, from everyday products to platforms of the future"
         }
       }
     }
   },
-  "field-f23e81f46b": {
-    "id": "field-f23e81f46b",
-    "type": "text",
-    "name": "Button",
+  "array-3ac68dcc56": {
+    "id": "array-3ac68dcc56",
+    "type": "array",
+    "name": "Metric",
     "props": {
-      "Button": "Read article"
+      "Metric": []
     },
-    "children": [],
+    "children": ["item-96a3326626", "item-dc11833ecd"],
     "schema": {
-      "button": {
+      "figure": {
+        "config": {
+          "type": "number",
+          "name": "Figure",
+          "placeholder": "50"
+        }
+      },
+      "description": {
         "config": {
           "type": "text",
-          "name": "Button",
-          "placeholder": "Read article"
+          "name": "Description",
+          "placeholder": "Increase in conversion following redesign"
         }
       }
     }
   },
-  "slice-9dbdaf93f1": {
-    "id": "slice-9dbdaf93f1",
+  "slice-dba6bb2990": {
+    "id": "slice-dba6bb2990",
     "type": "slice",
     "name": "Features",
     "children": [
-      "field-61149aa392",
-      "field-a791ff6b0f",
-      "field-ec132b313b",
-      "field-b9cb5d416f"
+      "text-ac1b495b30",
+      "text-911d5a41d2",
+      "text-85590a72b1",
+      "array-3ac68dcc56"
     ],
     "schema": {
       "tag": {
@@ -676,14 +846,637 @@
           }
         }
       }
-    },
-    "display": "collapsible"
+    }
   },
-  "item-c8dfe97a23": {
-    "id": "item-c8dfe97a23",
+  "image-1977f21da1": {
+    "id": "image-1977f21da1",
+    "type": "image-item",
+    "name": "image",
+    "children": [],
+    "props": {
+      "src": "/src/components/gallery-images/medias/images/michelin.png",
+      "alt": "xxxxxxxx"
+    },
+    "schema": {}
+  },
+  "image-9bdee94e11": {
+    "id": "image-9bdee94e11",
+    "type": "image-item",
+    "name": "image",
+    "children": [],
+    "props": {
+      "src": "/src/components/gallery-images/medias/images/vegi.png",
+      "alt": "xxxxxxxx"
+    },
+    "schema": {}
+  },
+  "item-a796a67fad": {
+    "id": "item-a796a67fad",
     "type": "group-item",
     "name": "item",
-    "children": ["field-59aa7cf131", "field-2b5f3aa34e"],
+    "children": ["text-5a07a9ada8", "text-91f529dacc", "gallery-ccbd91c29a"],
+    "props": {},
+    "schema": {
+      "name": {
+        "config": {
+          "type": "text",
+          "name": "Name",
+          "placeholder": "Clover Hill",
+          "format": "headingThree"
+        }
+      },
+      "description": {
+        "config": {
+          "type": "text",
+          "name": "Description",
+          "placeholder": "Card Description"
+        }
+      },
+      "images": {
+        "config": {
+          "type": "gallery",
+          "name": "Image",
+          "placeholder": []
+        }
+      }
+    }
+  },
+  "text-5a07a9ada8": {
+    "id": "text-5a07a9ada8",
+    "type": "text",
+    "name": "Name",
+    "format": "headingThree",
+    "props": {
+      "Name": "Pad Thaï lover"
+    },
+    "children": [],
+    "schema": {
+      "name": {
+        "config": {
+          "type": "text",
+          "name": "Name",
+          "placeholder": "Clover Hill",
+          "format": "headingThree"
+        }
+      }
+    }
+  },
+  "text-91f529dacc": {
+    "id": "text-91f529dacc",
+    "type": "text",
+    "name": "Description",
+    "props": {
+      "Description": "Authentic Thai flavors in a serene setting."
+    },
+    "children": [],
+    "schema": {
+      "description": {
+        "config": {
+          "type": "text",
+          "name": "Description",
+          "placeholder": "Card Description"
+        }
+      }
+    }
+  },
+  "gallery-ccbd91c29a": {
+    "id": "gallery-ccbd91c29a",
+    "type": "gallery",
+    "name": "Image",
+    "props": {
+      "Image": []
+    },
+    "children": ["image-53c61d3253"],
+    "schema": {
+      "images": {
+        "config": {
+          "type": "gallery",
+          "name": "Image",
+          "placeholder": []
+        }
+      }
+    }
+  },
+  "image-53c61d3253": {
+    "id": "image-53c61d3253",
+    "type": "image-item",
+    "name": "image",
+    "children": [],
+    "props": {
+      "src": "/src/components/gallery-images/medias/images/vegi.png",
+      "alt": "xxxxxxxx"
+    },
+    "schema": {}
+  },
+  "item-2a72b4f66b": {
+    "id": "item-2a72b4f66b",
+    "type": "group-item",
+    "name": "item",
+    "children": ["text-f4076eeaf6", "text-3209e000fc", "gallery-a520140545"],
+    "props": {},
+    "schema": {
+      "name": {
+        "config": {
+          "type": "text",
+          "name": "Name",
+          "placeholder": "Clover Hill",
+          "format": "headingThree"
+        }
+      },
+      "description": {
+        "config": {
+          "type": "text",
+          "name": "Description",
+          "placeholder": "Card Description"
+        }
+      },
+      "images": {
+        "config": {
+          "type": "gallery",
+          "name": "Image",
+          "placeholder": []
+        }
+      }
+    }
+  },
+  "text-f4076eeaf6": {
+    "id": "text-f4076eeaf6",
+    "type": "text",
+    "name": "Name",
+    "format": "headingThree",
+    "props": {
+      "Name": "Krua Thai"
+    },
+    "children": [],
+    "schema": {
+      "name": {
+        "config": {
+          "type": "text",
+          "name": "Name",
+          "placeholder": "Clover Hill",
+          "format": "headingThree"
+        }
+      }
+    }
+  },
+  "text-3209e000fc": {
+    "id": "text-3209e000fc",
+    "type": "text",
+    "name": "Description",
+    "props": {
+      "Description": "Bold, aromatic dishes in a vibrant atmosphere."
+    },
+    "children": [],
+    "schema": {
+      "description": {
+        "config": {
+          "type": "text",
+          "name": "Description",
+          "placeholder": "Card Description"
+        }
+      }
+    }
+  },
+  "gallery-a520140545": {
+    "id": "gallery-a520140545",
+    "type": "gallery",
+    "name": "Image",
+    "props": {
+      "Image": []
+    },
+    "children": ["image-b3f844fed8"],
+    "schema": {
+      "images": {
+        "config": {
+          "type": "gallery",
+          "name": "Image",
+          "placeholder": []
+        }
+      }
+    }
+  },
+  "image-b3f844fed8": {
+    "id": "image-b3f844fed8",
+    "type": "image-item",
+    "name": "image",
+    "children": [],
+    "props": {
+      "src": "/src/components/gallery-images/medias/images/michelin.png",
+      "alt": "xxxxxxxx"
+    },
+    "schema": {}
+  },
+  "item-4730eb42a4": {
+    "id": "item-4730eb42a4",
+    "type": "group-item",
+    "name": "item",
+    "children": ["text-6be7c7b43d", "array-0b8d8413a7"],
+    "props": {},
+    "schema": {
+      "name": {
+        "config": {
+          "type": "text",
+          "name": "Name",
+          "placeholder": "New York",
+          "format": "headingThree"
+        }
+      },
+      "restaurants": {
+        "config": {
+          "type": "array",
+          "name": "Restaurant",
+          "placeholder": []
+        },
+        "fields": {
+          "name": {
+            "config": {
+              "type": "text",
+              "name": "Name",
+              "placeholder": "Clover Hill",
+              "format": "headingThree"
+            }
+          },
+          "description": {
+            "config": {
+              "type": "text",
+              "name": "Description",
+              "placeholder": "Card Description"
+            }
+          },
+          "images": {
+            "config": {
+              "type": "gallery",
+              "name": "Image",
+              "placeholder": []
+            }
+          }
+        }
+      }
+    }
+  },
+  "item-952e459b12": {
+    "id": "item-952e459b12",
+    "type": "group-item",
+    "name": "item",
+    "children": ["text-2fab6912d0", "text-48888c8806", "gallery-43a903a834"],
+    "props": {},
+    "schema": {
+      "name": {
+        "config": {
+          "type": "text",
+          "name": "Name",
+          "placeholder": "Clover Hill",
+          "format": "headingThree"
+        }
+      },
+      "description": {
+        "config": {
+          "type": "text",
+          "name": "Description",
+          "placeholder": "Card Description"
+        }
+      },
+      "images": {
+        "config": {
+          "type": "gallery",
+          "name": "Image",
+          "placeholder": []
+        }
+      }
+    }
+  },
+  "text-2fab6912d0": {
+    "id": "text-2fab6912d0",
+    "type": "text",
+    "name": "Name",
+    "format": "headingThree",
+    "props": {
+      "Name": "Cadence"
+    },
+    "children": [],
+    "schema": {
+      "name": {
+        "config": {
+          "type": "text",
+          "name": "Name",
+          "placeholder": "Clover Hill",
+          "format": "headingThree"
+        }
+      }
+    }
+  },
+  "text-48888c8806": {
+    "id": "text-48888c8806",
+    "type": "text",
+    "name": "Description",
+    "props": {
+      "Description": "Classic French cuisine with a modern twist."
+    },
+    "children": [],
+    "schema": {
+      "description": {
+        "config": {
+          "type": "text",
+          "name": "Description",
+          "placeholder": "Card Description"
+        }
+      }
+    }
+  },
+  "gallery-43a903a834": {
+    "id": "gallery-43a903a834",
+    "type": "gallery",
+    "name": "Image",
+    "props": {
+      "Image": []
+    },
+    "children": ["image-31a57936f5"],
+    "schema": {
+      "images": {
+        "config": {
+          "type": "gallery",
+          "name": "Image",
+          "placeholder": []
+        }
+      }
+    }
+  },
+  "text-6be7c7b43d": {
+    "id": "text-6be7c7b43d",
+    "type": "text",
+    "name": "Name",
+    "format": "headingThree",
+    "props": {
+      "Name": "French"
+    },
+    "children": [],
+    "schema": {
+      "name": {
+        "config": {
+          "type": "text",
+          "name": "Name",
+          "placeholder": "New York",
+          "format": "headingThree"
+        }
+      }
+    }
+  },
+  "array-0b8d8413a7": {
+    "id": "array-0b8d8413a7",
+    "type": "array",
+    "name": "Restaurant",
+    "props": {
+      "Restaurant": []
+    },
+    "children": ["item-952e459b12", "item-2cd49c0d15", "item-e2bc716e17"],
+    "schema": {
+      "name": {
+        "config": {
+          "type": "text",
+          "name": "Name",
+          "placeholder": "Clover Hill",
+          "format": "headingThree"
+        }
+      },
+      "description": {
+        "config": {
+          "type": "text",
+          "name": "Description",
+          "placeholder": "Card Description"
+        }
+      },
+      "images": {
+        "config": {
+          "type": "gallery",
+          "name": "Image",
+          "placeholder": []
+        }
+      }
+    }
+  },
+  "item-2cd49c0d15": {
+    "id": "item-2cd49c0d15",
+    "type": "group-item",
+    "name": "item",
+    "children": ["text-f20645a985", "text-cdf75ab1d5", "gallery-29665b6a60"],
+    "props": {},
+    "schema": {
+      "name": {
+        "config": {
+          "type": "text",
+          "name": "Name",
+          "placeholder": "Clover Hill",
+          "format": "headingThree"
+        }
+      },
+      "description": {
+        "config": {
+          "type": "text",
+          "name": "Description",
+          "placeholder": "Card Description"
+        }
+      },
+      "images": {
+        "config": {
+          "type": "gallery",
+          "name": "Image",
+          "placeholder": []
+        }
+      }
+    }
+  },
+  "text-f20645a985": {
+    "id": "text-f20645a985",
+    "type": "text",
+    "name": "Name",
+    "format": "headingThree",
+    "props": {
+      "Name": "Frequence"
+    },
+    "children": [],
+    "schema": {
+      "name": {
+        "config": {
+          "type": "text",
+          "name": "Name",
+          "placeholder": "Clover Hill",
+          "format": "headingThree"
+        }
+      }
+    }
+  },
+  "text-cdf75ab1d5": {
+    "id": "text-cdf75ab1d5",
+    "type": "text",
+    "name": "Description",
+    "props": {
+      "Description": "Elegant French fare with a touch of whimsy."
+    },
+    "children": [],
+    "schema": {
+      "description": {
+        "config": {
+          "type": "text",
+          "name": "Description",
+          "placeholder": "Card Description"
+        }
+      }
+    }
+  },
+  "gallery-29665b6a60": {
+    "id": "gallery-29665b6a60",
+    "type": "gallery",
+    "name": "Image",
+    "props": {
+      "Image": []
+    },
+    "children": ["image-ff1c85fc04", "image-1b854cd15f"],
+    "schema": {
+      "images": {
+        "config": {
+          "type": "gallery",
+          "name": "Image",
+          "placeholder": []
+        }
+      }
+    }
+  },
+  "item-e2bc716e17": {
+    "id": "item-e2bc716e17",
+    "type": "group-item",
+    "name": "item",
+    "children": ["text-e2762ec5c6", "text-750ff13b31", "gallery-84e71647a5"],
+    "props": {},
+    "schema": {
+      "name": {
+        "config": {
+          "type": "text",
+          "name": "Name",
+          "placeholder": "Clover Hill",
+          "format": "headingThree"
+        }
+      },
+      "description": {
+        "config": {
+          "type": "text",
+          "name": "Description",
+          "placeholder": "Card Description"
+        }
+      },
+      "images": {
+        "config": {
+          "type": "gallery",
+          "name": "Image",
+          "placeholder": []
+        }
+      }
+    }
+  },
+  "text-e2762ec5c6": {
+    "id": "text-e2762ec5c6",
+    "type": "text",
+    "name": "Name",
+    "format": "headingThree",
+    "props": {
+      "Name": "Picotte"
+    },
+    "children": [],
+    "schema": {
+      "name": {
+        "config": {
+          "type": "text",
+          "name": "Name",
+          "placeholder": "Clover Hill",
+          "format": "headingThree"
+        }
+      }
+    }
+  },
+  "text-750ff13b31": {
+    "id": "text-750ff13b31",
+    "type": "text",
+    "name": "Description",
+    "props": {
+      "Description": "Savour traditional French dishes in a cozy, luminous atmosphere."
+    },
+    "children": [],
+    "schema": {
+      "description": {
+        "config": {
+          "type": "text",
+          "name": "Description",
+          "placeholder": "Card Description"
+        }
+      }
+    }
+  },
+  "gallery-84e71647a5": {
+    "id": "gallery-84e71647a5",
+    "type": "gallery",
+    "name": "Image",
+    "props": {
+      "Image": []
+    },
+    "children": ["image-52489f4bc6"],
+    "schema": {
+      "images": {
+        "config": {
+          "type": "gallery",
+          "name": "Image",
+          "placeholder": []
+        }
+      }
+    }
+  },
+  "image-31a57936f5": {
+    "id": "image-31a57936f5",
+    "type": "image-item",
+    "name": "image",
+    "children": [],
+    "props": {
+      "src": "/src/components/gallery-images/medias/images/michelin.png",
+      "alt": "xxxxxxxx"
+    },
+    "schema": {}
+  },
+  "image-ff1c85fc04": {
+    "id": "image-ff1c85fc04",
+    "type": "image-item",
+    "name": "image",
+    "children": [],
+    "props": {
+      "src": "/src/components/gallery-images/medias/images/vegi.png",
+      "alt": "xxxxxxxx"
+    },
+    "schema": {}
+  },
+  "image-1b854cd15f": {
+    "id": "image-1b854cd15f",
+    "type": "image-item",
+    "name": "image",
+    "children": [],
+    "props": {
+      "src": "/src/components/gallery-images/medias/images/michelin.png",
+      "alt": "xxxxxxxx"
+    },
+    "schema": {}
+  },
+  "image-52489f4bc6": {
+    "id": "image-52489f4bc6",
+    "type": "image-item",
+    "name": "image",
+    "children": [],
+    "props": {
+      "src": "/src/components/gallery-images/medias/images/michelin.png",
+      "alt": "xxxxxxxx"
+    },
+    "schema": {}
+  },
+  "item-dc11833ecd": {
+    "id": "item-dc11833ecd",
+    "type": "group-item",
+    "name": "item",
+    "children": ["number-1adbe566e1", "text-2fe6d5768c"],
     "props": {},
     "schema": {
       "figure": {
@@ -702,12 +1495,12 @@
       }
     }
   },
-  "field-59aa7cf131": {
-    "id": "field-59aa7cf131",
+  "number-1adbe566e1": {
+    "id": "number-1adbe566e1",
     "type": "number",
     "name": "Figure",
     "props": {
-      "Figure": "50"
+      "Figure": "16"
     },
     "children": [],
     "schema": {
@@ -720,8 +1513,8 @@
       }
     }
   },
-  "field-2b5f3aa34e": {
-    "id": "field-2b5f3aa34e",
+  "text-2fe6d5768c": {
+    "id": "text-2fe6d5768c",
     "type": "text",
     "name": "Description",
     "props": {
@@ -734,201 +1527,6 @@
           "type": "text",
           "name": "Description",
           "placeholder": "Increase in conversion following redesign"
-        }
-      }
-    }
-  },
-  "field-61149aa392": {
-    "id": "field-61149aa392",
-    "type": "text",
-    "name": "Tag",
-    "props": {
-      "Tag": "Portfolio highlight"
-    },
-    "children": [],
-    "schema": {
-      "tag": {
-        "config": {
-          "type": "text",
-          "name": "Tag",
-          "placeholder": "Portfolio highlight"
-        }
-      }
-    }
-  },
-  "field-a791ff6b0f": {
-    "id": "field-a791ff6b0f",
-    "type": "text",
-    "name": "Title",
-    "format": "headingTwo",
-    "props": {
-      "Title": "Goggle: Uncovering growth through experiences people love."
-    },
-    "children": [],
-    "schema": {
-      "title": {
-        "config": {
-          "type": "text",
-          "name": "Title",
-          "placeholder": "Goggle: Uncovering growth through experiences people love.",
-          "format": "headingTwo"
-        }
-      }
-    }
-  },
-  "field-ec132b313b": {
-    "id": "field-ec132b313b",
-    "type": "text",
-    "name": "Description",
-    "props": {
-      "Description": "Partnering with Goggle to drive their biggest bets, from everyday products to platforms of the future"
-    },
-    "children": [],
-    "schema": {
-      "description": {
-        "config": {
-          "type": "text",
-          "name": "Description",
-          "placeholder": "Partnering with Goggle to drive their biggest bets, from everyday products to platforms of the future"
-        }
-      }
-    }
-  },
-  "field-b9cb5d416f": {
-    "id": "field-b9cb5d416f",
-    "type": "array",
-    "name": "Metric",
-    "props": {
-      "Metric": []
-    },
-    "children": ["item-c8dfe97a23"],
-    "schema": {
-      "figure": {
-        "config": {
-          "type": "number",
-          "name": "Figure",
-          "placeholder": "50"
-        }
-      },
-      "description": {
-        "config": {
-          "type": "text",
-          "name": "Description",
-          "placeholder": "Increase in conversion following redesign"
-        }
-      }
-    }
-  },
-  "slice-d53cb9f318": {
-    "id": "slice-d53cb9f318",
-    "type": "slice",
-    "name": "FAQ",
-    "children": [
-      "field-b9bb5af7e4",
-      "field-53f92956ef",
-      "field-8e947d8b43",
-      "field-62ff8c175b"
-    ],
-    "schema": {
-      "title": {
-        "config": {
-          "type": "text",
-          "name": "Title",
-          "placeholder": "Hero title"
-        }
-      },
-      "description": {
-        "config": {
-          "type": "text",
-          "name": "Description",
-          "placeholder": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
-        }
-      },
-      "bottom_title": {
-        "config": {
-          "type": "text",
-          "name": "bottom_title",
-          "placeholder": "FAQs"
-        }
-      },
-      "bottom_description": {
-        "config": {
-          "type": "text",
-          "name": "bottom_description",
-          "placeholder": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique."
-        }
-      }
-    },
-    "display": "collapsible"
-  },
-  "field-b9bb5af7e4": {
-    "id": "field-b9bb5af7e4",
-    "type": "text",
-    "name": "Title",
-    "props": {
-      "Title": "Hero title"
-    },
-    "children": [],
-    "schema": {
-      "title": {
-        "config": {
-          "type": "text",
-          "name": "Title",
-          "placeholder": "Hero title"
-        }
-      }
-    }
-  },
-  "field-53f92956ef": {
-    "id": "field-53f92956ef",
-    "type": "text",
-    "name": "Description",
-    "props": {
-      "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
-    },
-    "children": [],
-    "schema": {
-      "description": {
-        "config": {
-          "type": "text",
-          "name": "Description",
-          "placeholder": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
-        }
-      }
-    }
-  },
-  "field-8e947d8b43": {
-    "id": "field-8e947d8b43",
-    "type": "text",
-    "name": "bottom_title",
-    "props": {
-      "bottom_title": "FAQs"
-    },
-    "children": [],
-    "schema": {
-      "bottom_title": {
-        "config": {
-          "type": "text",
-          "name": "bottom_title",
-          "placeholder": "FAQs"
-        }
-      }
-    }
-  },
-  "field-62ff8c175b": {
-    "id": "field-62ff8c175b",
-    "type": "text",
-    "name": "bottom_description",
-    "props": {
-      "bottom_description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique."
-    },
-    "children": [],
-    "schema": {
-      "bottom_description": {
-        "config": {
-          "type": "text",
-          "name": "bottom_description",
-          "placeholder": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique."
         }
       }
     }

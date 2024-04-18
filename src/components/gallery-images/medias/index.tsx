@@ -6,11 +6,10 @@ import List from '@/components/primitives/list';
 import { useCurrentAppContext } from '@/contexts/app-provider';
 import React from 'react';
 
-import metro_1_fc from './images/metro_1_fc.png';
-import metro_2_fc from './images/metro_2_fc.png';
-import metro_3_fc from './images/metro_3_fc.png';
+import michelin from './images/michelin.png';
+import vegi from './images/vegi.png';
 
-const medias = [{ src: metro_1_fc }, { src: metro_2_fc }, { src: metro_3_fc }];
+const medias = [{ src: michelin }, { src: vegi }];
 
 const Medias: React.FC<{ parentId: string }> = ({ parentId }) => {
   const { dispatch } = useCurrentAppContext();
@@ -30,7 +29,9 @@ const Medias: React.FC<{ parentId: string }> = ({ parentId }) => {
   return (
     <Dialog.Root open={open}>
       <Dialog.Trigger asChild>
-        <Button onClick={() => setOpen(!open)}>Add new image</Button>
+        <Button style={{ width: '100%' }} onClick={() => setOpen(!open)}>
+          Add new image
+        </Button>
       </Dialog.Trigger>
       <Dialog.Portal>
         <Dialog.Overlay
