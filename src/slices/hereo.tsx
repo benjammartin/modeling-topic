@@ -3,7 +3,7 @@ import './slices.css';
 interface HereoProps {
   title: string;
   description: string;
-  button: Array<{ label: string; kind: string }>;
+  button: string;
 }
 
 const Hereo: React.FC<HereoProps> = ({ title, description, button }) => {
@@ -20,13 +20,9 @@ const Hereo: React.FC<HereoProps> = ({ title, description, button }) => {
                 <p className='text-size-medium'>{description}</p>
                 <div className='margin-top margin-medium'>
                   <div className='button-group'>
-                    {button.map(({ label }, id) => {
-                      return (
-                        <a href='#' key={id} className='button w-button'>
-                          {label}
-                        </a>
-                      );
-                    })}
+                    <a href='#' className='button w-button'>
+                      {button}
+                    </a>
                   </div>
                 </div>
               </div>

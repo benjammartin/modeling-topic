@@ -83,11 +83,6 @@
   padding: 16px;
 }
 
-.content[data-state='open'] {
-}
-.content[data-state='closed'] {
-}
-
 @keyframes slideDown {
   from {
     height: 10px;

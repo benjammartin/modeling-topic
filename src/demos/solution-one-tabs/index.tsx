@@ -6,8 +6,10 @@ import Navigation from '@/components/navigation';
 import TableSlice from '@/components/table-slices';
 import { useCurrentAppContext } from '@/contexts/app-provider';
 import { getFields } from '@/lib/get-props';
-import GroupeAsTabs from '@/components/groups-as-tabs/group-as-tabs';
+
 import { Fragment } from 'react/jsx-runtime';
+
+import TabsV2 from '@/components/tabs-v2/tabs-v2';
 
 const SolutionOneTabsPageBuilder = () => {
   return (
@@ -33,32 +35,35 @@ const Editor = () => {
   return state.builder[main].children.map((slice) => {
     const ids = state.builder[slice].children;
     const fields = getFields(ids, state);
-    const tabs = fields.reduce((acc: Array<NormalizedField>, field) => {
-      if (field.type === 'array') {
-        acc.push(field);
-      }
-      return acc;
-    }, []);
     return (
       <Slice key={slice} id={slice} label={state.builder[slice].name}>
         <List
           items={fields}
           renderItem={(props) => {
-            if (props.type != 'array') {
-              return (
-                <Field
-                  format={props.format}
-                  id={props.id}
-                  key={props.id}
-                  type={props.type}
-                  value={'xx'}
-                  name={props.name}
-                />
-              );
+            switch (props.type) {
+              case 'array':
+                return (
+                  <TabsV2
+                    id={props.id}
+                    name={props.name}
+                    key={props.id}
+                    item={props}
+                  />
+                );
+              default:
+                return (
+                  <Field
+                    format={props.format}
+                    id={props.id}
+                    key={props.id}
+                    type={props.type}
+                    value={'xx'}
+                    name={props.name}
+                  />
+                );
             }
           }}
         />
-        {tabs.length > 0 && <GroupeAsTabs items={tabs} />}
       </Slice>
     );
   });

@@ -20,27 +20,12 @@
         "format": "paragraph"
       }
     },
-    "buttons": {
+    "button": {
       "config": {
-        "type": "array",
+        "type": "text",
         "name": "Button",
-        "placeholder": {}
-      },
-      "fields": {
-        "title": {
-          "config": {
-            "type": "text",
-            "name": "Label",
-            "placeholder": "Contact"
-          }
-        },
-        "kind": {
-          "config": {
-            "type": "text",
-            "name": "Kind",
-            "placeholder": "Primary"
-          }
-        }
+        "placeholder": "Hello",
+        "format": "paragraph"
       }
     }
   }

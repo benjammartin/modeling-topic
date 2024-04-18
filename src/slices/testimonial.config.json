@@ -19,49 +19,50 @@
         "placeholder": "We create products and experiences that grow ambitious brands."
       }
     },
-    "buttons": {
+    "places": {
       "config": {
         "type": "array",
-        "name": "Button",
+        "name": "Place",
         "placeholder": []
       },
       "fields": {
-        "label": {
+        "name": {
           "config": {
             "type": "text",
-            "name": "Label",
-            "placeholder": "See what we can do"
-          }
-        },
-        "kind": {
-          "config": {
-            "type": "text",
-            "name": "Kind",
-            "placeholder": "Enter button kind here"
-          }
-        }
-      }
-    },
-    "cards": {
-      "config": {
-        "type": "array",
-        "name": "Card",
-        "placeholder": []
-      },
-      "fields": {
-        "title": {
-          "config": {
-            "type": "text",
-            "name": "Title",
-            "placeholder": "Apples",
+            "name": "Name",
+            "placeholder": "New York",
             "format": "headingThree"
           }
         },
-        "description": {
+        "restaurants": {
           "config": {
-            "type": "text",
-            "name": "Description",
-            "placeholder": "ABC blew me away with their incredible service and creativity. They nailed it! - Sarah Johnson"
+            "type": "array",
+            "name": "Restaurant",
+            "placeholder": []
+          },
+          "fields": {
+            "name": {
+              "config": {
+                "type": "text",
+                "name": "Name",
+                "placeholder": "Clover Hill",
+                "format": "headingThree"
+              }
+            },
+            "description": {
+              "config": {
+                "type": "text",
+                "name": "Description",
+                "placeholder": "Card Description"
+              }
+            },
+            "images": {
+              "config": {
+                "type": "gallery",
+                "name": "Image",
+                "placeholder": []
+              }
+            }
           }
         }
       }

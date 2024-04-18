@@ -1,6 +1,7 @@
-import { getNormalizedItem } from '@/lib/utils';
+import { getNormalizedImage, getNormalizedItem } from '@/lib/utils';
 import { produce } from 'immer';
 import React from 'react';
+
 import demo from '@/demo.config.json';
 // Represents the payloads for each action type
 
@@ -16,6 +17,14 @@ type ActionPayloads = {
   ADD_ITEM: {
     schema: Fields;
     id: string;
+  };
+  ADD_IMAGE: {
+    id: string;
+    src: string;
+  };
+  REORDER: {
+    id: string;
+    items: Array<string>;
   };
 };
 
@@ -62,7 +71,6 @@ export type AppContextProviderProps = {
   children: React.ReactNode;
 };
 
-// Reducer function to handle state changes
 const reducer = produce((draft: AppState, action: AvailableAction) => {
   switch (action.type) {
     case 'SELECT_ELEMENT': {
@@ -74,10 +82,21 @@ const reducer = produce((draft: AppState, action: AvailableAction) => {
         action.payload.value;
       break;
     }
+    case 'REORDER': {
+      draft.builder[action.payload.id].children = action.payload.items;
+      break;
+    }
     case 'ADD_ITEM': {
       const items = getNormalizedItem(action.payload.schema);
       draft.builder[action.payload.id].children.push(items.itemKey);
       draft.builder = { ...draft.builder, ...items.item, ...items.fields };
+      break;
+    }
+    case 'ADD_IMAGE': {
+      const image = getNormalizedImage();
+      image.props.src = action.payload.src;
+      draft.builder[action.payload.id].children.push(image.id);
+      draft.builder = { ...draft.builder, [image.id]: image };
       break;
     }
   }
@@ -87,6 +106,7 @@ const AppContextProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
   const [state, dispatch] = React.useReducer(reducer, INITIAL_STATE);
+  console.log(state);
   return (
     <AppContext.Provider value={{ state, dispatch }}>
       {children}
