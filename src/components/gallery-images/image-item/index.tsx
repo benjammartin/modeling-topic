@@ -7,6 +7,7 @@ import Crop from '@/components/icons/crop';
 import Replace from '@/components/icons/replace';
 
 const ImageItem: React.FC<{ src: string }> = ({ src }) => {
+  const name = src.split('/').pop();
   return (
     <Box as='div' className={styles.root}>
       <Box as='div' className={styles.left}>
@@ -18,7 +19,7 @@ const ImageItem: React.FC<{ src: string }> = ({ src }) => {
       <Box as='div' className={styles.right}>
         <Box as='div' className={styles.top}>
           <Box as='p' className={styles.name}>
-            Image name
+            {name}
           </Box>
           <Box as='div' className={styles.actions}>
             <ButtonIcon>
