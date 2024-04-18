@@ -71,7 +71,6 @@ export type AppContextProviderProps = {
   children: React.ReactNode;
 };
 
-// Reducer function to handle state changes
 const reducer = produce((draft: AppState, action: AvailableAction) => {
   switch (action.type) {
     case 'SELECT_ELEMENT': {
