@@ -12,6 +12,7 @@ import More from '../icons/more';
 import Drag from '../icons/drag';
 import Add from '../icons/add';
 import React, { useEffect } from 'react';
+import GroupWrapper from '../group-wrapper';
 
 interface TabsV2Props {
   item: NormalizedField;
@@ -42,7 +43,7 @@ const TabsV2: React.FC<TabsV2Props> = (props) => {
   };
 
   return (
-    <GroupWrapperCollapsed label={props.item.name}>
+    <GroupWrapper label={props.item.name}>
       <RadixTabs.Root
         className={styles.root}
         value={defaultValue}
@@ -122,7 +123,7 @@ const TabsV2: React.FC<TabsV2Props> = (props) => {
           }}
         />
       </RadixTabs.Root>
-    </GroupWrapperCollapsed>
+    </GroupWrapper>
   );
 };
 
