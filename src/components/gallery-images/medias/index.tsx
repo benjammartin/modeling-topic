@@ -6,8 +6,8 @@ import List from '@/components/primitives/list';
 import { useCurrentAppContext } from '@/contexts/app-provider';
 import React from 'react';
 
-import michelin from './images/michelin.png';
-import vegi from './images/vegi.png';
+import michelin from '../../../../public/michelin.png';
+import vegi from '../../../../public/vegi.png';
 
 const medias = [{ src: michelin }, { src: vegi }];
 
