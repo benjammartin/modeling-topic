@@ -11,6 +11,7 @@ import ButtonIcon from '../button-icon';
 import More from '../icons/more';
 import Drag from '../icons/drag';
 import Add from '../icons/add';
+import React, { useEffect } from 'react';
 
 interface TabsV2Props {
   item: NormalizedField;
@@ -22,7 +23,13 @@ const TabsV2: React.FC<TabsV2Props> = (props) => {
   const { state, dispatch } = useCurrentAppContext();
   const ids = state.builder[props.item.id].children;
   const tabs = getFields(ids, state);
-  const [prime] = tabs;
+  const [prime] = ids;
+  const [defaultValue, setDefaultValue] = React.useState<string>(prime);
+
+  useEffect(() => {
+    setDefaultValue(ids[ids.length - 1]);
+    console.log(ids);
+  }, [ids]);
 
   const onAddNewItem = () => {
     dispatch({
@@ -36,7 +43,11 @@ const TabsV2: React.FC<TabsV2Props> = (props) => {
 
   return (
     <GroupWrapperCollapsed label={props.item.name}>
-      <RadixTabs.Root className={styles.root} defaultValue={prime.id}>
+      <RadixTabs.Root
+        className={styles.root}
+        value={defaultValue}
+        onValueChange={(value) => setDefaultValue(value)}
+      >
         <RadixTabs.List className={styles.list}>
           <List
             className={styles.triggers}
@@ -50,7 +61,7 @@ const TabsV2: React.FC<TabsV2Props> = (props) => {
               >
                 <Box as='div'>
                   <Drag />
-                  <Box as='p' contentEditable>
+                  <Box as='p'>
                     {props.name} {i + 1}{' '}
                   </Box>
                   <More />

@@ -22,8 +22,13 @@ const Accordion: React.FC<{
   id: string;
   name: string;
 }> = ({ items, id, name }) => {
-  const [defaultValue, setDefaultValue] = React.useState<string>();
+  const [prime] = items;
+  const [defaultValue, setDefaultValue] = React.useState<string>(prime);
   const { state, dispatch } = useCurrentAppContext();
+
+  useEffect(() => {
+    setDefaultValue(items[items.length - 1]);
+  }, [items]);
 
   const [parent, elements, _setValues] = useDragAndDrop<
     HTMLUListElement,
@@ -45,6 +50,8 @@ const Accordion: React.FC<{
       },
     });
   }, [elements, dispatch, id]);
+
+  console.log(defaultValue);
 
   const onAddNewItem = () => {
     dispatch({

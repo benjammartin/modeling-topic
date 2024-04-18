@@ -74,6 +74,7 @@ const Testimonial: React.FC<TestimonialProps> = ({
                                     renderItem={({ src }) => {
                                       return (
                                         <img
+                                          key={src}
                                           src={src}
                                           className='testimonial17_image'
                                         />

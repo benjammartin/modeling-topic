@@ -30,7 +30,7 @@
           "config": {
             "type": "text",
             "name": "Name",
-            "placeholder": "New York",
+            "placeholder": "Food type",
             "format": "headingThree"
           }
         },
