@@ -27,7 +27,6 @@ const TabsV2: React.FC<TabsV2Props> = (props) => {
   const tabs = getFields(ids, state);
   const [prime] = ids;
   const [defaultValue, setDefaultValue] = React.useState<string>(prime);
-  const ref = React.useRef(null);
   const [editable, setEditable] = React.useState(false);
 
   const makeItEditable = () => setEditable(!editable);
