@@ -41,7 +41,11 @@ const Editor = () => {
           renderItem={(props, _) => {
             if (props.type === 'array') {
               return (
-                <GroupWrapper label={props.name} key={props.id}>
+                <GroupWrapper
+                  number={props.children.length.toString()}
+                  label={props.name}
+                  key={props.id}
+                >
                   <Groups
                     id={props.id}
                     name={props.name}

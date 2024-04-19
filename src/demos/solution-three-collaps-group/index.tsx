@@ -38,7 +38,11 @@ const Editor = () => {
           renderItem={(props, _) => {
             if (props.type === 'array') {
               return (
-                <GroupWrapperCollapsed label={props.name} key={props.id}>
+                <GroupWrapperCollapsed
+                  number={props.children.length.toString()}
+                  label={props.name}
+                  key={props.id}
+                >
                   <Groups
                     id={props.id}
                     name={props.name}
