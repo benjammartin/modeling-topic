@@ -29,9 +29,7 @@ const Medias: React.FC<{ parentId: string }> = ({ parentId }) => {
   return (
     <Dialog.Root open={open}>
       <Dialog.Trigger asChild>
-        <Button style={{ width: '100%' }} onClick={() => setOpen(!open)}>
-          Add new image
-        </Button>
+        <Button onClick={() => setOpen(!open)}>Add new image</Button>
       </Dialog.Trigger>
       <Dialog.Portal>
         <Dialog.Overlay
