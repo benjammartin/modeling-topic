@@ -339,7 +339,7 @@
         "config": {
           "type": "text",
           "name": "Name",
-          "placeholder": "New York",
+          "placeholder": "USA",
           "format": "headingThree"
         }
       }
@@ -429,7 +429,7 @@
         "config": {
           "type": "text",
           "name": "Name",
-          "placeholder": "New York",
+          "placeholder": "Food name",
           "format": "headingThree"
         }
       },
