@@ -13,6 +13,7 @@ import Drag from '../icons/drag';
 import Add from '../icons/add';
 import React, { useEffect } from 'react';
 import GroupWrapper from '../group-wrapper';
+import TooltipDemo from '../tooltip';
 
 interface TabsV2Props {
   item: NormalizedField;
@@ -66,14 +67,16 @@ const TabsV2: React.FC<TabsV2Props> = (props) => {
               >
                 <Box as='div'>
                   <Drag />
-                  <Box
-                    as='p'
-                    contentEditable={editable}
-                    onDoubleClick={makeItEditable}
-                    onBlur={makeItEditable}
-                  >
-                    Tab {i + 1}{' '}
-                  </Box>
+                  <TooltipDemo>
+                    <Box
+                      as='p'
+                      contentEditable={editable}
+                      onDoubleClick={makeItEditable}
+                      onBlur={makeItEditable}
+                    >
+                      Tab {i + 1}{' '}
+                    </Box>
+                  </TooltipDemo>
                   <More />
                 </Box>
               </RadixTabs.Trigger>

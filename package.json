@@ -15,6 +15,7 @@
     "@radix-ui/react-collapsible": "^1.0.3",
     "@radix-ui/react-dialog": "^1.0.5",
     "@radix-ui/react-tabs": "^1.0.4",
+    "@radix-ui/react-tooltip": "^1.0.7",
     "@use-it/interval": "^1.0.0",
     "@vitejs/plugin-react": "^4.2.1",
     "clsx": "^2.1.0",
