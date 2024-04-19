@@ -66,7 +66,7 @@ const TabsV2: React.FC<TabsV2Props> = (props) => {
               >
                 <Box as='div'>
                   <Drag />
-                  <TooltipDemo>
+                  <TooltipDemo label='Double click to rename'>
                     <Box
                       as='p'
                       contentEditable={editable}
@@ -81,9 +81,11 @@ const TabsV2: React.FC<TabsV2Props> = (props) => {
               </RadixTabs.Trigger>
             )}
           />
-          <ButtonIcon type='ghost' onClick={onAddNewItem}>
-            <Add />
-          </ButtonIcon>
+          <TooltipDemo label={`Add new ${props.item.name}`}>
+            <ButtonIcon type='ghost' onClick={onAddNewItem}>
+              <Add />
+            </ButtonIcon>
+          </TooltipDemo>
         </RadixTabs.List>
         <List
           items={tabs}

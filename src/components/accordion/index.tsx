@@ -16,6 +16,7 @@ import { useCurrentAppContext } from '@/contexts/app-provider';
 import GalleryImages from '../gallery-images';
 import { useDragAndDrop } from '@formkit/drag-and-drop/react';
 import { animations } from '@formkit/drag-and-drop';
+import Drag from '../icons/drag';
 
 const Accordion: React.FC<{
   items: Array<string>;
