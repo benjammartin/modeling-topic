@@ -5,13 +5,18 @@ import Chevron from '../icons/chevron';
 
 const GroupWrapperCollapsed: React.FC<{
   children: React.ReactNode;
+  number: string;
   label: string;
-}> = ({ children, label, ...props }) => {
+}> = ({ children, label, number, ...props }) => {
   return (
     <Collapsible.Root {...props} className={styles.root}>
       <Collapsible.Trigger asChild className={styles.trigger}>
         <Box as='header' className={styles.header}>
-          {label + 's'} <Chevron className={styles.chevron} />
+          <Box>
+            {label + 's'}
+            <Box className={styles.number}> • ({number})</Box>
+          </Box>
+          <Chevron className={styles.chevron} />
         </Box>
       </Collapsible.Trigger>
       <Collapsible.Content>{children}</Collapsible.Content>

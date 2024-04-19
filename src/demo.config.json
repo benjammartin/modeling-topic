@@ -331,7 +331,7 @@
     "name": "Name",
     "format": "headingThree",
     "props": {
-      "Name": "Thai"
+      "Name": "🇹🇭 Thai"
     },
     "children": [],
     "schema": {
@@ -794,12 +794,7 @@
     "id": "slice-dba6bb2990",
     "type": "slice",
     "name": "Announcement",
-    "children": [
-      "text-ac1b495b30",
-      "text-911d5a41d2",
-      "text-85590a72b1",
-      "array-3ac68dcc56"
-    ],
+    "children": ["text-ac1b495b30", "text-911d5a41d2", "text-85590a72b1"],
     "schema": {
       "tag": {
         "config": {
@@ -1207,7 +1202,7 @@
     "name": "Name",
     "format": "headingThree",
     "props": {
-      "Name": "French"
+      "Name": "🇲🇫 French"
     },
     "children": [],
     "schema": {

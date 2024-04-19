@@ -4,15 +4,9 @@ interface FeatureProps {
   tag: string;
   title: string;
   description: string;
-  metric: Array<{ figure: string; description: string }>;
 }
 
-const Feature: React.FC<FeatureProps> = ({
-  title,
-  tag,
-  description,
-  metric,
-}) => {
+const Feature: React.FC<FeatureProps> = ({ title, tag, description }) => {
   return (
     <section className='section_layout83 section-ps-pink'>
       <div className='padding-global'>
@@ -28,18 +22,6 @@ const Feature: React.FC<FeatureProps> = ({
               <div className='layout83_content-right'>
                 <div className='margin-bottom margin-medium'>
                   <p className='text-size-medium'>{description}</p>
-                </div>
-                <div className='w-layout-grid layout83_item-list'>
-                  {metric.map(({ figure, description }, id) => {
-                    return (
-                      <div key={id} className='layout83_text-wrapper'>
-                        <div className='margin-bottom margin-xxsmall'>
-                          <div className='heading-style-h2'>{figure}%</div>
-                        </div>
-                        <div>{description}</div>
-                      </div>
-                    );
-                  })}
                 </div>
                 <div className='margin-top margin-medium'>
                   <div className='button-group'>

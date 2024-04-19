@@ -43,7 +43,7 @@ const TabsV2: React.FC<TabsV2Props> = (props) => {
   };
 
   return (
-    <GroupWrapper label={props.item.name}>
+    <GroupWrapper label={props.item.name} number={ids.length.toString()}>
       <RadixTabs.Root
         className={styles.root}
         value={defaultValue}
@@ -93,6 +93,7 @@ const TabsV2: React.FC<TabsV2Props> = (props) => {
                       case 'array':
                         return (
                           <GroupWrapperCollapsed
+                            number={props.children.length.toString()}
                             label={props.name}
                             key={props.id}
                           >
