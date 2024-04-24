@@ -9,7 +9,7 @@ import { getFields } from '@/lib/get-props';
 
 import { Fragment } from 'react/jsx-runtime';
 
-import TabsV2 from '@/components/tabs-v2/tabs-v2';
+import GroupsV2 from '@/components/groups-v2/groups-v2';
 
 const SolutionOneTabsPageBuilder = () => {
   return (
@@ -43,7 +43,7 @@ const Editor = () => {
             switch (props.type) {
               case 'array':
                 return (
-                  <TabsV2
+                  <GroupsV2
                     id={props.id}
                     name={props.name}
                     key={props.id}

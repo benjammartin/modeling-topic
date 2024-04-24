@@ -1,0 +1,81 @@
+.root {
+  overflow: hidden;
+  transition: all 0.2s;
+}
+
+.list {
+  display: flex;
+  overflow-y: auto;
+  position: relative;
+  background: #f9f8f9;
+  align-items: center;
+  gap: 8px;
+}
+
+.list::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 1px;
+  background: #e4e2e4;
+}
+
+.triggers {
+  background: #f9f8f9;
+  display: flex;
+  overflow-y: auto;
+  position: relative;
+}
+
+.trigger {
+  all: unset;
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  gap: 0.5rem;
+  color: #1a1523;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 16px; /* 133.333% */
+  transition: all 0.2s;
+  box-shadow: 0 0 0 1px transparent;
+  position: relative;
+  cursor: pointer;
+  border-right: 1px solid transparent;
+  transition: all ease 300ms;
+}
+
+.trigger:hover {
+  background: #f4f2f4;
+}
+
+.trigger[data-state='active'] {
+  box-shadow: 0 0 0 1px #e4e2e4, 0 -8px 10px #00000008;
+  background: white;
+  position: relative;
+  z-index: 2;
+  transition: all 0.2s;
+  border-bottom: 1px solid white;
+}
+
+.trigger[data-state='active']:last-child {
+  border-right: 1px solid #e4e2e4;
+}
+
+.trigger[data-state='inactive'] {
+  color: #908e96;
+  border-bottom: 1px solid transparent;
+  border-right: 1px solid #e4e2e4;
+}
+
+.content {
+  padding: 16px;
+}
+
+.fields > * + * {
+  margin-top: 16px;
+}

@@ -16,6 +16,8 @@ import { useCurrentAppContext } from '@/contexts/app-provider';
 import GalleryImages from '../gallery-images';
 import { useDragAndDrop } from '@formkit/drag-and-drop/react';
 import { animations } from '@formkit/drag-and-drop';
+import GroupWrapper from '../group-wrapper';
+import Groups from '@/components/accordion';
 
 const Accordion: React.FC<{
   items: Array<string>;
@@ -112,6 +114,19 @@ const Accordion: React.FC<{
                       items={fields}
                       renderItem={(item, key) => {
                         switch (item.type) {
+                          case 'array':
+                            return (
+                              <GroupWrapper
+                                label={item.name}
+                                number={ids.length.toString()}
+                              >
+                                <Groups
+                                  id={item.id}
+                                  name={item.name}
+                                  items={item.children}
+                                />
+                              </GroupWrapper>
+                            );
                           case 'gallery':
                             return (
                               <GalleryImages
