@@ -10,7 +10,7 @@ interface GroupsV2Props {
 }
 
 const GroupsV2: React.FC<GroupsV2Props> = (props) => {
-  const { state, dispatch } = useCurrentAppContext();
+  const { state } = useCurrentAppContext();
   const ids = state.builder[props.item.id].children;
 
   return (
