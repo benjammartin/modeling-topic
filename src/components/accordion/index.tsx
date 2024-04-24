@@ -18,6 +18,8 @@ import { useDragAndDrop } from '@formkit/drag-and-drop/react';
 import { animations } from '@formkit/drag-and-drop';
 import GroupWrapper from '../group-wrapper';
 import Groups from '@/components/accordion';
+//@ts-ignore
+import useKeypress from 'react-use-keypress';
 
 const Accordion: React.FC<{
   items: Array<string>;
@@ -28,9 +30,18 @@ const Accordion: React.FC<{
   const [defaultValue, setDefaultValue] = React.useState<string>(prime);
   const { state, dispatch } = useCurrentAppContext();
 
-  useEffect(() => {
-    setDefaultValue(items[items.length - 1]);
-  }, [items]);
+  useKeypress(['Meta', 'f'], (event: KeyboardEvent) => {
+    if (event.key === 'f') {
+      //setDefaultValue(items);
+    }
+  });
+
+  /** useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      console.log(event);
+    };
+    window.addEventListener('keydown', handleKeyDown);
+  }, []); */
 
   const [parent, elements, _setValues] = useDragAndDrop<
     HTMLUListElement,
@@ -53,8 +64,6 @@ const Accordion: React.FC<{
     });
   }, [elements, dispatch, id]);
 
-  console.log(defaultValue);
-
   const onAddNewItem = () => {
     dispatch({
       type: 'ADD_ITEM',
@@ -69,9 +78,8 @@ const Accordion: React.FC<{
     <Fragment>
       <RadixAccordion.Root
         type='single'
-        value={defaultValue}
-        onValueChange={(value) => setDefaultValue(value)}
         collapsible
+        onValueChange={(value) => setDefaultValue(value)}
         className={styles.root}
         orientation='vertical'
       >
