@@ -118,7 +118,7 @@ const Accordion: React.FC<{
                             return (
                               <GroupWrapper
                                 label={item.name}
-                                number={ids.length.toString()}
+                                number={item.children.length.toString()}
                               >
                                 <Groups
                                   id={item.id}
