@@ -159,7 +159,10 @@ const Accordion: React.FC<{
         </Box>
       </RadixAccordion.Root>
       <Box as='footer' className={styles.footer}>
-        <Button onClick={onAddNewItem}>
+        <Button
+          onClick={onAddNewItem}
+          style={{ width: '-webkit-fill-available' }}
+        >
           Add new {name.toLocaleLowerCase()}
         </Button>
       </Box>
