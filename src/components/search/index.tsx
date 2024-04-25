@@ -134,8 +134,18 @@ const CommandList: FC<{
   }>;
 }> = (props) => {
   const [selected, setSelected] = React.useState(0);
-  const { dispatch } = useCurrentAppContext();
+  const { state, dispatch } = useCurrentAppContext();
   const { search, setSearch, setOpenModal } = useContext(CommandContext);
+
+  const handleScroll = (ref: React.RefObject<HTMLElement>) => {
+    const element = ref.current;
+    if (element) {
+      window.scrollTo({
+        top: element.offsetTop - 100,
+        behavior: 'smooth',
+      });
+    }
+  };
 
   const filteredItems = props.items
     .filter((item) => item.value.toLowerCase().includes(search.toLowerCase()))
@@ -171,6 +181,7 @@ const CommandList: FC<{
         slice: filteredItems[selected].sliceId,
       },
     });
+    handleScroll(state.anchors[filteredItems[selected].sliceId]);
     setOpenModal(false);
   });
 
