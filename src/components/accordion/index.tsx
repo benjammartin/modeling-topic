@@ -128,7 +128,7 @@ const Accordion: React.FC<{
                     <List
                       className={styles.list}
                       items={fields}
-                      renderItem={(item, key) => {
+                      renderItem={(item) => {
                         switch (item.type) {
                           case 'array':
                             return (
