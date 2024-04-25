@@ -10,6 +10,9 @@ type NormalizedField = {
   children: string[];
   schema?: Fields;
   format?: string;
+  parentId: string;
+  sliceId: string;
+  activeItem?: string;
 };
 
 /** SCHEMA */
@@ -36,6 +39,7 @@ type Fields = Record<string, Field>;
 
 /** APP */
 interface AppState {
+  selectedField: string;
   selected: string;
   builder: NormalizedFields;
   anchors: Record<string, React.RefObject<HTMLDivElement>>;

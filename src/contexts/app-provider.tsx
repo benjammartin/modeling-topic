@@ -1,8 +1,13 @@
-import { getNormalizedImage, getNormalizedItem } from '@/lib/utils';
+import {
+  getNormalizedImage,
+  getNormalizedItem,
+  getNormalizedSlice,
+} from '@/lib/utils';
 import { produce } from 'immer';
 import React from 'react';
 
-import demo from '@/demo.config.json';
+//import demo from '@/demo.config.json';
+import { configs } from '@/slices/index';
 // Represents the payloads for each action type
 
 type UpdateProps = {
@@ -12,8 +17,12 @@ type UpdateProps = {
 };
 
 type ActionPayloads = {
-  SELECT_ELEMENT: string;
+  SELECT_SLICE: string;
   UPDATE_PROPS: UpdateProps;
+  SEARCH_FIELD: {
+    field: string;
+    slice: string;
+  };
   ADD_ITEM: {
     schema: Fields;
     id: string;
@@ -39,18 +48,33 @@ interface AppContextType {
   dispatch: React.Dispatch<AvailableAction>;
 }
 
-console.log(Object.keys(demo));
+const hereo = getNormalizedSlice(configs.hero);
+const cta = getNormalizedSlice(configs.cta);
+const feature = getNormalizedSlice(configs.feature);
 
 const INITIAL_STATE: AppState = {
-  selected: 'slice-0a753c3f72',
-  builder: demo as any,
-  anchors: Object.keys(demo).reduce(
-    (acc: Record<string, React.RefObject<HTMLDivElement>>, key) => {
-      acc[key] = React.createRef();
-      return acc;
+  selected: hereo.sliceKey,
+  selectedField: '',
+  builder: {
+    root: {
+      type: 'Root',
+      name: 'Root',
+      id: 'root',
+      children: [hereo.sliceKey, feature.sliceKey, cta.sliceKey],
+      props: {},
     },
-    {},
-  ),
+    ...feature.slice,
+    ...feature.fields,
+    ...hereo.slice,
+    ...hereo.fields,
+    ...cta.slice,
+    ...cta.fields,
+  },
+  anchors: {
+    [hereo.sliceKey]: React.createRef(),
+    [cta.sliceKey]: React.createRef(),
+    [feature.sliceKey]: React.createRef(),
+  },
 };
 
 const AppContext = React.createContext<AppContextType>({
@@ -75,7 +99,7 @@ export type AppContextProviderProps = {
 
 const reducer = produce((draft: AppState, action: AvailableAction) => {
   switch (action.type) {
-    case 'SELECT_ELEMENT': {
+    case 'SELECT_SLICE': {
       draft.selected = action.payload;
       break;
     }
@@ -84,18 +108,39 @@ const reducer = produce((draft: AppState, action: AvailableAction) => {
         action.payload.value;
       break;
     }
+    case 'SEARCH_FIELD': {
+      const parent =
+        draft.builder[draft.builder[action.payload.field].parentId];
+      draft.selected = action.payload.slice;
+      draft.selectedField = action.payload.field;
+      switch (parent.type) {
+        case 'group-item':
+          const grandParent = draft.builder[parent.parentId];
+          console.log(parent.id);
+          console.log(action.payload.slice);
+          console.log(grandParent.id);
+          grandParent.activeItem = parent.id;
+          break;
+        default:
+          break;
+      }
+      break;
+    }
     case 'REORDER': {
       draft.builder[action.payload.id].children = action.payload.items;
       break;
     }
     case 'ADD_ITEM': {
-      const items = getNormalizedItem(action.payload.schema);
+      const items = getNormalizedItem(action.payload.schema, {
+        parentId: action.payload.id,
+        sliceId: draft.builder[action.payload.id].sliceId,
+      });
       draft.builder[action.payload.id].children.push(items.itemKey);
       draft.builder = { ...draft.builder, ...items.item, ...items.fields };
       break;
     }
     case 'ADD_IMAGE': {
-      const image = getNormalizedImage();
+      const image = getNormalizedImage(action.payload.id);
       image.props.src = action.payload.src;
       draft.builder[action.payload.id].children.push(image.id);
       draft.builder = { ...draft.builder, [image.id]: image };

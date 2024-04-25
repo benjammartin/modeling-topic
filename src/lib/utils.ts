@@ -3,7 +3,7 @@ const nanoid = customAlphabet('1234567890abcdef', 10);
 
 export function getNormalizedSlice(schema: Schema) {
   const id = `slice-${nanoid()}`;
-  const { fieldsKeys, fields } = getNormalizedFields(schema.fields);
+  const { fieldsKeys, fields } = getNormalizedFields(schema.fields, id);
   const slice = {
     [id]: {
       id: id,
@@ -16,7 +16,11 @@ export function getNormalizedSlice(schema: Schema) {
   return { slice, sliceKey: id, fields, fieldsKeys };
 }
 
-export function getNormalizedFields(schema: Fields) {
+export function getNormalizedFields(
+  schema: Fields,
+  sliceId: string,
+  parent?: string,
+) {
   const subFields: Array<NormalizedField> = [];
   let imageItem = {};
   const data = Object.keys(schema).reduce(
@@ -28,10 +32,14 @@ export function getNormalizedFields(schema: Fields) {
           {
             const { item, fields, itemKey } = getNormalizedItem(
               schema[field].fields as Fields,
+              { parentId: id, sliceId },
             );
             subFields.push(Object.assign({}, item, fields));
             obj[id] = {
               id: id,
+              sliceId: sliceId,
+              parentId: parent ? parent : sliceId,
+              activeItem: itemKey,
               type: schema[field].config.type,
               name: schema[field].config.name,
               props: {
@@ -46,6 +54,8 @@ export function getNormalizedFields(schema: Fields) {
         default: {
           obj[id] = {
             id: id,
+            parentId: parent ? parent : sliceId,
+            sliceId: sliceId,
             type: schema[field].config.type,
             name: schema[field].config.name,
             format: schema[field].config.format,
@@ -77,15 +87,24 @@ export function getNormalizedFields(schema: Fields) {
  *
  * @param {Fields} fields - The fields to normalize.
  */
-export function getNormalizedItem(fields: Fields) {
+export function getNormalizedItem(
+  fields: Fields,
+  { parentId, sliceId }: { parentId: string; sliceId: string },
+) {
   const id = `item-${nanoid()}`;
-  const { fields: normalized, fieldsKeys } = getNormalizedFields(fields);
+  const { fields: normalized, fieldsKeys } = getNormalizedFields(
+    fields,
+    sliceId,
+    id,
+  );
   return {
     fields: normalized,
     itemKey: id,
     item: {
       [id]: {
         id: id,
+        parentId: parentId,
+        sliceId: sliceId,
         type: 'group-item',
         name: 'item',
         children: fieldsKeys,
@@ -96,12 +115,14 @@ export function getNormalizedItem(fields: Fields) {
   };
 }
 
-export function getNormalizedImage() {
+export function getNormalizedImage(parentId: string) {
   const id = `image-${nanoid()}`;
   return {
     id: id,
     type: 'image-item',
     name: 'image',
+    sliceId: parentId,
+    parentId: parentId,
     children: [],
     props: {
       src: 'https://images.prismic.io/slicemachine-blank/26d81419-4d65-46b8-853e-8ea902e160c1_groovy.png',

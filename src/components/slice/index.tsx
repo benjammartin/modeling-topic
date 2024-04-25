@@ -11,7 +11,7 @@ const Slice: React.FC<{
   const { state, dispatch } = useCurrentAppContext();
 
   const onSelect = () => {
-    dispatch({ type: 'SELECT_ELEMENT', payload: id });
+    dispatch({ type: 'SELECT_SLICE', payload: id });
   };
 
   const isSelected = state.selected === id;

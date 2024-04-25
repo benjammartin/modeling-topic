@@ -347,6 +347,7 @@
   },
   "array-fe76d8a8ec": {
     "id": "array-fe76d8a8ec",
+    "activeItem": null,
     "type": "array",
     "name": "Restaurant",
     "props": {
@@ -418,6 +419,8 @@
   },
   "array-5de3e7d650": {
     "id": "array-5de3e7d650",
+    "sliceId": "slice-cb40f51ec9",
+    "activeItem": null,
     "type": "array",
     "name": "Place",
     "props": {
@@ -767,6 +770,7 @@
   },
   "array-3ac68dcc56": {
     "id": "array-3ac68dcc56",
+    "activeItem": null,
     "type": "array",
     "name": "Metric",
     "props": {
@@ -1218,6 +1222,7 @@
   },
   "array-0b8d8413a7": {
     "id": "array-0b8d8413a7",
+    "activeItem": null,
     "type": "array",
     "name": "Restaurant",
     "props": {

@@ -42,3 +42,12 @@
   font-size: 18px;
   font-weight: 700;
 }
+
+.hidden {
+  content-visibility: hidden;
+}
+
+.input[data-selected='true'] {
+  border: 1px solid var(--Colors-Purple-Shade-10, #644fc1);
+  box-shadow: 0px 0px 0px 4px rgba(124, 102, 220, 0.1);
+}

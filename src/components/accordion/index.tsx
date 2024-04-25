@@ -27,8 +27,15 @@ const Accordion: React.FC<{
   name: string;
 }> = ({ items, id, name }) => {
   const [prime] = items;
-  const [defaultValue, setDefaultValue] = React.useState<string>(prime);
+
   const { state, dispatch } = useCurrentAppContext();
+  const [defaultValue, setDefaultValue] = React.useState<string | undefined>(
+    state.builder[id].activeItem,
+  );
+
+  useEffect(() => {
+    setDefaultValue(state.builder[id].activeItem);
+  }, [state.builder[id].activeItem]);
 
   useKeypress(['Meta', 'f'], (event: KeyboardEvent) => {
     if (event.key === 'f') {
@@ -77,8 +84,9 @@ const Accordion: React.FC<{
   return (
     <Fragment>
       <RadixAccordion.Root
-        type='single'
+        value={defaultValue}
         collapsible
+        type='single'
         onValueChange={(value) => setDefaultValue(value)}
         className={styles.root}
         orientation='vertical'
@@ -125,6 +133,7 @@ const Accordion: React.FC<{
                           case 'array':
                             return (
                               <GroupWrapper
+                                key={item.id}
                                 label={item.name}
                                 number={item.children.length.toString()}
                               >
@@ -143,7 +152,7 @@ const Accordion: React.FC<{
                                 type={item.type}
                                 name={item.name}
                                 value={item.id}
-                                key={key}
+                                key={item.id}
                               />
                             );
                           default:
@@ -154,7 +163,7 @@ const Accordion: React.FC<{
                                 type={item.type}
                                 name={item.name}
                                 value={item.id}
-                                key={key}
+                                key={item.id}
                               />
                             );
                         }
@@ -230,17 +239,19 @@ const AccordionContent: React.FC<{
   children: React.ReactNode;
   className?: string;
 }> = React.forwardRef(
-  ({ children, ...props }, forwardedRef: React.Ref<HTMLDivElement>) => (
-    <RadixAccordion.Content
-      ref={forwardedRef}
-      {...props}
-      className={styles.content}
-    >
-      <Box as='div' className={styles.innercontent}>
-        {children}
-      </Box>
-    </RadixAccordion.Content>
-  ),
+  ({ children, ...props }, forwardedRef: React.Ref<HTMLDivElement>) => {
+    return (
+      <RadixAccordion.Content
+        ref={forwardedRef}
+        {...props}
+        className={styles.content}
+      >
+        <Box as='div' className={styles.innercontent}>
+          {children}
+        </Box>
+      </RadixAccordion.Content>
+    );
+  },
 );
 
 export default Accordion;

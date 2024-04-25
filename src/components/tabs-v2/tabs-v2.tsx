@@ -33,7 +33,6 @@ const TabsV2: React.FC<TabsV2Props> = (props) => {
 
   useEffect(() => {
     setDefaultValue(ids[ids.length - 1]);
-    console.log(ids);
   }, [ids]);
 
   const onAddNewItem = () => {

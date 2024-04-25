@@ -1,6 +1,6 @@
 import Box from '@/components/primitives/box';
 import styles from './styles.module.css';
-import React from 'react';
+import React, { Fragment, useEffect } from 'react';
 import { useCurrentAppContext } from '@/contexts/app-provider';
 
 const Field: React.FC<{
@@ -17,6 +17,7 @@ const Field: React.FC<{
       payload: { id, name, value: e.target.value },
     });
   };
+
   return (
     <Box as='div' {...props} className={styles.root}>
       <Box as='label' className={styles.label}>
@@ -29,6 +30,7 @@ const Field: React.FC<{
         value={state.builder[id].props[name]}
         className={styles.input}
         data-format={format}
+        data-selected={state.selectedField === id}
       />
     </Box>
   );
