@@ -21,8 +21,10 @@ const Search: FC = () => {
 
   useOnClickOutside(ref, () => setOpenModal(false));
 
-  useKeypress(['f'], () => {
-    setOpenModal(true);
+  useKeypress(['k', 'metaKey'], (event: React.KeyboardEvent) => {
+    if (event.key === 'k' && event.metaKey) {
+      setOpenModal(true);
+    }
   });
 
   useKeypress(['Escape'], () => {

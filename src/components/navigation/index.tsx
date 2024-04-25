@@ -12,6 +12,7 @@ const Navigation: React.FC = () => {
           <Box as='div'>Document title</Box>
         </Nav.Group>
         <Nav.Group className={styles.actions}>
+          <Box as='div'>Looking for something? Try ⌘ + k </Box>
           <Button onClick={() => null}>Save</Button>
           <Button onClick={() => null}>Unpublish</Button>
         </Nav.Group>
