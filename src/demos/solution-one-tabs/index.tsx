@@ -10,11 +10,13 @@ import { getFields } from '@/lib/get-props';
 import { Fragment } from 'react/jsx-runtime';
 
 import GroupsV2 from '@/components/groups-v2/groups-v2';
+import Search from '@/components/search';
 
 const SolutionOneTabsPageBuilder = () => {
   return (
     <Fragment>
       <Navigation />
+      <Search />
       <Layout.Root>
         <Layout.Sidebar>
           <TableSlice />

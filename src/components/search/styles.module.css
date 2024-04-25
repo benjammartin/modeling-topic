@@ -1,5 +1,5 @@
 .overlay {
-  background-color: var(--black-a9);
+  background-color: #ffffff3e;
   position: fixed;
   inset: 0;
   animation: overlayShow 150ms cubic-bezier(0.16, 1, 0.3, 1);
@@ -7,37 +7,35 @@
 
 .content {
   position: relative;
-  border-radius: 6px;
-  box-shadow: 0px 26px 80px 0px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
   position: fixed;
-  background-color: #ffffff00;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  top: 30%;
+  left: 51.8%;
+  transform: translate(-50%, 0%);
   width: 90vw;
   max-width: 640px;
-  backdrop-filter: blur(30px);
-  max-height: 85vh;
-  animation: contentShow 150ms cubic-bezier(0.16, 1, 0.3, 1);
-  overflow: hidden;
-  z-index: 3;
-  min-height: 380px;
-  max-height: 380px;
-  border-radius: 8px;
-  border: 1px solid #e4e2e4;
+  border: 0.5px solid rgba(255, 255, 255, 0.2);
+  background: rgba(45, 45, 45, 0.6);
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.15), 0px 0px 0px 0.5px #000;
+  backdrop-filter: blur(20px);
 }
 
 .content:focus {
   outline: none;
 }
 
+.commandList {
+  height: fit-content;
+}
+
 .commandListItem {
-  color: black;
+  color: rgb(255, 255, 255);
   font-size: 14px;
   padding: 12px 12px;
   display: flex;
   justify-content: space-between;
   cursor: pointer;
+  overflow: hidden;
 }
 
 .commandListItemField {
@@ -46,17 +44,21 @@
 }
 
 .commandListItemContent {
-  display: flex;
   gap: 8px;
   align-items: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex: 1;
 }
 
 .commandListItem:hover {
-  background-color: #f4f2f4;
+  background: rgba(255, 255, 255, 0.05);
 }
 
 .commandListItem[data-selected='true'] {
-  background-color: #eeedef;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
 }
 
 .commandListItemSC {
@@ -67,48 +69,31 @@
   gap: 8px;
 }
 
+.commandListEmpty {
+  padding: 12px;
+  color: rgb(255, 255, 255);
+  font-size: 14px;
+}
+
 .commandSearch {
-  border-bottom: 1px solid #e4e2e465;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   padding: 16px;
   display: flex;
+  color: rgb(255, 255, 255);
 }
 
 .commandInput {
   all: unset;
-  color: hsla(247, 4%, 45%, 1);
-  font-size: 14px;
+  color: rgb(255, 255, 255);
+  font-size: 24px;
   font-style: normal;
   font-weight: 400;
   line-height: 24px;
   width: 100%;
 }
 
-.urlSegment {
-  position: relative;
-  padding: 0px 8px;
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 24px;
-  background: #f5f2ff;
-  border-radius: 2px;
-  color: #5842c3;
-}
-
-.urlSegment:last-child {
-  margin-right: 16px;
-}
-
-.urlSegment::after {
-  content: '/';
-  margin-left: 12px;
-  position: absolute;
-  color: rgb(198, 198, 198);
-}
-
-.url {
-  display: flex;
-  gap: 12px;
+.commandInput::placeholder {
+  color: rgba(255, 255, 255, 0.501);
 }
 
 .footer {
@@ -116,8 +101,7 @@
   padding: 8px;
   display: flex;
   align-items: center;
-  background: #f9f8f9;
   gap: 8px;
-  color: rgb(160, 160, 160);
+  color: rgb(255, 255, 255);
   line-height: 16px;
 }
