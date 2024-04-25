@@ -1,4 +1,4 @@
-import React, { FC, Fragment, useContext, useEffect, useRef } from 'react';
+import React, { FC, useContext, useRef } from 'react';
 import * as Dialog from '@radix-ui/react-dialog';
 import styles from './styles.module.css';
 
