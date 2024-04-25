@@ -78,7 +78,7 @@ const Search: FC = () => {
               <span>For navigation</span>
 
               <OpenIcon />
-              <span>For inserting a value</span>
+              <span>For searching a value</span>
             </CommandFooter>
           </CommandContext.Provider>
         </Dialog.Content>
