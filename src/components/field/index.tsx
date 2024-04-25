@@ -1,6 +1,6 @@
 import Box from '@/components/primitives/box';
 import styles from './styles.module.css';
-import React, { Fragment, useEffect } from 'react';
+import React from 'react';
 import { useCurrentAppContext } from '@/contexts/app-provider';
 
 const Field: React.FC<{

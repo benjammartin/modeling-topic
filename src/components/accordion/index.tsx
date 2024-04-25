@@ -26,7 +26,7 @@ const Accordion: React.FC<{
   id: string;
   name: string;
 }> = ({ items, id, name }) => {
-  const [prime] = items;
+  //const [prime] = items;
 
   const { state, dispatch } = useCurrentAppContext();
   const [defaultValue, setDefaultValue] = React.useState<string | undefined>(
