@@ -134,18 +134,8 @@ const CommandList: FC<{
   }>;
 }> = (props) => {
   const [selected, setSelected] = React.useState(0);
-  //const { dispatch } = useCurrentAppContext();
+  const { dispatch } = useCurrentAppContext();
   const { search, setSearch, setOpenModal } = useContext(CommandContext);
-
-  /**useEffect(() => {
-    dispatch({
-      type: 'SEARCH_FIELD',
-      payload: {
-        field: filteredItems[selected].id,
-        slice: filteredItems[selected].sliceId,
-      },
-    });
-  }, [selected]); */
 
   const filteredItems = props.items
     .filter((item) => item.value.toLowerCase().includes(search.toLowerCase()))
@@ -174,6 +164,13 @@ const CommandList: FC<{
 
   useKeypress('Enter', () => {
     setSearch('');
+    dispatch({
+      type: 'SEARCH_FIELD',
+      payload: {
+        field: filteredItems[selected].id,
+        slice: filteredItems[selected].sliceId,
+      },
+    });
     setOpenModal(false);
   });
 
