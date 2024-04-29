@@ -2,7 +2,7 @@ import List from '@/components/primitives/list';
 import Box from '@/components/primitives/box';
 import * as RadixAccordion from '@radix-ui/react-accordion';
 import styles from './styles.module.css';
-import React, { Fragment, useEffect } from 'react';
+import React, { Fragment, useEffect, useRef } from 'react';
 import Field from '../field';
 import Item from '../icons/item';
 import Chevron from '../icons/chevron';
@@ -18,6 +18,7 @@ import { useDragAndDrop } from '@formkit/drag-and-drop/react';
 import { animations } from '@formkit/drag-and-drop';
 import GroupWrapper from '../group-wrapper';
 import Groups from '@/components/accordion';
+import TooltipDemo from '../tooltip';
 
 const Accordion: React.FC<{
   items: Array<string>;
@@ -26,7 +27,14 @@ const Accordion: React.FC<{
 }> = ({ items, id, name }) => {
   const [prime] = items;
   const [defaultValue, setDefaultValue] = React.useState<string>(prime);
+  const [editable, setEditable] = React.useState(false);
+
   const { state, dispatch } = useCurrentAppContext();
+  const makeItEditable: React.MouseEventHandler = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setEditable(true);
+  };
 
   useEffect(() => {
     setDefaultValue(items[items.length - 1]);
@@ -53,8 +61,6 @@ const Accordion: React.FC<{
     });
   }, [elements, dispatch, id]);
 
-  console.log(defaultValue);
-
   const onAddNewItem = () => {
     dispatch({
       type: 'ADD_ITEM',
@@ -78,6 +84,7 @@ const Accordion: React.FC<{
         <Box ref={parent}>
           {elements.length &&
             elements.map((item, i) => {
+              const data = state.builder[item];
               const ids = state.builder[item]?.children;
               const fields = getFields(ids, state);
               return (
@@ -91,7 +98,19 @@ const Accordion: React.FC<{
                     <Box>
                       <Box as='span'>
                         <Chevron className={styles.chevron} />
-                        <Item /> {name} • {i + 1}
+                        <Item />
+                        <TooltipDemo label='Double click to rename'>
+                          <Box
+                            className={styles.itemName}
+                            as='p'
+                            contentEditable={editable}
+                            onDoubleClick={makeItEditable}
+                            onBlur={() => setEditable(false)}
+                          >
+                            {data.name}
+                          </Box>
+                        </TooltipDemo>
+                        • {i + 1}
                       </Box>
                       <Box className={styles.actions}>
                         <Box className={styles.move}>
@@ -119,6 +138,7 @@ const Accordion: React.FC<{
                               <GroupWrapper
                                 label={item.name}
                                 number={ids.length.toString()}
+                                key={item.id}
                               >
                                 <Groups
                                   id={item.id}
