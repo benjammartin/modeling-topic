@@ -9,7 +9,7 @@ const GroupWrapper: React.FC<{
   return (
     <Box as='div' {...props} className={styles.root}>
       <Box as='header' className={styles.header}>
-        {label + 's'}
+        {label}
         <Box className={styles.number}> • ({number})</Box>
       </Box>
       {children}

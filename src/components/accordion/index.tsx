@@ -19,6 +19,7 @@ import { animations } from '@formkit/drag-and-drop';
 import GroupWrapper from '../group-wrapper';
 import Groups from '@/components/accordion';
 import TooltipDemo from '../tooltip';
+import { getPlural } from '@/lib/utils';
 
 const Accordion: React.FC<{
   items: Array<string>;
@@ -136,7 +137,7 @@ const Accordion: React.FC<{
                           case 'array':
                             return (
                               <GroupWrapper
-                                label={item.name}
+                                label={getPlural(item.name)}
                                 number={ids.length.toString()}
                                 key={item.id}
                               >

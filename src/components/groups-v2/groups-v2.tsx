@@ -2,6 +2,7 @@ import { useCurrentAppContext } from '@/contexts/app-provider';
 import Groups from '@/components/accordion';
 import React from 'react';
 import GroupWrapper from '../group-wrapper';
+import { getPlural } from '@/lib/utils';
 
 interface GroupsV2Props {
   item: NormalizedField;
@@ -14,7 +15,7 @@ const GroupsV2: React.FC<GroupsV2Props> = (props) => {
   const ids = state.builder[props.item.id].children;
 
   return (
-    <GroupWrapper label={props.item.name} number={ids.length.toString()}>
+    <GroupWrapper label={getPlural(props.name)} number={ids.length.toString()}>
       <Groups id={props.item.id} name={props.item.name} items={ids} />
     </GroupWrapper>
   );

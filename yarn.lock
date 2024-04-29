@@ -1662,6 +1662,11 @@ invariant@^2.2.4:
   dependencies:
     loose-envify "^1.0.0"
 
+irregular-plurals@^3.5.0:
+  version "3.5.0"
+  resolved "https://registry.yarnpkg.com/irregular-plurals/-/irregular-plurals-3.5.0.tgz#0835e6639aa8425bdc8b0d33d0dc4e89d9c01d2b"
+  integrity sha512-1ANGLZ+Nkv1ptFb2pa8oG8Lem4krflKuX/gINiHJHjJUKaJHk/SXk5x6K3J+39/p0h1RQ2saROclJJ+QLvETCQ==
+
 is-extglob@^2.1.1:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/is-extglob/-/is-extglob-2.1.1.tgz#a88c02535791f02ed37c76a1b9ea9773c833f8c2"

@@ -6,7 +6,7 @@ export interface TestimonialProps {
   title: string;
   description: string;
   label: string;
-  place: Array<{
+  category: Array<{
     name: string;
     description: string;
     restaurant: Array<{
@@ -20,7 +20,7 @@ export interface TestimonialProps {
 const Testimonial: React.FC<TestimonialProps> = ({
   title,
   description,
-  place,
+  category,
 }) => {
   return (
     <section className='section_testimonial17 SECTION_TO_KEEP section-ps'>
@@ -40,7 +40,7 @@ const Testimonial: React.FC<TestimonialProps> = ({
             <Tabs.Root defaultValue='0' orientation='vertical' className='tabs'>
               <Tabs.List aria-label='tabs example'>
                 <List
-                  items={place}
+                  items={category}
                   className='tabs-list'
                   renderItem={(props, i) => (
                     <Tabs.Trigger
@@ -54,7 +54,7 @@ const Testimonial: React.FC<TestimonialProps> = ({
                 />
               </Tabs.List>
               <List
-                items={place}
+                items={category}
                 renderItem={(props, i) => (
                   <Tabs.Content key={i} value={i.toString()}>
                     <div className='testimonial17_component'>
