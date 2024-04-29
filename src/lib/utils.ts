@@ -87,7 +87,7 @@ export function getNormalizedItem(fields: Fields) {
       [id]: {
         id: id,
         type: 'group-item',
-        name: 'item',
+        name: 'Untitled',
         children: fieldsKeys,
         props: {},
         schema: fields,

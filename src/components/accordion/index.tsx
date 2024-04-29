@@ -16,6 +16,7 @@ import { useCurrentAppContext } from '@/contexts/app-provider';
 import GalleryImages from '../gallery-images';
 import { useDragAndDrop } from '@formkit/drag-and-drop/react';
 import { animations } from '@formkit/drag-and-drop';
+import TooltipDemo from '../tooltip';
 
 const Accordion: React.FC<{
   items: Array<string>;
@@ -25,10 +26,16 @@ const Accordion: React.FC<{
   const [prime] = items;
   const [defaultValue, setDefaultValue] = React.useState<string>(prime);
   const { state, dispatch } = useCurrentAppContext();
-
+  const [editable, setEditable] = React.useState(false);
   useEffect(() => {
     setDefaultValue(items[items.length - 1]);
   }, [items]);
+
+  const makeItEditable: React.MouseEventHandler = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setEditable(true);
+  };
 
   const [parent, elements, _setValues] = useDragAndDrop<
     HTMLUListElement,
@@ -76,6 +83,7 @@ const Accordion: React.FC<{
         <Box ref={parent}>
           {elements.length &&
             elements.map((item, i) => {
+              const data = state.builder[item];
               const ids = state.builder[item]?.children;
               const fields = getFields(ids, state);
               return (
@@ -89,7 +97,19 @@ const Accordion: React.FC<{
                     <Box>
                       <Box as='span'>
                         <Chevron className={styles.chevron} />
-                        <Item /> {name} • {i + 1}
+                        <Item />
+                        <TooltipDemo label='Double click to rename'>
+                          <Box
+                            className={styles.itemName}
+                            as='p'
+                            contentEditable={editable}
+                            onDoubleClick={makeItEditable}
+                            onBlur={() => setEditable(false)}
+                          >
+                            {data.name}
+                          </Box>
+                        </TooltipDemo>
+                        • {i + 1}
                       </Box>
                       <Box className={styles.actions}>
                         <Box className={styles.move}>

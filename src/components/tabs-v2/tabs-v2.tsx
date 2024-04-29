@@ -73,7 +73,7 @@ const TabsV2: React.FC<TabsV2Props> = (props) => {
                       onDoubleClick={makeItEditable}
                       onBlur={makeItEditable}
                     >
-                      Tab {i + 1}{' '}
+                      {item.name} • {i + 1}{' '}
                     </Box>
                   </TooltipDemo>
                   <More />

@@ -193,7 +193,8 @@
   "item-cf7e152a1e": {
     "id": "item-cf7e152a1e",
     "type": "group-item",
-    "name": "item",
+    "ref": null,
+    "name": "Thai",
     "children": ["text-beecea5dd6", "array-fe76d8a8ec"],
     "props": {},
     "schema": {
@@ -241,7 +242,8 @@
   "item-91d36a7ea4": {
     "id": "item-91d36a7ea4",
     "type": "group-item",
-    "name": "item",
+    "ref": null,
+    "name": "West Bangkok",
     "children": ["text-ef1fc48bd6", "text-e2292d9222", "gallery-101970ae3d"],
     "props": {},
     "schema": {
@@ -653,6 +655,7 @@
   "item-96a3326626": {
     "id": "item-96a3326626",
     "type": "group-item",
+    "ref": null,
     "name": "item",
     "children": ["number-daeb4d2ada", "text-485f1c5602"],
     "props": {},
@@ -868,7 +871,8 @@
   "item-a796a67fad": {
     "id": "item-a796a67fad",
     "type": "group-item",
-    "name": "item",
+    "ref": null,
+    "name": "Pad Thaï lover",
     "children": ["text-5a07a9ada8", "text-91f529dacc", "gallery-ccbd91c29a"],
     "props": {},
     "schema": {
@@ -966,7 +970,8 @@
   "item-2a72b4f66b": {
     "id": "item-2a72b4f66b",
     "type": "group-item",
-    "name": "item",
+    "ref": null,
+    "name": "Krua Thai",
     "children": ["text-f4076eeaf6", "text-3209e000fc", "gallery-a520140545"],
     "props": {},
     "schema": {
@@ -1064,7 +1069,8 @@
   "item-4730eb42a4": {
     "id": "item-4730eb42a4",
     "type": "group-item",
-    "name": "item",
+    "ref": null,
+    "name": "French",
     "children": ["text-6be7c7b43d", "array-0b8d8413a7"],
     "props": {},
     "schema": {
@@ -1112,7 +1118,8 @@
   "item-952e459b12": {
     "id": "item-952e459b12",
     "type": "group-item",
-    "name": "item",
+    "ref": null,
+    "name": "Cadence",
     "children": ["text-2fab6912d0", "text-48888c8806", "gallery-43a903a834"],
     "props": {},
     "schema": {
@@ -1252,7 +1259,8 @@
   "item-2cd49c0d15": {
     "id": "item-2cd49c0d15",
     "type": "group-item",
-    "name": "item",
+    "ref": null,
+    "name": "Frequence",
     "children": ["text-f20645a985", "text-cdf75ab1d5", "gallery-29665b6a60"],
     "props": {},
     "schema": {
@@ -1339,7 +1347,8 @@
   "item-e2bc716e17": {
     "id": "item-e2bc716e17",
     "type": "group-item",
-    "name": "item",
+    "ref": null,
+    "name": "Picotte",
     "children": ["text-e2762ec5c6", "text-750ff13b31", "gallery-84e71647a5"],
     "props": {},
     "schema": {
@@ -1470,6 +1479,7 @@
   "item-dc11833ecd": {
     "id": "item-dc11833ecd",
     "type": "group-item",
+    "ref": null,
     "name": "item",
     "children": ["number-1adbe566e1", "text-2fe6d5768c"],
     "props": {},
