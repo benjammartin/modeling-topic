@@ -110,3 +110,9 @@ export function getNormalizedImage() {
     schema: {},
   };
 }
+
+export function getPlural(name: string) {
+  return name.split('').pop() === 'y'
+    ? name.replace('y', '') + 'ies'
+    : name + 's';
+}

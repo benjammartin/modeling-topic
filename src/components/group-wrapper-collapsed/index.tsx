@@ -13,7 +13,7 @@ const GroupWrapperCollapsed: React.FC<{
       <Collapsible.Trigger asChild className={styles.trigger}>
         <Box as='header' className={styles.header}>
           <Box>
-            {label + 's'}
+            {label}
             <Box className={styles.number}> • ({number})</Box>
           </Box>
           <Chevron className={styles.chevron} />

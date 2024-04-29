@@ -421,9 +421,9 @@
   "array-5de3e7d650": {
     "id": "array-5de3e7d650",
     "type": "array",
-    "name": "Place",
+    "name": "Category",
     "props": {
-      "Place": []
+      "Category": []
     },
     "children": ["item-cf7e152a1e", "item-4730eb42a4"],
     "schema": {
@@ -492,7 +492,7 @@
       "places": {
         "config": {
           "type": "array",
-          "name": "Place",
+          "name": "Category",
           "placeholder": []
         },
         "fields": {

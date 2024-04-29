@@ -14,6 +14,7 @@ import Add from '../icons/add';
 import React, { useEffect } from 'react';
 import GroupWrapper from '../group-wrapper';
 import TooltipDemo from '../tooltip';
+import { getPlural } from '@/lib/utils';
 
 interface TabsV2Props {
   item: NormalizedField;
@@ -47,7 +48,10 @@ const TabsV2: React.FC<TabsV2Props> = (props) => {
   };
 
   return (
-    <GroupWrapper label={props.item.name} number={ids.length.toString()}>
+    <GroupWrapper
+      label={getPlural(props.item.name)}
+      number={ids.length.toString()}
+    >
       <RadixTabs.Root
         className={styles.root}
         value={defaultValue}
@@ -107,7 +111,7 @@ const TabsV2: React.FC<TabsV2Props> = (props) => {
                         return (
                           <GroupWrapperCollapsed
                             number={props.children.length.toString()}
-                            label={props.name}
+                            label={getPlural(props.name)}
                             key={props.id}
                           >
                             <Groups
