@@ -97,18 +97,17 @@ const TabsV2: React.FC<TabsV2Props> = (props) => {
               >
                 <Box as='div'>
                   <Drag />
-                  <TooltipDemo label='Double click to rename'>
-                    <Box
-                      ref={refs[i]}
-                      as='p'
-                      className={styles.name}
-                      contentEditable={editableIndex === i}
-                      onClick={() => handleClick(i)}
-                      onBlur={handleBlur}
-                    >
-                      {item.name} • {i + 1}{' '}
-                    </Box>
-                  </TooltipDemo>
+                  <Box
+                    ref={refs[i]}
+                    as='p'
+                    className={styles.name}
+                    contentEditable={editableIndex === i}
+                    onClick={() => handleClick(i)}
+                    onBlur={handleBlur}
+                  >
+                    {item.name} • {i + 1}{' '}
+                  </Box>
+
                   <More />
                 </Box>
               </RadixTabs.Trigger>

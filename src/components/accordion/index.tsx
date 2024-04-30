@@ -132,7 +132,7 @@ const Accordion: React.FC<{
                       <Box as='span'>
                         <Chevron className={styles.chevron} />
                         <Item />
-                        <TooltipDemo label='Double click to rename'>
+                        <Box>
                           <Box
                             ref={refs[i]}
                             className={styles.name}
@@ -142,7 +142,7 @@ const Accordion: React.FC<{
                           >
                             {data.name}
                           </Box>
-                        </TooltipDemo>
+                        </Box>
                         • {i + 1}
                       </Box>
                       <Box className={styles.actions}>
