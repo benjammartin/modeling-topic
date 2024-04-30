@@ -79,3 +79,7 @@
 .fields > * + * {
   margin-top: 16px;
 }
+
+.name {
+  padding: 4px 0px;
+}

@@ -56,6 +56,11 @@ const TabsV2: React.FC<TabsV2Props> = (props) => {
     console.log('index->', editableIndex);
     if (editableIndex !== null) {
       refs[editableIndex].current?.focus();
+      const range = document.createRange();
+      const sel = window.getSelection();
+      range.selectNodeContents(refs[editableIndex].current!);
+      sel!.removeAllRanges();
+      sel!.addRange(range);
     }
   }, [editableIndex]);
 
@@ -96,6 +101,7 @@ const TabsV2: React.FC<TabsV2Props> = (props) => {
                     <Box
                       ref={refs[i]}
                       as='p'
+                      className={styles.name}
                       contentEditable={editableIndex === i}
                       onClick={() => handleClick(i)}
                       onBlur={handleBlur}

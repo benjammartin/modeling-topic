@@ -50,6 +50,11 @@ const Accordion: React.FC<{
     console.log('index->', editableIndex);
     if (editableIndex !== null) {
       refs[editableIndex].current?.focus();
+      const range = document.createRange();
+      const sel = window.getSelection();
+      range.selectNodeContents(refs[editableIndex].current!);
+      sel!.removeAllRanges();
+      sel!.addRange(range);
     }
   }, [editableIndex]);
 
