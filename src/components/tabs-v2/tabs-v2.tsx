@@ -11,7 +11,7 @@ import ButtonIcon from '../button-icon';
 import More from '../icons/more';
 import Drag from '../icons/drag';
 import Add from '../icons/add';
-import React, { useEffect } from 'react';
+import React, { createRef, useEffect, useRef, useState } from 'react';
 import GroupWrapper from '../group-wrapper';
 import TooltipDemo from '../tooltip';
 import { getPlural } from '@/lib/utils';
@@ -28,14 +28,36 @@ const TabsV2: React.FC<TabsV2Props> = (props) => {
   const tabs = getFields(ids, state);
   const [prime] = ids;
   const [defaultValue, setDefaultValue] = React.useState<string>(prime);
-  const [editable, setEditable] = React.useState(false);
+  const refs = ids.map(() => createRef<HTMLParagraphElement>());
+  const [editableIndex, setEditableIndex] = useState<number | null>(null);
+  const initial = useRef(ids.length);
 
-  const makeItEditable = () => setEditable(!editable);
+  const handleClick = (index: number) => {
+    console.log('handleClick->', index);
+    setEditableIndex(index);
+  };
+
+  useEffect(() => {
+    if (ids.length > initial.current) {
+      setEditableIndex(ids.length - 1);
+    }
+  }, [ids.length - 1]);
+
+  const handleBlur = () => {
+    setEditableIndex(null);
+  };
 
   useEffect(() => {
     setDefaultValue(ids[ids.length - 1]);
     console.log(ids);
   }, [ids]);
+
+  useEffect(() => {
+    console.log('index->', editableIndex);
+    if (editableIndex !== null) {
+      refs[editableIndex].current?.focus();
+    }
+  }, [editableIndex]);
 
   const onAddNewItem = () => {
     dispatch({
@@ -72,10 +94,11 @@ const TabsV2: React.FC<TabsV2Props> = (props) => {
                   <Drag />
                   <TooltipDemo label='Double click to rename'>
                     <Box
+                      ref={refs[i]}
                       as='p'
-                      contentEditable={editable}
-                      onDoubleClick={makeItEditable}
-                      onBlur={makeItEditable}
+                      contentEditable={editableIndex === i}
+                      onClick={() => handleClick(i)}
+                      onBlur={handleBlur}
                     >
                       {item.name} • {i + 1}{' '}
                     </Box>

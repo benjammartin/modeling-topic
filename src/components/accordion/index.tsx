@@ -2,7 +2,14 @@ import List from '@/components/primitives/list';
 import Box from '@/components/primitives/box';
 import * as RadixAccordion from '@radix-ui/react-accordion';
 import styles from './styles.module.css';
-import React, { Fragment, useEffect } from 'react';
+import React, {
+  Fragment,
+  createRef,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
 import Field from '../field';
 import Item from '../icons/item';
 import Chevron from '../icons/chevron';
@@ -26,15 +33,33 @@ const Accordion: React.FC<{
   const [prime] = items;
   const [defaultValue, setDefaultValue] = React.useState<string>(prime);
   const { state, dispatch } = useCurrentAppContext();
-  const [editable, setEditable] = React.useState(false);
+  const [editableIndex, setEditableIndex] = useState<number | null>(null);
+  const initial = useRef(items.length);
+
   useEffect(() => {
     setDefaultValue(items[items.length - 1]);
   }, [items]);
 
-  const makeItEditable: React.MouseEventHandler = (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    setEditable(true);
+  useEffect(() => {
+    console.log('current ->', editableIndex);
+  }, []);
+
+  const refs = items.map(() => createRef<HTMLParagraphElement>());
+
+  useEffect(() => {
+    console.log('index->', editableIndex);
+    if (editableIndex !== null) {
+      refs[editableIndex].current?.focus();
+    }
+  }, [editableIndex]);
+
+  const handleClick = (index: number) => {
+    console.log('handleClick->', index);
+    setEditableIndex(index);
+  };
+
+  const handleBlur = () => {
+    setEditableIndex(null);
   };
 
   const [parent, elements, _setValues] = useDragAndDrop<
@@ -58,9 +83,13 @@ const Accordion: React.FC<{
     });
   }, [elements, dispatch, id]);
 
-  console.log(defaultValue);
+  useEffect(() => {
+    if (items.length > initial.current) {
+      setEditableIndex(items.length - 1);
+    }
+  }, [items.length - 1]);
 
-  const onAddNewItem = () => {
+  const onAddNewItem = useCallback(() => {
     dispatch({
       type: 'ADD_ITEM',
       payload: {
@@ -68,7 +97,7 @@ const Accordion: React.FC<{
         id: id,
       },
     });
-  };
+  }, []);
 
   return (
     <Fragment>
@@ -100,11 +129,11 @@ const Accordion: React.FC<{
                         <Item />
                         <TooltipDemo label='Double click to rename'>
                           <Box
-                            className={styles.itemName}
-                            as='p'
-                            contentEditable={editable}
-                            onDoubleClick={makeItEditable}
-                            onBlur={() => setEditable(false)}
+                            ref={refs[i]}
+                            className={styles.name}
+                            contentEditable={editableIndex === i}
+                            onClick={() => handleClick(i)}
+                            onBlur={handleBlur}
                           >
                             {data.name}
                           </Box>
