@@ -100,3 +100,12 @@
     height: 10px;
   }
 }
+
+.itemName {
+  padding: 4px;
+}
+
+.contentItem {
+  align-items: center;
+  gap: 2px;
+}

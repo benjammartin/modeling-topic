@@ -18,7 +18,6 @@ import { useDragAndDrop } from '@formkit/drag-and-drop/react';
 import { animations } from '@formkit/drag-and-drop';
 import GroupWrapper from '../group-wrapper';
 import Groups from '@/components/accordion';
-import TooltipDemo from '../tooltip';
 import { getPlural } from '@/lib/utils';
 
 const Accordion: React.FC<{
@@ -28,13 +27,37 @@ const Accordion: React.FC<{
 }> = ({ items, id, name }) => {
   const [prime] = items;
   const [defaultValue, setDefaultValue] = React.useState<string>(prime);
-  const [editable, setEditable] = React.useState(false);
+  const [editableIndex, setEditableIndex] = React.useState<number | null>(null);
+  const initial = React.useRef(items.length);
+  const refs = items.map(() => React.createRef<HTMLParagraphElement>());
 
   const { state, dispatch } = useCurrentAppContext();
-  const makeItEditable: React.MouseEventHandler = (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    setEditable(true);
+
+  useEffect(() => {
+    console.log('index->', editableIndex);
+    if (editableIndex !== null) {
+      refs[editableIndex].current?.focus();
+      const range = document.createRange();
+      const sel = window.getSelection();
+      range.selectNodeContents(refs[editableIndex].current!);
+      sel!.removeAllRanges();
+      sel!.addRange(range);
+    }
+  }, [editableIndex]);
+
+  useEffect(() => {
+    if (items.length > initial.current) {
+      setEditableIndex(items.length - 1);
+    }
+  }, [items.length - 1]);
+
+  const handleClick = (index: number) => {
+    console.log('handleClick->', index);
+    setEditableIndex(index);
+  };
+
+  const handleBlur = () => {
+    setEditableIndex(null);
   };
 
   useEffect(() => {
@@ -62,7 +85,7 @@ const Accordion: React.FC<{
     });
   }, [elements, dispatch, id]);
 
-  const onAddNewItem = () => {
+  const onAddNewItem = React.useCallback(() => {
     dispatch({
       type: 'ADD_ITEM',
       payload: {
@@ -70,7 +93,7 @@ const Accordion: React.FC<{
         id: id,
       },
     });
-  };
+  }, []);
 
   return (
     <Fragment>
@@ -97,21 +120,23 @@ const Accordion: React.FC<{
                 >
                   <AccordionTrigger className={styles.trigger}>
                     <Box>
-                      <Box as='span'>
+                      <Box as='span' className={styles.contentItem}>
                         <Chevron className={styles.chevron} />
                         <Item />
-                        <TooltipDemo label='Double click to rename'>
+                        <Box>
                           <Box
+                            ref={refs[i]}
                             className={styles.itemName}
                             as='p'
-                            contentEditable={editable}
-                            onDoubleClick={makeItEditable}
-                            onBlur={() => setEditable(false)}
+                            contentEditable={editableIndex === i}
+                            onClick={() => handleClick(i)}
+                            onBlur={handleBlur}
                           >
                             {data.name}
                           </Box>
-                        </TooltipDemo>
-                        • {i + 1}
+                        </Box>
+                        <Box>•</Box>
+                        <Box>{i + 1}</Box>
                       </Box>
                       <Box className={styles.actions}>
                         <Box className={styles.move}>
