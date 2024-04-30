@@ -105,8 +105,10 @@ const TabsV2: React.FC<TabsV2Props> = (props) => {
                     onClick={() => handleClick(i)}
                     onBlur={handleBlur}
                   >
-                    {item.name} • {i + 1}{' '}
+                    {item.name}
                   </Box>
+                  <Box>•</Box>
+                  <Box>{i + 1}</Box>
 
                   <More />
                 </Box>
