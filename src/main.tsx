@@ -7,6 +7,7 @@ import SolutionOneTabsPageBuilder from './demos/solution-one-tabs/index.tsx';
 import SolutionThreePageBuilder from './demos/solution-three-collaps-group/index.tsx';
 import SolutionTwoPageBuilder from './demos/solution-two/index.tsx';
 import Preview from './demos/preview/index.tsx';
+import SliceMachine from './demos/slicemachine/index.tsx';
 
 const router = createBrowserRouter([
   {
@@ -16,6 +17,10 @@ const router = createBrowserRouter([
         <Preview />
       </AppContextProvider>
     ),
+  },
+  {
+    path: '/sm',
+    element: <SliceMachine />,
   },
   {
     path: '/solution-one',
