@@ -39,7 +39,7 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: '/solution-two',
+    path: '/',
     element: (
       <AppContextProvider>
         <SolutionTwoPageBuilder />

@@ -14,8 +14,6 @@ import Button from '../button';
 import { getFields } from '@/lib/get-props';
 import { useCurrentAppContext } from '@/contexts/app-provider';
 import GalleryImages from '../gallery-images';
-import { useDragAndDrop } from '@formkit/drag-and-drop/react';
-import { animations } from '@formkit/drag-and-drop';
 import GroupWrapper from '../group-wrapper';
 import Groups from '@/components/accordion';
 import { getPlural } from '@/lib/utils';
@@ -25,65 +23,17 @@ const Accordion: React.FC<{
   id: string;
   name: string;
 }> = ({ items, id, name }) => {
-  const [prime] = items;
-  const [defaultValue, setDefaultValue] = React.useState<string>(prime);
-  const [editableIndex, setEditableIndex] = React.useState<number | null>(null);
-  const initial = React.useRef(items.length);
+  const { state, dispatch } = useCurrentAppContext();
+  const [rows, setRows] = React.useState<Array<string>>(items);
+  const [activeRows, setActiveRows] = React.useState<Array<string>>(items);
+
+  console.log('items', items);
   const refs = items.map(() => React.createRef<HTMLParagraphElement>());
 
-  const { state, dispatch } = useCurrentAppContext();
-
   useEffect(() => {
-    console.log('index->', editableIndex);
-    if (editableIndex !== null) {
-      refs[editableIndex].current?.focus();
-      const range = document.createRange();
-      const sel = window.getSelection();
-      range.selectNodeContents(refs[editableIndex].current!);
-      sel!.removeAllRanges();
-      sel!.addRange(range);
-    }
-  }, [editableIndex]);
-
-  useEffect(() => {
-    if (items.length > initial.current) {
-      setEditableIndex(items.length - 1);
-    }
-  }, [items.length - 1]);
-
-  const handleClick = (index: number) => {
-    console.log('handleClick->', index);
-    setEditableIndex(index);
-  };
-
-  const handleBlur = () => {
-    setEditableIndex(null);
-  };
-
-  useEffect(() => {
-    setDefaultValue(items[items.length - 1]);
+    setRows(items);
+    setActiveRows(items);
   }, [items]);
-
-  const [parent, elements, _setValues] = useDragAndDrop<
-    HTMLUListElement,
-    string
-  >(items, {
-    plugins: [animations()],
-  });
-
-  useEffect(() => {
-    _setValues(items);
-  }, [items, _setValues]);
-
-  useEffect(() => {
-    dispatch({
-      type: 'REORDER',
-      payload: {
-        items: elements,
-        id: id,
-      },
-    });
-  }, [elements, dispatch, id]);
 
   const onAddNewItem = React.useCallback(() => {
     dispatch({
@@ -98,25 +48,24 @@ const Accordion: React.FC<{
   return (
     <Fragment>
       <RadixAccordion.Root
-        type='single'
-        value={defaultValue}
-        onValueChange={(value) => setDefaultValue(value)}
-        collapsible
+        type='multiple'
+        value={activeRows}
+        onValueChange={(value) => setActiveRows(value)}
         className={styles.root}
         orientation='vertical'
       >
-        <Box ref={parent}>
-          {elements.length &&
-            elements.map((item, i) => {
-              const data = state.builder[item];
-              const ids = state.builder[item]?.children;
+        <Box>
+          {rows.length &&
+            rows.map((row, i) => {
+              const data = state.builder[row];
+              const ids = state.builder[row]?.children;
               const fields = getFields(ids, state);
               return (
                 <AccordionItem
                   className={styles.item}
-                  key={item}
-                  value={item}
-                  data-label={item}
+                  key={row}
+                  value={row}
+                  data-label={row}
                 >
                   <AccordionTrigger className={styles.trigger}>
                     <Box>
@@ -124,14 +73,7 @@ const Accordion: React.FC<{
                         <Chevron className={styles.chevron} />
                         <Item />
                         <Box>
-                          <Box
-                            ref={refs[i]}
-                            className={styles.itemName}
-                            as='p'
-                            contentEditable={editableIndex === i}
-                            onClick={() => handleClick(i)}
-                            onBlur={handleBlur}
-                          >
+                          <Box ref={refs[i]} className={styles.itemName} as='p'>
                             {data.name}
                           </Box>
                         </Box>
@@ -279,3 +221,50 @@ const AccordionContent: React.FC<{
 );
 
 export default Accordion;
+
+/**  useEffect(() => {
+    console.log('index->', editableIndex);
+    if (editableIndex !== null) {
+      refs[editableIndex].current?.focus();
+      const range = document.createRange();
+      const sel = window.getSelection();
+      range.selectNodeContents(refs[editableIndex].current!);
+      sel!.removeAllRanges();
+      sel!.addRange(range);
+    }
+  }, [editableIndex]);
+
+  useEffect(() => {
+    if (items.length > initial.current) {
+      setEditableIndex(items.length - 1);
+    }
+  }, [items.length - 1]);
+
+  const handleClick = (index: number) => {
+    console.log('handleClick->', index);
+    setEditableIndex(index);
+  };
+
+  const handleBlur = () => {
+    setEditableIndex(null);
+  };
+  const [parent, elements, _setValues] = useDragAndDrop<
+    HTMLUListElement,
+    string
+  >(items, {
+    plugins: [animations()],
+  });
+
+  useEffect(() => {
+    _setValues(items);
+  }, [items, _setValues]);
+
+  useEffect(() => {
+    dispatch({
+      type: 'REORDER',
+      payload: {
+        items: elements,
+        id: id,
+      },
+    });
+  }, [elements, dispatch, id]); */
