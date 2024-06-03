@@ -9,6 +9,7 @@ import { useCurrentAppContext } from '@/contexts/app-provider';
 import GroupWrapper from '@/components/group-wrapper';
 import { getFields } from '@/lib/get-props';
 import { Fragment } from 'react/jsx-runtime';
+import React from 'react';
 
 const SolutionTwoPageBuilder = () => {
   return (
@@ -31,6 +32,7 @@ export default SolutionTwoPageBuilder;
 const Editor = () => {
   const main = 'root';
   const { state } = useCurrentAppContext();
+  const [collaps, setCollaps] = React.useState(true);
   return state.builder[main].children.map((slice) => {
     const ids = state.builder[slice].children;
     const fields = getFields(ids, state);
@@ -45,12 +47,15 @@ const Editor = () => {
                   number={props.children.length.toString()}
                   label={props.name}
                   key={props.id}
+                  action={() => setCollaps(!collaps)}
+                  collaps={collaps}
                 >
                   <Groups
                     id={props.id}
                     name={props.name}
                     key={_}
                     items={props.children}
+                    collaps={collaps}
                   />
                 </GroupWrapper>
               );

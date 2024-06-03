@@ -22,18 +22,22 @@ const Accordion: React.FC<{
   items: Array<string>;
   id: string;
   name: string;
-}> = ({ items, id, name }) => {
+  collaps: boolean;
+}> = ({ items, id, name, collaps }) => {
   const { state, dispatch } = useCurrentAppContext();
   const [rows, setRows] = React.useState<Array<string>>(items);
   const [activeRows, setActiveRows] = React.useState<Array<string>>(items);
 
-  console.log('items', items);
   const refs = items.map(() => React.createRef<HTMLParagraphElement>());
 
   useEffect(() => {
     setRows(items);
+    if (!collaps) {
+      setActiveRows([]);
+      return;
+    }
     setActiveRows(items);
-  }, [items]);
+  }, [rows, collaps]);
 
   const onAddNewItem = React.useCallback(() => {
     dispatch({
@@ -100,6 +104,7 @@ const Accordion: React.FC<{
                       className={styles.list}
                       items={fields}
                       renderItem={(item, key) => {
+                        const [collaps, setCollaps] = React.useState(true);
                         switch (item.type) {
                           case 'array':
                             return (
@@ -107,11 +112,14 @@ const Accordion: React.FC<{
                                 label={getPlural(item.name)}
                                 number={ids.length.toString()}
                                 key={item.id}
+                                action={() => setCollaps(!collaps)}
+                                collaps={collaps}
                               >
                                 <Groups
                                   id={item.id}
                                   name={item.name}
                                   items={item.children}
+                                  collaps={collaps}
                                 />
                               </GroupWrapper>
                             );
