@@ -37,7 +37,7 @@ const Accordion: React.FC<{
       return;
     }
     setActiveRows(items);
-  }, [rows, collaps]);
+  }, [items, collaps]);
 
   const onAddNewItem = React.useCallback(() => {
     dispatch({
